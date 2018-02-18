@@ -1,0 +1,1054 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>ModelManager | rev-models</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">rev-models</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Library Root</a>
+				</li>
+				<li>
+					<a href="modelmanager.html">ModelManager</a>
+				</li>
+			</ul>
+			<h1>Class ModelManager</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>A <strong>Model Manager</strong> has the following responsibilities:</p>
+					</div>
+					<ul>
+						<li>Keep track of the current set of registered models and their metadata</li>
+						<li>Keep track of the current set of registered <a href="../interfaces/ibackend.html">IBackend</a>s</li>
+						<li>Provide Create, Read, Update, Delete and Validation functions for models</li>
+					</ul>
+					<p>The example below shows how to create a new model manager:</p>
+					<pre><code class="lang-ts"><span class="hljs-keyword">import</span> { ModelManager, InMemoryBackend } <span class="hljs-keyword">from</span> <span class="hljs-string">'../index'</span>;
+
+<span class="hljs-comment">// Create an empty ModelManager</span>
+<span class="hljs-keyword">const</span> models = <span class="hljs-keyword">new</span> ModelManager();
+
+<span class="hljs-comment">// Add a backend for model data storage</span>
+models.registerBackend(<span class="hljs-string">'default'</span>, <span class="hljs-keyword">new</span> InMemoryBackend());
+
+<span class="hljs-comment">// Export it for use by other parts of your application</span>
+<span class="hljs-keyword">export</span> { models };
+</code></pre>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">ModelManager</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel">
+				<h3>Implements</h3>
+				<ul class="tsd-hierarchy">
+					<li><a href="../interfaces/imodelmanager.html" class="tsd-signature-type">IModelManager</a></li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="modelmanager.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="modelmanager.html#create" class="tsd-kind-icon">create</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="modelmanager.html#exec" class="tsd-kind-icon">exec</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="modelmanager.html#getbackend" class="tsd-kind-icon">get<wbr>Backend</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="modelmanager.html#getbackendnames" class="tsd-kind-icon">get<wbr>Backend<wbr>Names</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="modelmanager.html#getmodelmeta" class="tsd-kind-icon">get<wbr>Model<wbr>Meta</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="modelmanager.html#getmodelnames" class="tsd-kind-icon">get<wbr>Model<wbr>Names</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="modelmanager.html#hydrate" class="tsd-kind-icon">hydrate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="modelmanager.html#isnew" class="tsd-kind-icon">is<wbr>New</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="modelmanager.html#isregistered" class="tsd-kind-icon">is<wbr>Registered</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="modelmanager.html#read" class="tsd-kind-icon">read</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="modelmanager.html#register" class="tsd-kind-icon">register</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="modelmanager.html#registerbackend" class="tsd-kind-icon">register<wbr>Backend</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="modelmanager.html#remove" class="tsd-kind-icon">remove</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="modelmanager.html#update" class="tsd-kind-icon">update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="modelmanager.html#validate" class="tsd-kind-icon">validate</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Model<wbr>Manager<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="modelmanager.html" class="tsd-signature-type">ModelManager</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L35">models/manager.ts:35</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="modelmanager.html" class="tsd-signature-type">ModelManager</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+					<a name="create" class="tsd-anchor"></a>
+					<h3>create</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">create&lt;T&gt;<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/icreateoptions.html" class="tsd-signature-type">ICreateOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/icreatemeta.html" class="tsd-signature-type">ICreateMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L233">models/manager.ts:233</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Creates a model record in the backend using the data from the passed
+									model instance.</p>
+								</div>
+								<p>Below is an example of how to use the create method:</p>
+								<pre><code class="lang-ts">
+</code></pre>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><a href="../interfaces/imodel.html" class="tsd-signature-type">IModel</a></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An instance of a registered model to be created in the
+										backend</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/icreateoptions.html" class="tsd-signature-type">ICreateOptions</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An optional set of options</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/icreatemeta.html" class="tsd-signature-type">ICreateMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+					<a name="exec" class="tsd-anchor"></a>
+					<h3>exec</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">exec&lt;R&gt;<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><a href="../interfaces/imodel.html" class="tsd-signature-type">IModel</a>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/iexecoptions.html" class="tsd-signature-type">IExecOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L333">models/manager.ts:333</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Executes a function on a model instance. If the function does not exist
+									in the current model, the execution is passed to the backend.</p>
+								</div>
+								<p>This method is primarily used for calling server-side functions from a
+								client.</p>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>R</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <a href="../interfaces/imodel.html" class="tsd-signature-type">IModel</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The model instance containing the data needed for this
+										method call</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/iexecoptions.html" class="tsd-signature-type">IExecOptions</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Additional options</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getbackend" class="tsd-anchor"></a>
+					<h3>get<wbr>Backend</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Backend<span class="tsd-signature-symbol">(</span>backendName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/ibackend.html" class="tsd-signature-type">IBackend</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L184">models/manager.ts:184</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a reference to a registered backend instance. Primarily for
+									internal use.</p>
+								</div>
+								<p>Throws an error if the specified backend is not registered.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>backendName: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The backend string identifier</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/ibackend.html" class="tsd-signature-type">IBackend</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getbackendnames" class="tsd-anchor"></a>
+					<h3>get<wbr>Backend<wbr>Names</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Backend<wbr>Names<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L197">models/manager.ts:197</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the list of backend names currently registered</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getmodelmeta" class="tsd-anchor"></a>
+					<h3>get<wbr>Model<wbr>Meta</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Model<wbr>Meta<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../globals.html#modelctor" class="tsd-signature-type">ModelCtor</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/imodel.html" class="tsd-signature-type">IModel</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/imodelmeta.html" class="tsd-signature-type">IModelMeta</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L124">models/manager.ts:124</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the <a href="../interfaces/imodelmeta.html">IModelMeta</a> for the specified Model Name (string),
+									Class (constructor) or Model Instance.</p>
+								</div>
+								<p>This is primarily for internal use, but may be useful if you wish to
+								inspect model metadata yourself.</p>
+								<p>Throws an error if the specified model is not registered.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../globals.html#modelctor" class="tsd-signature-type">ModelCtor</a><span class="tsd-signature-symbol"> | </span><a href="../interfaces/imodel.html" class="tsd-signature-type">IModel</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The model Name, Class or Instance to retrieve the metadata for</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/imodelmeta.html" class="tsd-signature-type">IModelMeta</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getmodelnames" class="tsd-anchor"></a>
+					<h3>get<wbr>Model<wbr>Names</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Model<wbr>Names<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L109">models/manager.ts:109</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns the list of model namess currently registered</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+					<a name="hydrate" class="tsd-anchor"></a>
+					<h3>hydrate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">hydrate&lt;T&gt;<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, data<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L348">models/manager.ts:348</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns a model instance based on its class and a javascript object
+									containing its data.</p>
+								</div>
+								<p>This method is mainly used by backends for instantiating Model objects
+								based on data from a database or API.</p>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><a href="../interfaces/imodel.html" class="tsd-signature-type">IModel</a></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">object</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The Class constructor of the model to read</p>
+									</div>
+									<ul class="tsd-parameters">
+									</ul>
+								</li>
+								<li>
+									<h5>data: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Any object containing the properties to be added to the model
+										instance</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">T</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+					<a name="isnew" class="tsd-anchor"></a>
+					<h3>is<wbr>New</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>New&lt;T&gt;<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L209">models/manager.ts:209</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns true if the model has no primaryKey value set (i.e. it is a &#39;new&#39;
+									record)</p>
+								</div>
+								<p>Throws an error if the model does not have a primaryKey field specified</p>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><a href="../interfaces/imodel.html" class="tsd-signature-type">IModel</a></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An instance of a registered model to check</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="isregistered" class="tsd-anchor"></a>
+					<h3>is<wbr>Registered</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Registered<span class="tsd-signature-symbol">(</span>modelName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L47">models/manager.ts:47</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Returns <code>true</code> if the specified model has been registered</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>modelName: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+					<a name="read" class="tsd-anchor"></a>
+					<h3>read</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">read&lt;T&gt;<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/ireadoptions.html" class="tsd-signature-type">IReadOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/ireadmeta.html" class="tsd-signature-type">IReadMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L298">models/manager.ts:298</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Reads records from the backend which are filtered using the specified
+									<strong>where</strong> clause.</p>
+								</div>
+								<p>Below is an example of how to use the read method:</p>
+								<pre><code class="lang-ts"><span class="hljs-keyword">import</span> { models } <span class="hljs-keyword">from</span> <span class="hljs-string">'./01_defining_a_model_manager'</span>;
+<span class="hljs-keyword">import</span> { Person } <span class="hljs-keyword">from</span> <span class="hljs-string">'./02_defining_a_model'</span>;
+<span class="hljs-keyword">import</span> { loadTestData } <span class="hljs-keyword">from</span> <span class="hljs-string">'./load_test_data'</span>;
+
+(<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+
+    <span class="hljs-keyword">await</span> loadTestData(models);
+
+    <span class="hljs-keyword">const</span> allRecords = <span class="hljs-keyword">await</span> models.read(Person);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'All records:'</span>, allRecords.results);
+
+    <span class="hljs-keyword">const</span> last3Records = <span class="hljs-keyword">await</span> models.read(Person, { offset: <span class="hljs-number">2</span>, limit: <span class="hljs-number">3</span> });
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Last 3 records:'</span>, last3Records.results);
+
+    <span class="hljs-keyword">const</span> subscribers = <span class="hljs-keyword">await</span> models.read(Person, { where: { newsletter: <span class="hljs-literal">true</span> }});
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Newsletter Subscribers Only:'</span>, subscribers.results);
+
+    <span class="hljs-keyword">const</span> agedPeople = <span class="hljs-keyword">await</span> models.read(Person, { where: {
+        _or: [
+            { age: { _lt: <span class="hljs-number">21</span> }},
+            { age: { _gt: <span class="hljs-number">40</span> }}
+        ]
+    }});
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Aged less than 21 or over 40:'</span>, agedPeople.results);
+
+})();
+</code></pre>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><a href="../interfaces/imodel.html" class="tsd-signature-type">IModel</a></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">object</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The Class constructor of the model to read</p>
+									</div>
+									<ul class="tsd-parameters">
+									</ul>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/ireadoptions.html" class="tsd-signature-type">IReadOptions</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Options for record retrieval (e.g. record limit)</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/ireadmeta.html" class="tsd-signature-type">IReadMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+					<a name="register" class="tsd-anchor"></a>
+					<h3>register</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">register&lt;T&gt;<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, meta<span class="tsd-signature-symbol">?: </span><a href="../interfaces/imodelmeta.html" class="tsd-signature-type">IModelMeta</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L89">models/manager.ts:89</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Registers a model class with the manager.</p>
+								</div>
+								<p>A valid model class is any named ES6 class or constructor function.</p>
+								<p>You can optionally provide a <code>meta</code> object along with the model class
+									to specify additional properties, such as which backend it should use, or
+									a more user-friendly label. See <a href="../interfaces/imodelmeta.html">IModelMeta</a> for more information about
+								the metadata that can be provided.</p>
+								<p>The below example shows the creation of a model, and registering it with
+								a ModelModelManager:</p>
+								<pre><code class="lang-ts"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> rev <span class="hljs-keyword">from</span> <span class="hljs-string">'../index'</span>;
+
+<span class="hljs-keyword">import</span> { models } <span class="hljs-keyword">from</span> <span class="hljs-string">'./01_defining_a_model_manager'</span>;
+
+<span class="hljs-keyword">let</span> TITLES = [
+    [<span class="hljs-string">'Mr'</span>, <span class="hljs-string">'Mr.'</span>],
+    [<span class="hljs-string">'Mrs'</span>, <span class="hljs-string">'Mrs.'</span>],
+    [<span class="hljs-string">'Miss'</span>, <span class="hljs-string">'Miss.'</span>],
+    [<span class="hljs-string">'Dr'</span>, <span class="hljs-string">'Dr.'</span>]
+];
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> Person {
+
+    <span class="hljs-meta">@rev</span>.AutoNumberField({ primaryKey: <span class="hljs-literal">true</span> })
+        id: <span class="hljs-built_in">number</span>;
+    <span class="hljs-meta">@rev</span>.SelectField({label: <span class="hljs-string">'Title'</span>, selection: TITLES, required: <span class="hljs-literal">false</span> })
+        title: <span class="hljs-built_in">string</span>;
+    <span class="hljs-meta">@rev</span>.TextField({label: <span class="hljs-string">'First Name'</span>})
+        first_name: <span class="hljs-built_in">string</span>;
+    <span class="hljs-meta">@rev</span>.TextField({label: <span class="hljs-string">'Last Name'</span>})
+        last_name: <span class="hljs-built_in">string</span>;
+    <span class="hljs-meta">@rev</span>.IntegerField({label: <span class="hljs-string">'Age'</span>, required: <span class="hljs-literal">false</span> })
+        age: <span class="hljs-built_in">number</span>;
+
+    <span class="hljs-meta">@rev</span>.EmailField({label: <span class="hljs-string">'Email'</span>})
+        email: <span class="hljs-built_in">string</span>;
+    <span class="hljs-meta">@rev</span>.BooleanField({label: <span class="hljs-string">'Registered for Newsletter?'</span>})
+        newsletter: <span class="hljs-built_in">boolean</span>;
+
+    validate(vc: rev.IValidationContext) {
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.age &lt; <span class="hljs-number">16</span>) {
+            vc.result.addFieldError(<span class="hljs-string">'age'</span>, <span class="hljs-string">'Person must be 16 or over'</span>);
+        }
+    }
+
+}
+
+models.register(Person, {
+    label: <span class="hljs-string">'Registered Person'</span>,
+    backend: <span class="hljs-string">'default'</span>
+});
+</code></pre>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><a href="../interfaces/imodel.html" class="tsd-signature-type">IModel</a></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">object</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The class to register. Must be a class <em>constructor</em> <strong>NOT an
+										instance</strong></p>
+									</div>
+									<ul class="tsd-parameters">
+									</ul>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> meta: <a href="../interfaces/imodelmeta.html" class="tsd-signature-type">IModelMeta</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional additional metadata about the model being registered</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="registerbackend" class="tsd-anchor"></a>
+					<h3>register<wbr>Backend</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">register<wbr>Backend<span class="tsd-signature-symbol">(</span>backendName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, backend<span class="tsd-signature-symbol">: </span><a href="../interfaces/ibackend.html" class="tsd-signature-type">IBackend</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L162">models/manager.ts:162</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Registers a backend to be used for model storage &amp; retrieval. You must
+									provide a backend before registering models.</p>
+								</div>
+								<p>The <strong>backendName</strong> you specify should correspond to the
+									<a href="../interfaces/imodelmeta.html#backend">IModelMeta.backend</a> value you intend to use when registering models
+								with [[ModelModelManager.register]].</p>
+								<p>If you are only using one backend, you can just use <em>default</em> as the
+									backend name, and there is no need to specify a backend name when
+								registering models.</p>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>backendName: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A string identifier for the backend (e.g. &#39;default&#39;
+										or &#39;customer_db&#39;)</p>
+									</div>
+								</li>
+								<li>
+									<h5>backend: <a href="../interfaces/ibackend.html" class="tsd-signature-type">IBackend</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A backend instance</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+					<a name="remove" class="tsd-anchor"></a>
+					<h3>remove</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">remove&lt;T&gt;<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/iremoveoptions.html" class="tsd-signature-type">IRemoveOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/iremovemeta.html" class="tsd-signature-type">IRemoveMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L281">models/manager.ts:281</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Removes a model record from the backend using data from the passed model
+									instance.</p>
+								</div>
+								<p>If the model has a primary key defined (see <a href="../interfaces/imodelmeta.html#primarykey">IModelMeta.primaryKey</a>)
+								then you only need to pass the model into this method.</p>
+								<p>If the model does not have a primary key defined, then you&#39;ll need to
+								set the <code>where</code> option (see <a href="../interfaces/iupdateoptions.html#where">IUpdateOptions.where</a>)</p>
+								<p>Below is an example of how to use the remove method:</p>
+								<pre><code class="lang-ts"><span class="hljs-keyword">import</span> { models } <span class="hljs-keyword">from</span> <span class="hljs-string">'./01_defining_a_model_manager'</span>;
+<span class="hljs-keyword">import</span> { Person } <span class="hljs-keyword">from</span> <span class="hljs-string">'./02_defining_a_model'</span>;
+<span class="hljs-keyword">import</span> { loadTestData } <span class="hljs-keyword">from</span> <span class="hljs-string">'./load_test_data'</span>;
+
+(<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+
+    <span class="hljs-keyword">await</span> loadTestData(models);
+
+    <span class="hljs-keyword">const</span> origRecords = <span class="hljs-keyword">await</span> models.read(Person);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Original Records:'</span>, origRecords.results);
+
+    <span class="hljs-comment">// Retrieve Jane Doe's record</span>
+    <span class="hljs-keyword">const</span> jane = <span class="hljs-keyword">await</span> models.read(Person, {
+        where: {
+            first_name: <span class="hljs-string">'Jane'</span>,
+            last_name: <span class="hljs-string">'Doe'</span>
+        }
+    });
+
+    <span class="hljs-comment">// Remove Jane Doe's record</span>
+    <span class="hljs-keyword">await</span> models.remove(jane.results[<span class="hljs-number">0</span>]);
+
+    <span class="hljs-comment">// Retrieve remaining records</span>
+    <span class="hljs-keyword">const</span> newRecords = <span class="hljs-keyword">await</span> models.read(Person);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Remaining Records:'</span>, newRecords.results);
+
+})();
+
+<span class="hljs-comment">// It is also possible to remove multiple records using the 'where' option</span>
+<span class="hljs-comment">// for the remove() method. Documentation TODO</span>
+</code></pre>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><a href="../interfaces/imodel.html" class="tsd-signature-type">IModel</a></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An instance of a registered model containing the primary
+											key of the record to be removed. If you do not have an instance of the
+										record, just pass a new model instance and set <code>options.where</code></p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/iremoveoptions.html" class="tsd-signature-type">IRemoveOptions</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Options for the record removal</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/iremovemeta.html" class="tsd-signature-type">IRemoveMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+					<a name="update" class="tsd-anchor"></a>
+					<h3>update</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">update&lt;T&gt;<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/iupdateoptions.html" class="tsd-signature-type">IUpdateOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/iupdatemeta.html" class="tsd-signature-type">IUpdateMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L257">models/manager.ts:257</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Updates a model record in the backend using the data from the passed
+									model instance.</p>
+								</div>
+								<p>If the model has a primary key defined (see <a href="../interfaces/imodelmeta.html#primarykey">IModelMeta.primaryKey</a>)
+								then you only need to pass the model into this method.</p>
+								<p>If the model does not have a primary key defined, then you&#39;ll need to
+								set the <code>where</code> option (see <a href="../interfaces/iupdateoptions.html#where">IUpdateOptions.where</a>)</p>
+								<p>Below is an example of how to use the update method:</p>
+								<pre><code class="lang-ts"><span class="hljs-keyword">import</span> { models } <span class="hljs-keyword">from</span> <span class="hljs-string">'./01_defining_a_model_manager'</span>;
+<span class="hljs-keyword">import</span> { Person } <span class="hljs-keyword">from</span> <span class="hljs-string">'./02_defining_a_model'</span>;
+<span class="hljs-keyword">import</span> { loadTestData } <span class="hljs-keyword">from</span> <span class="hljs-string">'./load_test_data'</span>;
+
+(<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+
+    <span class="hljs-keyword">await</span> loadTestData(models);
+
+    <span class="hljs-comment">// Retrieve Jane Doe's record</span>
+    <span class="hljs-keyword">const</span> jane = <span class="hljs-keyword">await</span> models.read(Person, {
+        where: {
+            first_name: <span class="hljs-string">'Jane'</span>,
+            last_name: <span class="hljs-string">'Doe'</span>
+        }
+    });
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Original Record:'</span>, jane.results[<span class="hljs-number">0</span>]);
+
+    <span class="hljs-comment">// Make some changes and trigger an update</span>
+    <span class="hljs-keyword">const</span> janeUpdated = jane.results[<span class="hljs-number">0</span>];
+    janeUpdated.email = <span class="hljs-string">'jane.doe@gmail.com'</span>;
+    janeUpdated.newsletter = <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">await</span> models.update(janeUpdated);
+
+    <span class="hljs-comment">// Check that Jane Doe's record has been updated</span>
+    <span class="hljs-keyword">const</span> janeRetrieved = <span class="hljs-keyword">await</span> models.read(Person, {
+        where: {
+            first_name: <span class="hljs-string">'Jane'</span>,
+            last_name: <span class="hljs-string">'Doe'</span>
+        }
+    });
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Updated Record:'</span>, janeRetrieved.results[<span class="hljs-number">0</span>]);
+
+})();
+
+<span class="hljs-comment">// It is also possible to target multiple records with an update using the</span>
+<span class="hljs-comment">// 'where' option. Documentation TODO!</span>
+</code></pre>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><a href="../interfaces/imodel.html" class="tsd-signature-type">IModel</a></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>An instance of a registered model containing the data to
+										be updated</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/iupdateoptions.html" class="tsd-signature-type">IUpdateOptions</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Options for the update</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/iupdatemeta.html" class="tsd-signature-type">IUpdateMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+					<a name="validate" class="tsd-anchor"></a>
+					<h3>validate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">validate&lt;T&gt;<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/ivalidationoptions.html" class="tsd-signature-type">IValidationOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modelvalidationresult.html" class="tsd-signature-type">ModelValidationResult</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L315">models/manager.ts:315</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Validates the information currently stored in a model.</p>
+								</div>
+								<p>NOTE: The <code>create</code> and <code>update</code> methods run validation before committing
+								changes to the backend, so you may not need to call this method yourself.</p>
+								<p>Model validation proceeds as follows:</p>
+								<ol>
+									<li>Validate fields</li>
+									<li>Validate model (using <a href="../interfaces/imodel.html#validate">IModel.validate</a>)</li>
+								</ol>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><a href="../interfaces/imodel.html" class="tsd-signature-type">IModel</a></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>model: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The model instance to be validated</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/ivalidationoptions.html" class="tsd-signature-type">IValidationOptions</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Any options to use for the validation</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modelvalidationresult.html" class="tsd-signature-type">ModelValidationResult</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Library Root</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
+						<a href="modelmanager.html" class="tsd-kind-icon">Model<wbr>Manager</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="modelmanager.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+								<a href="modelmanager.html#create" class="tsd-kind-icon">create</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+								<a href="modelmanager.html#exec" class="tsd-kind-icon">exec</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="modelmanager.html#getbackend" class="tsd-kind-icon">get<wbr>Backend</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="modelmanager.html#getbackendnames" class="tsd-kind-icon">get<wbr>Backend<wbr>Names</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="modelmanager.html#getmodelmeta" class="tsd-kind-icon">get<wbr>Model<wbr>Meta</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="modelmanager.html#getmodelnames" class="tsd-kind-icon">get<wbr>Model<wbr>Names</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+								<a href="modelmanager.html#hydrate" class="tsd-kind-icon">hydrate</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+								<a href="modelmanager.html#isnew" class="tsd-kind-icon">is<wbr>New</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="modelmanager.html#isregistered" class="tsd-kind-icon">is<wbr>Registered</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+								<a href="modelmanager.html#read" class="tsd-kind-icon">read</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+								<a href="modelmanager.html#register" class="tsd-kind-icon">register</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="modelmanager.html#registerbackend" class="tsd-kind-icon">register<wbr>Backend</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+								<a href="modelmanager.html#remove" class="tsd-kind-icon">remove</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+								<a href="modelmanager.html#update" class="tsd-kind-icon">update</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+								<a href="modelmanager.html#validate" class="tsd-kind-icon">validate</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

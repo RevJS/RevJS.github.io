@@ -1,0 +1,585 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>rev-models</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">rev-models</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Library Root</a>
+				</li>
+			</ul>
+			<h1> rev-models</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<h1 id="revjs-rev-models">RevJS: rev-models</h1>
+				<p>RevJS is a collection of TypeScript libraries designed to be combined to
+				speed up data-driven application development.</p>
+				<p>The <strong>rev-models</strong> module is the core component of RevJS, and includes a model
+					metadata registry, field types, CRUD functions and simple in-memory data
+				storage.</p>
+				<h2 id="api-documentation-overview">API Documentation Overview</h2>
+				<p>This documentation includes the full public API of the <strong>rev-models</strong> library.</p>
+				<p>If you are new to RevJS, we recommend checking out a RevJS Tutorial first!</p>
+				<p>If you just want to have a browse, the following classes would be good places
+				to start:</p>
+				<ul>
+					<li><a href="classes/modelmanager.html">ModelManager</a></li>
+				</ul>
+				<p>Have fun! Any problems or queries let us know!</p>
+				<p> -- The RevJS Team</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Library Root</em></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="classes/autonumberfield.html" class="tsd-kind-icon">Auto<wbr>Number<wbr>Field</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/basemodel.html" class="tsd-kind-icon">Base<wbr>Model</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/booleanfield.html" class="tsd-kind-icon">Boolean<wbr>Field</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/city.html" class="tsd-kind-icon">City</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/company.html" class="tsd-kind-icon">Company</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/conjunctionnode.html" class="tsd-kind-icon">Conjunction<wbr>Node</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/datefield.html" class="tsd-kind-icon">Date<wbr>Field</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/datetimefield.html" class="tsd-kind-icon">Date<wbr>Time<wbr>Field</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/department.html" class="tsd-kind-icon">Department</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/developer.html" class="tsd-kind-icon">Developer</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/emailfield.html" class="tsd-kind-icon">Email<wbr>Field</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/field.html" class="tsd-kind-icon">Field</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/fieldnode.html" class="tsd-kind-icon">Field<wbr>Node</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/inmemorybackend.html" class="tsd-kind-icon">In<wbr>Memory<wbr>Backend</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/inmemoryquery.html" class="tsd-kind-icon">In<wbr>Memory<wbr>Query</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/integerfield.html" class="tsd-kind-icon">Integer<wbr>Field</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/job.html" class="tsd-kind-icon">Job</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/mockbackend.html" class="tsd-kind-icon">Mock<wbr>Backend</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/modelmanager.html" class="tsd-kind-icon">Model<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/modeloperationresult.html" class="tsd-kind-icon">Model<wbr>Operation<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/modelvalidationresult.html" class="tsd-kind-icon">Model<wbr>Validation<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/multiselectfield.html" class="tsd-kind-icon">Multi<wbr>Select<wbr>Field</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/numberfield.html" class="tsd-kind-icon">Number<wbr>Field</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/passwordfield.html" class="tsd-kind-icon">Password<wbr>Field</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/person.html" class="tsd-kind-icon">Person</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/querynode.html" class="tsd-kind-icon">Query<wbr>Node</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/queryparser.html" class="tsd-kind-icon">Query<wbr>Parser</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/relatedmodelfield.html" class="tsd-kind-icon">Related<wbr>Model<wbr>Field</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/relatedmodelfieldbase.html" class="tsd-kind-icon">Related<wbr>Model<wbr>Field<wbr>Base</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/relatedmodellistfield.html" class="tsd-kind-icon">Related<wbr>Model<wbr>List<wbr>Field</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/selectfield.html" class="tsd-kind-icon">Select<wbr>Field</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/testmodel.html" class="tsd-kind-icon">Test<wbr>Model</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/textfield.html" class="tsd-kind-icon">Text<wbr>Field</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/timefield.html" class="tsd-kind-icon">Time<wbr>Field</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="classes/urlfield.html" class="tsd-kind-icon">URLField</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/valuelistoperator.html" class="tsd-kind-icon">Value<wbr>List<wbr>Operator</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter">
+						<a href="classes/valueoperator.html" class="tsd-kind-icon">Value<wbr>Operator</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ibackend.html" class="tsd-kind-icon">IBackend</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/icreatemeta.html" class="tsd-kind-icon">ICreate<wbr>Meta</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/icreateoptions.html" class="tsd-kind-icon">ICreate<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iexecargs.html" class="tsd-kind-icon">IExec<wbr>Args</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iexecmeta.html" class="tsd-kind-icon">IExec<wbr>Meta</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iexecoptions.html" class="tsd-kind-icon">IExec<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ifielderror.html" class="tsd-kind-icon">IField<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ifieldoptions.html" class="tsd-kind-icon">IField<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="interfaces/imethodcontext.html" class="tsd-kind-icon">IMethod<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/imodel.html" class="tsd-kind-icon">IModel</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/imodelerror.html" class="tsd-kind-icon">IModel<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/imodelmanager.html" class="tsd-kind-icon">IModel<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="interfaces/imodelmeta.html" class="tsd-kind-icon">IModel<wbr>Meta</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/imodeloperation.html" class="tsd-kind-icon">IModel<wbr>Operation</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="interfaces/imodeloperationresult.html" class="tsd-kind-icon">IModel<wbr>Operation<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/imodelvalidationresult.html" class="tsd-kind-icon">IModel<wbr>Validation<wbr>Result</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/inumberfieldoptions.html" class="tsd-kind-icon">INumber<wbr>Field<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ioperationerror.html" class="tsd-kind-icon">IOperation<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ioperationmeta.html" class="tsd-kind-icon">IOperation<wbr>Meta</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ioperatorregister.html" class="tsd-kind-icon">IOperator<wbr>Register</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter">
+						<a href="interfaces/iquerynode.html" class="tsd-kind-icon">IQuery<wbr>Node</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iqueryparser.html" class="tsd-kind-icon">IQuery<wbr>Parser</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ireadmeta.html" class="tsd-kind-icon">IRead<wbr>Meta</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ireadoptions.html" class="tsd-kind-icon">IRead<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/irelatedmodelfieldoptions.html" class="tsd-kind-icon">IRelated<wbr>Model<wbr>Field<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/irelatedmodellistfieldoptions.html" class="tsd-kind-icon">IRelated<wbr>Model<wbr>List<wbr>Field<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iremovemeta.html" class="tsd-kind-icon">IRemove<wbr>Meta</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iremoveoptions.html" class="tsd-kind-icon">IRemove<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iselectfieldoptions.html" class="tsd-kind-icon">ISelect<wbr>Field<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/itextfieldoptions.html" class="tsd-kind-icon">IText<wbr>Field<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iupdatemeta.html" class="tsd-kind-icon">IUpdate<wbr>Meta</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/iupdateoptions.html" class="tsd-kind-icon">IUpdate<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ivalidationcontext.html" class="tsd-kind-icon">IValidation<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="interfaces/ivalidationoptions.html" class="tsd-kind-icon">IValidation<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#iasyncfieldvalidator" class="tsd-kind-icon">IAsync<wbr>Field<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#ifieldvalidator" class="tsd-kind-icon">IField<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#irawvalues" class="tsd-kind-icon">IRaw<wbr>Values</a>
+					</li>
+					<li class=" tsd-kind-type-alias">
+						<a href="globals.html#modelctor" class="tsd-kind-icon">Model<wbr>Ctor</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#default_create_options" class="tsd-kind-icon">DEFAULT_<wbr>CREATE_<wbr>OPTIONS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#default_remove_options" class="tsd-kind-icon">DEFAULT_<wbr>REMOVE_<wbr>OPTIONS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#default_update_options" class="tsd-kind-icon">DEFAULT_<wbr>UPDATE_<wbr>OPTIONS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#disallowed_field_names" class="tsd-kind-icon">DISALLOWED_<wbr>FIELD_<wbr>NAMES</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#email_addr_regex" class="tsd-kind-icon">EMAIL_<wbr>ADDR_<wbr>REGEX</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#standard_operations" class="tsd-kind-icon">STANDARD_<wbr>OPERATIONS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#url_regex" class="tsd-kind-icon">URL_<wbr>REGEX</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#testcitydata" class="tsd-kind-icon">test<wbr>City<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#testclientdata" class="tsd-kind-icon">test<wbr>Client<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#testcompanydata" class="tsd-kind-icon">test<wbr>Company<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#testdata" class="tsd-kind-icon">test<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#testdepartmentdata" class="tsd-kind-icon">test<wbr>Department<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#testdeveloperdata" class="tsd-kind-icon">test<wbr>Developer<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#relatedmodel" class="tsd-kind-icon">Related<wbr>Model</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#relatedmodellist" class="tsd-kind-icon">Related<wbr>Model<wbr>List</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#booleanvalidator" class="tsd-kind-icon">boolean<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#checkfieldslist" class="tsd-kind-icon">check<wbr>Fields<wbr>List</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#checkismodelconstructor" class="tsd-kind-icon">check<wbr>IsModel<wbr>Constructor</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#checkmetadatainitialised" class="tsd-kind-icon">check<wbr>Metadata<wbr>Initialised</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#create" class="tsd-kind-icon">create</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#createjobs" class="tsd-kind-icon">create<wbr>Jobs</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#dateonlyvalidator" class="tsd-kind-icon">date<wbr>Only<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#datetimevalidator" class="tsd-kind-icon">date<wbr>Time<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#escapeforregex" class="tsd-kind-icon">escape<wbr>For<wbr>Regex</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#exec" class="tsd-kind-icon">exec</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#expectvalidationfailure" class="tsd-kind-icon">expect<wbr>Validation<wbr>Failure</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getlikeoperatorregexp" class="tsd-kind-icon">get<wbr>Like<wbr>Operator<wbr>Reg<wbr>Exp</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#getmodelprimarykeyquery" class="tsd-kind-icon">get<wbr>Model<wbr>Primary<wbr>Key<wbr>Query</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#getoptions" class="tsd-kind-icon">get<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#hydrate" class="tsd-kind-icon">hydrate</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#initialisemeta" class="tsd-kind-icon">initialise<wbr>Meta</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#integervalidator" class="tsd-kind-icon">integer<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#isfieldvalue" class="tsd-kind-icon">is<wbr>Field<wbr>Value</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#isset" class="tsd-kind-icon">is<wbr>Set</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#listemptyvalidator" class="tsd-kind-icon">list<wbr>Empty<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#loadtestdata" class="tsd-kind-icon">load<wbr>Test<wbr>Data</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#maxstringlengthvalidator" class="tsd-kind-icon">max<wbr>String<wbr>Length<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#maxvaluevalidator" class="tsd-kind-icon">max<wbr>Value<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#minstringlengthvalidator" class="tsd-kind-icon">min<wbr>String<wbr>Length<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#minvaluevalidator" class="tsd-kind-icon">min<wbr>Value<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#modelclassvalidator" class="tsd-kind-icon">model<wbr>Class<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#modellistclassvalidator" class="tsd-kind-icon">model<wbr>List<wbr>Class<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#modelprimarykeyvalidator" class="tsd-kind-icon">model<wbr>Primary<wbr>Key<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#multipleselectionvalidator" class="tsd-kind-icon">multiple<wbr>Selection<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#numbervalidator" class="tsd-kind-icon">number<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#printobj" class="tsd-kind-icon">print<wbr>Obj</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#read" class="tsd-kind-icon">read</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#regexvalidator" class="tsd-kind-icon">reg<wbr>ExValidator</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#remove" class="tsd-kind-icon">remove</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#requiredvalidator" class="tsd-kind-icon">required<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#singleselectionvalidator" class="tsd-kind-icon">single<wbr>Selection<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#sleep" class="tsd-kind-icon">sleep</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#sortrecords" class="tsd-kind-icon">sort<wbr>Records</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#stringemptyvalidator" class="tsd-kind-icon">string<wbr>Empty<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#stringvalidator" class="tsd-kind-icon">string<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#timeonlyvalidator" class="tsd-kind-icon">time<wbr>Only<wbr>Validator</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#update" class="tsd-kind-icon">update</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#validate" class="tsd-kind-icon">validate</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#validateorderby" class="tsd-kind-icon">validate<wbr>Order<wbr>By</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#validaterelated" class="tsd-kind-icon">validate<wbr>Related</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="globals.html#withtimeout" class="tsd-kind-icon">with<wbr>Timeout</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#default_exec_options" class="tsd-kind-icon">DEFAULT_<wbr>EXEC_<wbr>OPTIONS</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#default_field_options" class="tsd-kind-icon">DEFAULT_<wbr>FIELD_<wbr>OPTIONS</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#default_modellist_field_options" class="tsd-kind-icon">DEFAULT_<wbr>MODELLIST_<wbr>FIELD_<wbr>OPTIONS</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#default_read_options" class="tsd-kind-icon">DEFAULT_<wbr>READ_<wbr>OPTIONS</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="globals.html#validation_messages" class="tsd-kind-icon">VALIDATION_<wbr>MESSAGES</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
