@@ -73,16 +73,7 @@
 						<li>Provide Create, Read, Update, Delete and Validation functions for models</li>
 					</ul>
 					<p>The example below shows how to create a new model manager:</p>
-					<pre><code class="lang-ts"><span class="hljs-keyword">import</span> { ModelManager, InMemoryBackend } <span class="hljs-keyword">from</span> <span class="hljs-string">'../index'</span>;
-
-<span class="hljs-comment">// Create an empty ModelManager</span>
-<span class="hljs-keyword">const</span> models = <span class="hljs-keyword">new</span> ModelManager();
-
-<span class="hljs-comment">// Add a backend for model data storage</span>
-models.registerBackend(<span class="hljs-string">'default'</span>, <span class="hljs-keyword">new</span> InMemoryBackend());
-
-<span class="hljs-comment">// Export it for use by other parts of your application</span>
-<span class="hljs-keyword">export</span> { models };
+					<pre><code class="lang-ts">
 </code></pre>
 				</div>
 			</section>
@@ -145,7 +136,7 @@ models.registerBackend(<span class="hljs-string">'default'</span>, <span class="
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L35">models/manager.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/2de98c5/packages/rev-models/src/models/manager.ts#L35">models/manager.ts:35</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="modelmanager.html" class="tsd-signature-type">ModelManager</a></h4>
@@ -165,7 +156,7 @@ models.registerBackend(<span class="hljs-string">'default'</span>, <span class="
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L233">models/manager.ts:233</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/2de98c5/packages/rev-models/src/models/manager.ts#L233">models/manager.ts:233</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -213,7 +204,7 @@ models.registerBackend(<span class="hljs-string">'default'</span>, <span class="
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L333">models/manager.ts:333</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/2de98c5/packages/rev-models/src/models/manager.ts#L333">models/manager.ts:333</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -260,7 +251,7 @@ models.registerBackend(<span class="hljs-string">'default'</span>, <span class="
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L184">models/manager.ts:184</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/2de98c5/packages/rev-models/src/models/manager.ts#L184">models/manager.ts:184</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -293,7 +284,7 @@ models.registerBackend(<span class="hljs-string">'default'</span>, <span class="
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L197">models/manager.ts:197</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/2de98c5/packages/rev-models/src/models/manager.ts#L197">models/manager.ts:197</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -315,7 +306,7 @@ models.registerBackend(<span class="hljs-string">'default'</span>, <span class="
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L124">models/manager.ts:124</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/2de98c5/packages/rev-models/src/models/manager.ts#L124">models/manager.ts:124</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -350,7 +341,7 @@ models.registerBackend(<span class="hljs-string">'default'</span>, <span class="
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L109">models/manager.ts:109</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/2de98c5/packages/rev-models/src/models/manager.ts#L109">models/manager.ts:109</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -372,7 +363,7 @@ models.registerBackend(<span class="hljs-string">'default'</span>, <span class="
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L348">models/manager.ts:348</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/2de98c5/packages/rev-models/src/models/manager.ts#L348">models/manager.ts:348</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -421,7 +412,7 @@ models.registerBackend(<span class="hljs-string">'default'</span>, <span class="
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L209">models/manager.ts:209</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/2de98c5/packages/rev-models/src/models/manager.ts#L209">models/manager.ts:209</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -460,7 +451,7 @@ models.registerBackend(<span class="hljs-string">'default'</span>, <span class="
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L47">models/manager.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/2de98c5/packages/rev-models/src/models/manager.ts#L47">models/manager.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -488,7 +479,7 @@ models.registerBackend(<span class="hljs-string">'default'</span>, <span class="
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L298">models/manager.ts:298</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/2de98c5/packages/rev-models/src/models/manager.ts#L298">models/manager.ts:298</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -497,32 +488,7 @@ models.registerBackend(<span class="hljs-string">'default'</span>, <span class="
 									<strong>where</strong> clause.</p>
 								</div>
 								<p>Below is an example of how to use the read method:</p>
-								<pre><code class="lang-ts"><span class="hljs-keyword">import</span> { models } <span class="hljs-keyword">from</span> <span class="hljs-string">'./01_defining_a_model_manager'</span>;
-<span class="hljs-keyword">import</span> { Person } <span class="hljs-keyword">from</span> <span class="hljs-string">'./02_defining_a_model'</span>;
-<span class="hljs-keyword">import</span> { loadTestData } <span class="hljs-keyword">from</span> <span class="hljs-string">'./load_test_data'</span>;
-
-(<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-
-    <span class="hljs-keyword">await</span> loadTestData(models);
-
-    <span class="hljs-keyword">const</span> allRecords = <span class="hljs-keyword">await</span> models.read(Person);
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'All records:'</span>, allRecords.results);
-
-    <span class="hljs-keyword">const</span> last3Records = <span class="hljs-keyword">await</span> models.read(Person, { offset: <span class="hljs-number">2</span>, limit: <span class="hljs-number">3</span> });
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Last 3 records:'</span>, last3Records.results);
-
-    <span class="hljs-keyword">const</span> subscribers = <span class="hljs-keyword">await</span> models.read(Person, { where: { newsletter: <span class="hljs-literal">true</span> }});
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Newsletter Subscribers Only:'</span>, subscribers.results);
-
-    <span class="hljs-keyword">const</span> agedPeople = <span class="hljs-keyword">await</span> models.read(Person, { where: {
-        _or: [
-            { age: { _lt: <span class="hljs-number">21</span> }},
-            { age: { _gt: <span class="hljs-number">40</span> }}
-        ]
-    }});
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Aged less than 21 or over 40:'</span>, agedPeople.results);
-
-})();
+								<pre><code class="lang-ts">
 </code></pre>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -562,7 +528,7 @@ models.registerBackend(<span class="hljs-string">'default'</span>, <span class="
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L89">models/manager.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/2de98c5/packages/rev-models/src/models/manager.ts#L89">models/manager.ts:89</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -576,47 +542,7 @@ models.registerBackend(<span class="hljs-string">'default'</span>, <span class="
 								the metadata that can be provided.</p>
 								<p>The below example shows the creation of a model, and registering it with
 								a ModelModelManager:</p>
-								<pre><code class="lang-ts"><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> rev <span class="hljs-keyword">from</span> <span class="hljs-string">'../index'</span>;
-
-<span class="hljs-keyword">import</span> { models } <span class="hljs-keyword">from</span> <span class="hljs-string">'./01_defining_a_model_manager'</span>;
-
-<span class="hljs-keyword">let</span> TITLES = [
-    [<span class="hljs-string">'Mr'</span>, <span class="hljs-string">'Mr.'</span>],
-    [<span class="hljs-string">'Mrs'</span>, <span class="hljs-string">'Mrs.'</span>],
-    [<span class="hljs-string">'Miss'</span>, <span class="hljs-string">'Miss.'</span>],
-    [<span class="hljs-string">'Dr'</span>, <span class="hljs-string">'Dr.'</span>]
-];
-
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> Person {
-
-    <span class="hljs-meta">@rev</span>.AutoNumberField({ primaryKey: <span class="hljs-literal">true</span> })
-        id: <span class="hljs-built_in">number</span>;
-    <span class="hljs-meta">@rev</span>.SelectField({label: <span class="hljs-string">'Title'</span>, selection: TITLES, required: <span class="hljs-literal">false</span> })
-        title: <span class="hljs-built_in">string</span>;
-    <span class="hljs-meta">@rev</span>.TextField({label: <span class="hljs-string">'First Name'</span>})
-        first_name: <span class="hljs-built_in">string</span>;
-    <span class="hljs-meta">@rev</span>.TextField({label: <span class="hljs-string">'Last Name'</span>})
-        last_name: <span class="hljs-built_in">string</span>;
-    <span class="hljs-meta">@rev</span>.IntegerField({label: <span class="hljs-string">'Age'</span>, required: <span class="hljs-literal">false</span> })
-        age: <span class="hljs-built_in">number</span>;
-
-    <span class="hljs-meta">@rev</span>.EmailField({label: <span class="hljs-string">'Email'</span>})
-        email: <span class="hljs-built_in">string</span>;
-    <span class="hljs-meta">@rev</span>.BooleanField({label: <span class="hljs-string">'Registered for Newsletter?'</span>})
-        newsletter: <span class="hljs-built_in">boolean</span>;
-
-    validate(vc: rev.IValidationContext) {
-        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.age &lt; <span class="hljs-number">16</span>) {
-            vc.result.addFieldError(<span class="hljs-string">'age'</span>, <span class="hljs-string">'Person must be 16 or over'</span>);
-        }
-    }
-
-}
-
-models.register(Person, {
-    label: <span class="hljs-string">'Registered Person'</span>,
-    backend: <span class="hljs-string">'default'</span>
-});
+								<pre><code class="lang-ts">
 </code></pre>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -657,7 +583,7 @@ models.register(Person, {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L162">models/manager.ts:162</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/2de98c5/packages/rev-models/src/models/manager.ts#L162">models/manager.ts:162</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -702,7 +628,7 @@ models.register(Person, {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L281">models/manager.ts:281</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/2de98c5/packages/rev-models/src/models/manager.ts#L281">models/manager.ts:281</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -715,36 +641,7 @@ models.register(Person, {
 								<p>If the model does not have a primary key defined, then you&#39;ll need to
 								set the <code>where</code> option (see <a href="../interfaces/iupdateoptions.html#where">IUpdateOptions.where</a>)</p>
 								<p>Below is an example of how to use the remove method:</p>
-								<pre><code class="lang-ts"><span class="hljs-keyword">import</span> { models } <span class="hljs-keyword">from</span> <span class="hljs-string">'./01_defining_a_model_manager'</span>;
-<span class="hljs-keyword">import</span> { Person } <span class="hljs-keyword">from</span> <span class="hljs-string">'./02_defining_a_model'</span>;
-<span class="hljs-keyword">import</span> { loadTestData } <span class="hljs-keyword">from</span> <span class="hljs-string">'./load_test_data'</span>;
-
-(<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-
-    <span class="hljs-keyword">await</span> loadTestData(models);
-
-    <span class="hljs-keyword">const</span> origRecords = <span class="hljs-keyword">await</span> models.read(Person);
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Original Records:'</span>, origRecords.results);
-
-    <span class="hljs-comment">// Retrieve Jane Doe's record</span>
-    <span class="hljs-keyword">const</span> jane = <span class="hljs-keyword">await</span> models.read(Person, {
-        where: {
-            first_name: <span class="hljs-string">'Jane'</span>,
-            last_name: <span class="hljs-string">'Doe'</span>
-        }
-    });
-
-    <span class="hljs-comment">// Remove Jane Doe's record</span>
-    <span class="hljs-keyword">await</span> models.remove(jane.results[<span class="hljs-number">0</span>]);
-
-    <span class="hljs-comment">// Retrieve remaining records</span>
-    <span class="hljs-keyword">const</span> newRecords = <span class="hljs-keyword">await</span> models.read(Person);
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Remaining Records:'</span>, newRecords.results);
-
-})();
-
-<span class="hljs-comment">// It is also possible to remove multiple records using the 'where' option</span>
-<span class="hljs-comment">// for the remove() method. Documentation TODO</span>
+								<pre><code class="lang-ts">
 </code></pre>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -784,7 +681,7 @@ models.register(Person, {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L257">models/manager.ts:257</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/2de98c5/packages/rev-models/src/models/manager.ts#L257">models/manager.ts:257</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -797,42 +694,7 @@ models.register(Person, {
 								<p>If the model does not have a primary key defined, then you&#39;ll need to
 								set the <code>where</code> option (see <a href="../interfaces/iupdateoptions.html#where">IUpdateOptions.where</a>)</p>
 								<p>Below is an example of how to use the update method:</p>
-								<pre><code class="lang-ts"><span class="hljs-keyword">import</span> { models } <span class="hljs-keyword">from</span> <span class="hljs-string">'./01_defining_a_model_manager'</span>;
-<span class="hljs-keyword">import</span> { Person } <span class="hljs-keyword">from</span> <span class="hljs-string">'./02_defining_a_model'</span>;
-<span class="hljs-keyword">import</span> { loadTestData } <span class="hljs-keyword">from</span> <span class="hljs-string">'./load_test_data'</span>;
-
-(<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-
-    <span class="hljs-keyword">await</span> loadTestData(models);
-
-    <span class="hljs-comment">// Retrieve Jane Doe's record</span>
-    <span class="hljs-keyword">const</span> jane = <span class="hljs-keyword">await</span> models.read(Person, {
-        where: {
-            first_name: <span class="hljs-string">'Jane'</span>,
-            last_name: <span class="hljs-string">'Doe'</span>
-        }
-    });
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Original Record:'</span>, jane.results[<span class="hljs-number">0</span>]);
-
-    <span class="hljs-comment">// Make some changes and trigger an update</span>
-    <span class="hljs-keyword">const</span> janeUpdated = jane.results[<span class="hljs-number">0</span>];
-    janeUpdated.email = <span class="hljs-string">'jane.doe@gmail.com'</span>;
-    janeUpdated.newsletter = <span class="hljs-literal">false</span>;
-    <span class="hljs-keyword">await</span> models.update(janeUpdated);
-
-    <span class="hljs-comment">// Check that Jane Doe's record has been updated</span>
-    <span class="hljs-keyword">const</span> janeRetrieved = <span class="hljs-keyword">await</span> models.read(Person, {
-        where: {
-            first_name: <span class="hljs-string">'Jane'</span>,
-            last_name: <span class="hljs-string">'Doe'</span>
-        }
-    });
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Updated Record:'</span>, janeRetrieved.results[<span class="hljs-number">0</span>]);
-
-})();
-
-<span class="hljs-comment">// It is also possible to target multiple records with an update using the</span>
-<span class="hljs-comment">// 'where' option. Documentation TODO!</span>
+								<pre><code class="lang-ts">
 </code></pre>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -871,7 +733,7 @@ models.register(Person, {
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/d7f909d/packages/rev-models/src/models/manager.ts#L315">models/manager.ts:315</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/2de98c5/packages/rev-models/src/models/manager.ts#L315">models/manager.ts:315</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">

@@ -2,28 +2,48 @@
     "docs": [
         {
             "location": "/",
-            "text": "RevJS: Rev up your data-driven JS app development!\n\n\nWhat is RevJS?\n\n\nRevJS is a suite of JavaScript modules designed to speed up development of\ndata-driven JS applications.\n\n\nThis is achieved by removing the need for boilerplate \nDatabase\n, \nAPI\n and\n\nUser Interface\n code, and allowing you to focus on your data-model and\nbusiness logic, i.e. the \"important bits\" of your application!\n\n\nResJS modules are designed for use with \nTypeScript\n, to give you all the\nbenefits of strong typing and intellisense, however they should work with\nstandard ES6+ too. (we're looking for someone interested in creating and\nmaintaining a revjs ES6+ guide!...)\n\n\nModularity\n\n\nWe've designed RevJS modules so they can be used independently. For example, you\ncan use \nrev-models\n on its own as a simple ODM for managing your data, or you\ncan use \nrev-models\n and \nrev-api\n together to quickly create a GraphQL API.\n\n\nWe've been careful not to tie RevJS to any particular database or HTTP\nframework, and our front-end components are provided as higher-order React\ncomponents, which should be usable with any react UI components, including React\nNative.\n\n\nFor details of the current RevJS modules, see \nComponents\n.\n\n\nExamples\n\n\n(TODO)\n\n\n\n\nDefining and using data models\n\n\nCreate your own GraphQL API in 1 minute\n\n\nCreating a data-driven form with validation\n\n\n\n\nContributing\n\n\nWe are actively looking to build a team around RevJS. If you are interesting in\ncontributing, fork us on github or drop us a\n\nmail\n!",
+            "text": "RevJS - Rev up your data-driven JS app development!\n\n\nWhat is RevJS?\n\n\nRevJS is a suite of JavaScript modules designed to speed up development of\ndata-driven JS applications.\n\n\nRevJS allows you to\n\n\n\n\nDefine your data model using \nplain JS Classes\n, and built-in or custom field types\n\n\nDefine custom synchronous or asynchronous \nvalidation logic\n directly on your models\n\n\nMake your models available over the network via an \nautomatically generated GraphQL API\n\n\nQuickly build your \ndata-driven user interface in React\n, using our Higher Order Components\n\n\n\n\nExample\n\n\nThe below example shows how to create a simple data model with RevJS's \nrev-models\n module:\n\n\n\nimport {\n    AutoNumberField, TextField, SelectField, IntegerField,\n    RelatedModel, ModelManager, InMemoryBackend\n} from 'rev-models';\n\n// Define models\n\nexport class City {\n    @AutoNumberField({ primaryKey: true })\n        id: number;\n    @TextField()\n        name: string;\n\n    constructor(data: Partial<City>) {\n        Object.assign(this, data);\n    }\n}\n\nexport class Customer {\n    @AutoNumberField({ primaryKey: true })\n        id: number;\n    @TextField()\n        first_name: string;\n    @TextField()\n        last_name: string;\n    @IntegerField()\n        age: number;\n    @SelectField({ selection: [['M', 'Male'], ['F', 'Female']] })\n        gender: string;\n    @RelatedModel({ model: 'City' })\n        city: City;\n\n    constructor(data: Partial<Customer>) {\n        Object.assign(this, data);\n    }\n}\n\n// Create ModelManager\n\nexport const modelManager = new ModelManager();\nmodelManager.registerBackend('default', new InMemoryBackend());\n\nmodelManager.register(City);\nmodelManager.register(Customer);\n\n\n\n\nResJS is designed for use with \nTypeScript\n, to give you all the\nbenefits of strong typing and intellisense, however it should work with\nstandard ES6+ too. (we're looking for someone interested in creating and\nmaintaining a revjs ES6+ guide!...)\n\n\nComponents\n\n\nSee the sections linked below for further information on each module of RevJS\n\n\nrev-models\n\n\nDefine your Data Models and Validation, and easily test them out with the in-memory\nstorage provided.\n\n\nrev-api\n\n\nExpose your data model via an automatically-generated GraphQL API\n\n\nrev-api-client\n\n\nAccess your server-side models in the browser or on a mobile device,\nusing the same API and validation logic.\n\n\nrev-ui\n\n\nQuickly build user interfaces with data from your RevJS backend using our\nReact higher-order components.\n\n\nContributing\n\n\nWe are actively looking to build a team around RevJS. If you are interesting in\ncontributing, fork us on github or drop us a\n\nmail\n!\n\n\nLicense\n\n\nMIT",
             "title": "Welcome to RevJS!"
         },
         {
             "location": "/#revjs-rev-up-your-data-driven-js-app-development",
             "text": "",
-            "title": "RevJS: Rev up your data-driven JS app development!"
+            "title": "RevJS - Rev up your data-driven JS app development!"
         },
         {
             "location": "/#what-is-revjs",
-            "text": "RevJS is a suite of JavaScript modules designed to speed up development of\ndata-driven JS applications.  This is achieved by removing the need for boilerplate  Database ,  API  and User Interface  code, and allowing you to focus on your data-model and\nbusiness logic, i.e. the \"important bits\" of your application!  ResJS modules are designed for use with  TypeScript , to give you all the\nbenefits of strong typing and intellisense, however they should work with\nstandard ES6+ too. (we're looking for someone interested in creating and\nmaintaining a revjs ES6+ guide!...)",
+            "text": "RevJS is a suite of JavaScript modules designed to speed up development of\ndata-driven JS applications.  RevJS allows you to   Define your data model using  plain JS Classes , and built-in or custom field types  Define custom synchronous or asynchronous  validation logic  directly on your models  Make your models available over the network via an  automatically generated GraphQL API  Quickly build your  data-driven user interface in React , using our Higher Order Components",
             "title": "What is RevJS?"
         },
         {
-            "location": "/#modularity",
-            "text": "We've designed RevJS modules so they can be used independently. For example, you\ncan use  rev-models  on its own as a simple ODM for managing your data, or you\ncan use  rev-models  and  rev-api  together to quickly create a GraphQL API.  We've been careful not to tie RevJS to any particular database or HTTP\nframework, and our front-end components are provided as higher-order React\ncomponents, which should be usable with any react UI components, including React\nNative.  For details of the current RevJS modules, see  Components .",
-            "title": "Modularity"
+            "location": "/#example",
+            "text": "The below example shows how to create a simple data model with RevJS's  rev-models  module:  \nimport {\n    AutoNumberField, TextField, SelectField, IntegerField,\n    RelatedModel, ModelManager, InMemoryBackend\n} from 'rev-models';\n\n// Define models\n\nexport class City {\n    @AutoNumberField({ primaryKey: true })\n        id: number;\n    @TextField()\n        name: string;\n\n    constructor(data: Partial<City>) {\n        Object.assign(this, data);\n    }\n}\n\nexport class Customer {\n    @AutoNumberField({ primaryKey: true })\n        id: number;\n    @TextField()\n        first_name: string;\n    @TextField()\n        last_name: string;\n    @IntegerField()\n        age: number;\n    @SelectField({ selection: [['M', 'Male'], ['F', 'Female']] })\n        gender: string;\n    @RelatedModel({ model: 'City' })\n        city: City;\n\n    constructor(data: Partial<Customer>) {\n        Object.assign(this, data);\n    }\n}\n\n// Create ModelManager\n\nexport const modelManager = new ModelManager();\nmodelManager.registerBackend('default', new InMemoryBackend());\n\nmodelManager.register(City);\nmodelManager.register(Customer);  ResJS is designed for use with  TypeScript , to give you all the\nbenefits of strong typing and intellisense, however it should work with\nstandard ES6+ too. (we're looking for someone interested in creating and\nmaintaining a revjs ES6+ guide!...)",
+            "title": "Example"
         },
         {
-            "location": "/#examples",
-            "text": "(TODO)   Defining and using data models  Create your own GraphQL API in 1 minute  Creating a data-driven form with validation",
-            "title": "Examples"
+            "location": "/#components",
+            "text": "See the sections linked below for further information on each module of RevJS",
+            "title": "Components"
+        },
+        {
+            "location": "/#rev-models",
+            "text": "Define your Data Models and Validation, and easily test them out with the in-memory\nstorage provided.",
+            "title": "rev-models"
+        },
+        {
+            "location": "/#rev-api",
+            "text": "Expose your data model via an automatically-generated GraphQL API",
+            "title": "rev-api"
+        },
+        {
+            "location": "/#rev-api-client",
+            "text": "Access your server-side models in the browser or on a mobile device,\nusing the same API and validation logic.",
+            "title": "rev-api-client"
+        },
+        {
+            "location": "/#rev-ui",
+            "text": "Quickly build user interfaces with data from your RevJS backend using our\nReact higher-order components.",
+            "title": "rev-ui"
         },
         {
             "location": "/#contributing",
@@ -31,22 +51,72 @@
             "title": "Contributing"
         },
         {
-            "location": "/components/",
+            "location": "/#license",
+            "text": "MIT",
+            "title": "License"
+        },
+        {
+            "location": "/rev-models/",
             "text": "Components\n\n\nRevJS is currently made up of the following modules.\n\n\nrev-models\n\n\nrev-models API Documentation\n\n\nContributing\n\n\nWe are actively looking to build a team around RevJS. If you are interesting in\ncontributing, fork us on github or drop us a\n\nmail\n!",
             "title": "Components"
         },
         {
-            "location": "/components/#components",
+            "location": "/rev-models/#components",
             "text": "RevJS is currently made up of the following modules.",
             "title": "Components"
         },
         {
-            "location": "/components/#rev-models",
+            "location": "/rev-models/#rev-models",
             "text": "rev-models API Documentation",
             "title": "rev-models"
         },
         {
-            "location": "/components/#contributing",
+            "location": "/rev-models/#contributing",
+            "text": "We are actively looking to build a team around RevJS. If you are interesting in\ncontributing, fork us on github or drop us a mail !",
+            "title": "Contributing"
+        },
+        {
+            "location": "/rev-api/",
+            "text": "rev-api\n\n\n// TODO\n\n\nContributing\n\n\nWe are actively looking to build a team around RevJS. If you are interesting in\ncontributing, fork us on github or drop us a\n\nmail\n!",
+            "title": "`rev-api`"
+        },
+        {
+            "location": "/rev-api/#rev-api",
+            "text": "// TODO",
+            "title": "rev-api"
+        },
+        {
+            "location": "/rev-api/#contributing",
+            "text": "We are actively looking to build a team around RevJS. If you are interesting in\ncontributing, fork us on github or drop us a mail !",
+            "title": "Contributing"
+        },
+        {
+            "location": "/rev-api-client/",
+            "text": "rev-api-client\n\n\n// TODO\n\n\nContributing\n\n\nWe are actively looking to build a team around RevJS. If you are interesting in\ncontributing, fork us on github or drop us a\n\nmail\n!",
+            "title": "`rev-api-client`"
+        },
+        {
+            "location": "/rev-api-client/#rev-api-client",
+            "text": "// TODO",
+            "title": "rev-api-client"
+        },
+        {
+            "location": "/rev-api-client/#contributing",
+            "text": "We are actively looking to build a team around RevJS. If you are interesting in\ncontributing, fork us on github or drop us a mail !",
+            "title": "Contributing"
+        },
+        {
+            "location": "/rev-ui/",
+            "text": "rev-ui\n\n\n// TODO\n\n\nContributing\n\n\nWe are actively looking to build a team around RevJS. If you are interesting in\ncontributing, fork us on github or drop us a\n\nmail\n!",
+            "title": "`rev-ui`"
+        },
+        {
+            "location": "/rev-ui/#rev-ui",
+            "text": "// TODO",
+            "title": "rev-ui"
+        },
+        {
+            "location": "/rev-ui/#contributing",
             "text": "We are actively looking to build a team around RevJS. If you are interesting in\ncontributing, fork us on github or drop us a mail !",
             "title": "Contributing"
         }

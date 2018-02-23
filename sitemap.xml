@@ -4,17 +4,37 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2018-02-18</lastmod>
+     <lastmod>2018-02-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
 
     
+        
     <url>
-     <loc>/components/</loc>
-     <lastmod>2018-02-18</lastmod>
+     <loc>/rev-models/</loc>
+     <lastmod>2018-02-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    <url>
+     <loc>/rev-api/</loc>
+     <lastmod>2018-02-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/rev-api-client/</loc>
+     <lastmod>2018-02-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/rev-ui/</loc>
+     <lastmod>2018-02-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
 </urlset>
