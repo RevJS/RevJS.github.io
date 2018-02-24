@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>RelatedModelField | rev-models</title>
+	<title>TextFieldBase | rev-models</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -52,10 +52,10 @@
 					<a href="../globals.html">Library Root</a>
 				</li>
 				<li>
-					<a href="relatedmodelfield.html">RelatedModelField</a>
+					<a href="textfieldbase.html">TextFieldBase</a>
 				</li>
 			</ul>
-			<h1>Class RelatedModelField</h1>
+			<h1>Class TextFieldBase</h1>
 		</div>
 	</div>
 </header>
@@ -66,10 +66,24 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="relatedmodelfieldbase.html" class="tsd-signature-type">RelatedModelFieldBase</a>
+						<a href="field.html" class="tsd-signature-type">Field</a>
 						<ul class="tsd-hierarchy">
 							<li>
-								<span class="target">RelatedModelField</span>
+								<span class="target">TextFieldBase</span>
+								<ul class="tsd-hierarchy">
+									<li>
+										<a href="textfield.html" class="tsd-signature-type">TextField</a>
+									</li>
+									<li>
+										<a href="passwordfield.html" class="tsd-signature-type">PasswordField</a>
+									</li>
+									<li>
+										<a href="emailfield.html" class="tsd-signature-type">EmailField</a>
+									</li>
+									<li>
+										<a href="urlfield.html" class="tsd-signature-type">URLField</a>
+									</li>
+								</ul>
 							</li>
 						</ul>
 					</li>
@@ -82,24 +96,24 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="relatedmodelfield.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="textfieldbase.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="relatedmodelfield.html#asyncvalidators" class="tsd-kind-icon">async<wbr>Validators</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="relatedmodelfield.html#name" class="tsd-kind-icon">name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="relatedmodelfield.html#options" class="tsd-kind-icon">options</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="relatedmodelfield.html#validators" class="tsd-kind-icon">validators</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="textfieldbase.html#asyncvalidators" class="tsd-kind-icon">async<wbr>Validators</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="textfieldbase.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="textfieldbase.html#options" class="tsd-kind-icon">options</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="textfieldbase.html#validators" class="tsd-kind-icon">validators</a></li>
 							</ul>
 						</section>
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="relatedmodelfield.html#frombackendvalue" class="tsd-kind-icon">from<wbr>Backend<wbr>Value</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite"><a href="relatedmodelfield.html#tobackendvalue" class="tsd-kind-icon">to<wbr>Backend<wbr>Value</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="relatedmodelfield.html#validate" class="tsd-kind-icon">validate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="textfieldbase.html#frombackendvalue" class="tsd-kind-icon">from<wbr>Backend<wbr>Value</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><a href="textfieldbase.html#tobackendvalue" class="tsd-kind-icon">to<wbr>Backend<wbr>Value</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited"><a href="textfieldbase.html#validate" class="tsd-kind-icon">validate</a></li>
 							</ul>
 						</section>
 					</div>
@@ -111,14 +125,14 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Related<wbr>Model<wbr>Field<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">: </span><a href="../interfaces/irelatedmodelfieldoptions.html" class="tsd-signature-type">IRelatedModelFieldOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="relatedmodelfield.html" class="tsd-signature-type">RelatedModelField</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Text<wbr>Field<wbr>Base<span class="tsd-signature-symbol">(</span>name<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/itextfieldbaseoptions.html" class="tsd-signature-type">ITextFieldBaseOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="textfieldbase.html" class="tsd-signature-type">TextFieldBase</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<p>Overrides <a href="field.html">Field</a>.<a href="field.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3fcb8d4/packages/rev-models/src/fields/relatedfields.ts#L23">fields/relatedfields.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3fcb8d4/packages/rev-models/src/fields/textfields.ts#L19">fields/textfields.ts:19</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -127,10 +141,10 @@
 									<h5>name: <span class="tsd-signature-type">string</span></h5>
 								</li>
 								<li>
-									<h5>options: <a href="../interfaces/irelatedmodelfieldoptions.html" class="tsd-signature-type">IRelatedModelFieldOptions</a></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/itextfieldbaseoptions.html" class="tsd-signature-type">ITextFieldBaseOptions</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="relatedmodelfield.html" class="tsd-signature-type">RelatedModelField</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="textfieldbase.html" class="tsd-signature-type">TextFieldBase</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -165,7 +179,7 @@
 					<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3fcb8d4/packages/rev-models/src/fields/relatedfields.ts#L23">fields/relatedfields.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3fcb8d4/packages/rev-models/src/fields/textfields.ts#L19">fields/textfields.ts:19</a></li>
 							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3fcb8d4/packages/rev-models/src/fields/field.ts#L34">fields/field.ts:34</a></li>
 						</ul>
 					</aside>
@@ -182,7 +196,7 @@
 					</aside>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="frombackendvalue" class="tsd-anchor"></a>
@@ -211,18 +225,18 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 					<a name="tobackendvalue" class="tsd-anchor"></a>
 					<h3>to<wbr>Backend<wbr>Value</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
 						<li class="tsd-signature tsd-kind-icon">to<wbr>Backend<wbr>Value<span class="tsd-signature-symbol">(</span>manager<span class="tsd-signature-symbol">: </span><a href="../interfaces/imodelmanager.html" class="tsd-signature-type">IModelManager</a>, value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="field.html">Field</a>.<a href="field.html#tobackendvalue">toBackendValue</a></p>
+								<p>Inherited from <a href="field.html">Field</a>.<a href="field.html#tobackendvalue">toBackendValue</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3fcb8d4/packages/rev-models/src/fields/relatedfields.ts#L39">fields/relatedfields.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3fcb8d4/packages/rev-models/src/fields/field.ts#L74">fields/field.ts:74</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -295,31 +309,31 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class">
-						<a href="relatedmodelfield.html" class="tsd-kind-icon">Related<wbr>Model<wbr>Field</a>
+						<a href="textfieldbase.html" class="tsd-kind-icon">Text<wbr>Field<wbr>Base</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-								<a href="relatedmodelfield.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="textfieldbase.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="relatedmodelfield.html#asyncvalidators" class="tsd-kind-icon">async<wbr>Validators</a>
+								<a href="textfieldbase.html#asyncvalidators" class="tsd-kind-icon">async<wbr>Validators</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="relatedmodelfield.html#name" class="tsd-kind-icon">name</a>
+								<a href="textfieldbase.html#name" class="tsd-kind-icon">name</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="relatedmodelfield.html#options" class="tsd-kind-icon">options</a>
+								<a href="textfieldbase.html#options" class="tsd-kind-icon">options</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
-								<a href="relatedmodelfield.html#validators" class="tsd-kind-icon">validators</a>
+								<a href="textfieldbase.html#validators" class="tsd-kind-icon">validators</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
-								<a href="relatedmodelfield.html#frombackendvalue" class="tsd-kind-icon">from<wbr>Backend<wbr>Value</a>
+								<a href="textfieldbase.html#frombackendvalue" class="tsd-kind-icon">from<wbr>Backend<wbr>Value</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite">
-								<a href="relatedmodelfield.html#tobackendvalue" class="tsd-kind-icon">to<wbr>Backend<wbr>Value</a>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited">
+								<a href="textfieldbase.html#tobackendvalue" class="tsd-kind-icon">to<wbr>Backend<wbr>Value</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-inherited">
-								<a href="relatedmodelfield.html#validate" class="tsd-kind-icon">validate</a>
+								<a href="textfieldbase.html#validate" class="tsd-kind-icon">validate</a>
 							</li>
 						</ul>
 					</li>

@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "RevJS - Rev up your data-driven JS app development!\n\n\nWhat is RevJS?\n\n\nRevJS is a suite of JavaScript modules designed to speed up development of\ndata-driven JS applications.\n\n\nRevJS allows you to\n\n\n\n\nDefine your data model using \nplain JS Classes\n, and built-in or custom field types\n\n\nDefine custom synchronous or asynchronous \nvalidation logic\n directly on your models\n\n\nMake your models available over the network via an \nautomatically generated GraphQL API\n\n\nQuickly build your \ndata-driven user interface in React\n, using our Higher Order Components\n\n\n\n\nExample\n\n\nThe below example shows how to create a simple data model with RevJS's \nrev-models\n module:\n\n\n\nimport {\n    AutoNumberField, TextField, SelectField, IntegerField,\n    RelatedModel, ModelManager, InMemoryBackend\n} from 'rev-models';\n\n// Define models\n\nexport class City {\n    @AutoNumberField({ primaryKey: true })\n        id: number;\n    @TextField()\n        name: string;\n\n    constructor(data: Partial<City>) {\n        Object.assign(this, data);\n    }\n}\n\nexport class Customer {\n    @AutoNumberField({ primaryKey: true })\n        id: number;\n    @TextField()\n        first_name: string;\n    @TextField()\n        last_name: string;\n    @IntegerField()\n        age: number;\n    @SelectField({ selection: [['M', 'Male'], ['F', 'Female']] })\n        gender: string;\n    @RelatedModel({ model: 'City' })\n        city: City;\n\n    constructor(data: Partial<Customer>) {\n        Object.assign(this, data);\n    }\n}\n\n// Create ModelManager\n\nexport const modelManager = new ModelManager();\nmodelManager.registerBackend('default', new InMemoryBackend());\n\nmodelManager.register(City);\nmodelManager.register(Customer);\n\n\n\n\nResJS is designed for use with \nTypeScript\n, to give you all the\nbenefits of strong typing and intellisense, however it should work with\nstandard ES6+ too. (we're looking for someone interested in creating and\nmaintaining a revjs ES6+ guide!...)\n\n\nComponents\n\n\nSee the sections linked below for further information on each module of RevJS\n\n\nrev-models\n\n\nDefine your Data Models and Validation, and easily test them out with the in-memory\nstorage provided.\n\n\nrev-api\n\n\nExpose your data model via an automatically-generated GraphQL API\n\n\nrev-api-client\n\n\nAccess your server-side models in the browser or on a mobile device,\nusing the same API and validation logic.\n\n\nrev-ui\n\n\nQuickly build user interfaces with data from your RevJS backend using our\nReact higher-order components.\n\n\nContributing\n\n\nWe are actively looking to build a team around RevJS. If you are interesting in\ncontributing, fork us on github or drop us a\n\nmail\n!\n\n\nLicense\n\n\nMIT",
+            "text": "RevJS - Rev up your data-driven JS app development!\n\u00b6\n\n\nWhat is RevJS?\n\u00b6\n\n\nRevJS is a suite of JavaScript modules designed to speed up development of\ndata-driven JS applications.\n\n\nRevJS allows you to\n\n\n\n\nDefine your data model using \nplain JS Classes\n, and built-in or custom field types\n\n\nDefine custom synchronous or asynchronous \nvalidation logic\n directly on your models\n\n\nMake your models available over the network via an \nautomatically generated GraphQL API\n\n\nQuickly build your \ndata-driven user interface in React\n, using our Higher Order Components\n\n\n\n\nExample\n\u00b6\n\n\nThe below example shows how to create a simple data model with RevJS's \nrev-models\n module:\n\n\n\nimport {\n    AutoNumberField, TextField, SelectField, IntegerField,\n    RelatedModel, ModelManager, InMemoryBackend\n} from 'rev-models';\n\n// Define models\n\nexport class City {\n    @AutoNumberField({ primaryKey: true })\n        id: number;\n    @TextField()\n        name: string;\n\n    constructor(data: Partial<City>) {\n        Object.assign(this, data);\n    }\n}\n\nexport class Customer {\n    @AutoNumberField({ primaryKey: true })\n        id: number;\n    @TextField()\n        first_name: string;\n    @TextField()\n        last_name: string;\n    @IntegerField()\n        age: number;\n    @SelectField({ selection: [['M', 'Male'], ['F', 'Female']] })\n        gender: string;\n    @RelatedModel({ model: 'City' })\n        city: City;\n\n    constructor(data: Partial<Customer>) {\n        Object.assign(this, data);\n    }\n}\n\n// Create ModelManager\n\nexport const modelManager = new ModelManager();\nmodelManager.registerBackend('default', new InMemoryBackend());\n\nmodelManager.register(City);\nmodelManager.register(Customer);\n\n\n\n\nResJS is designed for use with \nTypeScript\n, to give you all the\nbenefits of strong typing and intellisense, however it should work with\nstandard ES6+ too. (we're looking for someone interested in creating and\nmaintaining a revjs ES6+ guide!...)\n\n\nComponents\n\u00b6\n\n\nrev-models\n\u00b6\n\n\nDefine your Data Models and Validation, and easily test them out with the in-memory\nstorage provided.\n\n\nrev-api\n\u00b6\n\n\nExpose your data model via an automatically-generated GraphQL API\n\n\nrev-api-client\n\u00b6\n\n\nAccess your server-side models in the browser or on a mobile device,\nusing the same API and validation logic.\n\n\nrev-ui\n\u00b6\n\n\nQuickly build user interfaces with data from your RevJS backend using our\nReact higher-order components.\n\n\nContributing\n\u00b6\n\n\nWe are actively looking to build a team around RevJS. If you are interesting in\ncontributing, fork us on github or drop us a\n\nmail\n!\n\n\nLicense\n\u00b6\n\n\nMIT",
             "title": "Welcome to RevJS!"
         },
         {
@@ -22,7 +22,7 @@
         },
         {
             "location": "/#components",
-            "text": "See the sections linked below for further information on each module of RevJS",
+            "text": "",
             "title": "Components"
         },
         {
@@ -57,18 +57,33 @@
         },
         {
             "location": "/rev-models/",
-            "text": "Components\n\n\nRevJS is currently made up of the following modules.\n\n\nrev-models\n\n\nrev-models API Documentation\n\n\nContributing\n\n\nWe are actively looking to build a team around RevJS. If you are interesting in\ncontributing, fork us on github or drop us a\n\nmail\n!",
-            "title": "Components"
-        },
-        {
-            "location": "/rev-models/#components",
-            "text": "RevJS is currently made up of the following modules.",
-            "title": "Components"
-        },
-        {
-            "location": "/rev-models/#rev-models",
-            "text": "rev-models API Documentation",
+            "text": "rev-models - RevJS Data Models\n\u00b6\n\n\nThe \nrev-models\n module provides the following:\n\n\n\n\nA set of \nBuilt-in Field Types\n for defining your\n   data models\n\n\nA \nModelManager\n object, which holds the list of\n   your registered models, and provides functions for \ncreate\n, \nread\n,\n   \nupdate\n and \ndelete\n.\n\n\n\n\nExample\n\u00b6\n\n\nThe example below registers a simple data class with some basic validation\nrules, creates some data, and reads it back.\n\n\n\nimport {\n    AutoNumberField, TextField, SelectField,\n    ModelManager, InMemoryBackend\n} from 'rev-models';\n\n// Define model\n\nconst POST_STATUS = [\n    ['draft', 'Draft'],\n    ['published', 'Published']\n];\n\nexport class Post {\n    @AutoNumberField({ primaryKey: true })\n        id: number;\n    @TextField({ minLength: 5, maxLength: 100 })\n        title: string;\n    @TextField({ multiLine: true })\n        body: string;\n    @SelectField({ selection: POST_STATUS })\n        status: string;\n\n    constructor(data: Partial<Post>) {\n        Object.assign(this, data);\n    }\n}\n\n// Create ModelManager\n\nexport const modelManager = new ModelManager();\nmodelManager.registerBackend('default', new InMemoryBackend());\nmodelManager.register(Post);\n\n(async () => {\n\n    // Create some data\n\n    await modelManager.create(new Post({\n        title: 'My First Post',\n        body: 'This is a really cool post made in RevJS',\n        status: 'draft'\n    }));\n\n    await modelManager.create(new Post({\n        title: 'RevJS is awesome!',\n        body: 'I should use it for ALL TEH THINGZZZ!',\n        status: 'published'\n    }));\n\n    // Read it back\n\n    const res = await modelManager.read(Post, {\n        where: {\n            _or: [\n                { title: { _like: '%RevJS%' }},\n                { body: { _like: '%RevJS%' }}\n            ]\n        }\n    });\n\n    console.log(res.results);\n\n})();\n\n\n\n\nBuilt-in Field Types\n\u00b6\n\n\n\n\nTextField\n - Single, or multi-line text field\n\n\nEmailField\n - TextField with e-mail address validation\n\n\nUrlField\n - TextField with URL validation\n\n\nPasswordField\n - Password field\n\n\nNumberField\n - Number entry field (any numeric value)\n\n\nIntegerField\n - Integer entry field\n\n\nAutoNumberField\n - Auto-generated, sequential integer field\n\n\nBooleanField\n - True / false\n\n\nSelectField\n - Single-item selection field\n\n\nMultiSelectField\n - Multiple-item selection field\n\n\nDateField\n - Date-only field\n\n\nTimeField\n - Time-only field\n\n\nDateTimeField\n - Date & Time field\n\n\nRelatedModelField\n - Foreign-key link to a related model\n\n\nRelatedModelListField\n - List of related models\n\n\n\n\nCustom Validation\n\u00b6\n\n\nModelManager functions\n\u00b6\n\n\nrev-models API Documentation\n\n\nContributing\n\u00b6\n\n\nWe are actively looking to build a team around RevJS. If you are interesting in\ncontributing, fork us on github or drop us a\n\nmail\n!",
             "title": "rev-models"
+        },
+        {
+            "location": "/rev-models/#rev-models-revjs-data-models",
+            "text": "The  rev-models  module provides the following:   A set of  Built-in Field Types  for defining your\n   data models  A  ModelManager  object, which holds the list of\n   your registered models, and provides functions for  create ,  read ,\n    update  and  delete .",
+            "title": "rev-models - RevJS Data Models"
+        },
+        {
+            "location": "/rev-models/#example",
+            "text": "The example below registers a simple data class with some basic validation\nrules, creates some data, and reads it back.  \nimport {\n    AutoNumberField, TextField, SelectField,\n    ModelManager, InMemoryBackend\n} from 'rev-models';\n\n// Define model\n\nconst POST_STATUS = [\n    ['draft', 'Draft'],\n    ['published', 'Published']\n];\n\nexport class Post {\n    @AutoNumberField({ primaryKey: true })\n        id: number;\n    @TextField({ minLength: 5, maxLength: 100 })\n        title: string;\n    @TextField({ multiLine: true })\n        body: string;\n    @SelectField({ selection: POST_STATUS })\n        status: string;\n\n    constructor(data: Partial<Post>) {\n        Object.assign(this, data);\n    }\n}\n\n// Create ModelManager\n\nexport const modelManager = new ModelManager();\nmodelManager.registerBackend('default', new InMemoryBackend());\nmodelManager.register(Post);\n\n(async () => {\n\n    // Create some data\n\n    await modelManager.create(new Post({\n        title: 'My First Post',\n        body: 'This is a really cool post made in RevJS',\n        status: 'draft'\n    }));\n\n    await modelManager.create(new Post({\n        title: 'RevJS is awesome!',\n        body: 'I should use it for ALL TEH THINGZZZ!',\n        status: 'published'\n    }));\n\n    // Read it back\n\n    const res = await modelManager.read(Post, {\n        where: {\n            _or: [\n                { title: { _like: '%RevJS%' }},\n                { body: { _like: '%RevJS%' }}\n            ]\n        }\n    });\n\n    console.log(res.results);\n\n})();",
+            "title": "Example"
+        },
+        {
+            "location": "/rev-models/#built-in-field-types",
+            "text": "TextField  - Single, or multi-line text field  EmailField  - TextField with e-mail address validation  UrlField  - TextField with URL validation  PasswordField  - Password field  NumberField  - Number entry field (any numeric value)  IntegerField  - Integer entry field  AutoNumberField  - Auto-generated, sequential integer field  BooleanField  - True / false  SelectField  - Single-item selection field  MultiSelectField  - Multiple-item selection field  DateField  - Date-only field  TimeField  - Time-only field  DateTimeField  - Date & Time field  RelatedModelField  - Foreign-key link to a related model  RelatedModelListField  - List of related models",
+            "title": "Built-in Field Types"
+        },
+        {
+            "location": "/rev-models/#custom-validation",
+            "text": "",
+            "title": "Custom Validation"
+        },
+        {
+            "location": "/rev-models/#modelmanager-functions",
+            "text": "rev-models API Documentation",
+            "title": "ModelManager functions"
         },
         {
             "location": "/rev-models/#contributing",
@@ -77,8 +92,8 @@
         },
         {
             "location": "/rev-api/",
-            "text": "rev-api\n\n\n// TODO\n\n\nContributing\n\n\nWe are actively looking to build a team around RevJS. If you are interesting in\ncontributing, fork us on github or drop us a\n\nmail\n!",
-            "title": "`rev-api`"
+            "text": "rev-api\n\u00b6\n\n\n// TODO\n\n\nContributing\n\u00b6\n\n\nWe are actively looking to build a team around RevJS. If you are interesting in\ncontributing, fork us on github or drop us a\n\nmail\n!",
+            "title": "rev-api"
         },
         {
             "location": "/rev-api/#rev-api",
@@ -92,8 +107,8 @@
         },
         {
             "location": "/rev-api-client/",
-            "text": "rev-api-client\n\n\n// TODO\n\n\nContributing\n\n\nWe are actively looking to build a team around RevJS. If you are interesting in\ncontributing, fork us on github or drop us a\n\nmail\n!",
-            "title": "`rev-api-client`"
+            "text": "rev-api-client\n\u00b6\n\n\n// TODO\n\n\nContributing\n\u00b6\n\n\nWe are actively looking to build a team around RevJS. If you are interesting in\ncontributing, fork us on github or drop us a\n\nmail\n!",
+            "title": "rev-api-client"
         },
         {
             "location": "/rev-api-client/#rev-api-client",
@@ -107,8 +122,8 @@
         },
         {
             "location": "/rev-ui/",
-            "text": "rev-ui\n\n\n// TODO\n\n\nContributing\n\n\nWe are actively looking to build a team around RevJS. If you are interesting in\ncontributing, fork us on github or drop us a\n\nmail\n!",
-            "title": "`rev-ui`"
+            "text": "rev-ui\n\u00b6\n\n\n// TODO\n\n\nContributing\n\u00b6\n\n\nWe are actively looking to build a team around RevJS. If you are interesting in\ncontributing, fork us on github or drop us a\n\nmail\n!",
+            "title": "rev-ui"
         },
         {
             "location": "/rev-ui/#rev-ui",

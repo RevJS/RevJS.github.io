@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Components - RevJS</title>
+  <title>rev-models - RevJS</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -18,7 +18,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Components";
+    var mkdocs_page_name = "rev-models";
     var mkdocs_page_input_path = "rev-models.md";
     var mkdocs_page_url = "/rev-models/";
   </script>
@@ -59,14 +59,20 @@
     <ul class="subnav">
                 <li class=" current">
                     
-    <a class="current" href="./">Components</a>
+    <a class="current" href="./">rev-models</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#components">Components</a></li>
+    <li class="toctree-l3"><a href="#rev-models-revjs-data-models">rev-models - RevJS Data Models</a></li>
     
         <ul>
         
-            <li><a class="toctree-l4" href="#rev-models">rev-models</a></li>
+            <li><a class="toctree-l4" href="#example">Example</a></li>
+        
+            <li><a class="toctree-l4" href="#built-in-field-types">Built-in Field Types</a></li>
+        
+            <li><a class="toctree-l4" href="#custom-validation">Custom Validation</a></li>
+        
+            <li><a class="toctree-l4" href="#modelmanager-functions">ModelManager functions</a></li>
         
             <li><a class="toctree-l4" href="#contributing">Contributing</a></li>
         
@@ -77,15 +83,15 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../rev-api/">Rev api</a>
+    <a class="" href="../rev-api/">rev-api</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../rev-api-client/">Rev api client</a>
+    <a class="" href="../rev-api-client/">rev-api-client</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../rev-ui/">Rev ui</a>
+    <a class="" href="../rev-ui/">rev-ui</a>
                 </li>
     </ul>
 	    </li>
@@ -116,7 +122,7 @@
         
       
     
-    <li>Components</li>
+    <li>rev-models</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/RevJS/revjs/edit/master/docs/mkdocs/src/rev-models.md"
@@ -129,11 +135,106 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="components">Components</h1>
-<p>RevJS is currently made up of the following modules.</p>
-<h2 id="rev-models"><code>rev-models</code></h2>
-<p><a href="http://revjs.org/api/rev-models">rev-models API Documentation</a></p>
-<h2 id="contributing">Contributing</h2>
+                <h1 id="rev-models-revjs-data-models">rev-models - RevJS Data Models<a class="headerlink" href="#rev-models-revjs-data-models" title="Permanent link">&para;</a></h1>
+<p>The <code>rev-models</code> module provides the following:</p>
+<ul>
+<li>A set of <a href="#built-in-field-types">Built-in Field Types</a> for defining your
+   data models</li>
+<li>A <a href="#modelmanager-functions">ModelManager</a> object, which holds the list of
+   your registered models, and provides functions for <strong>create</strong>, <strong>read</strong>,
+   <strong>update</strong> and <strong>delete</strong>.</li>
+</ul>
+<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
+<p>The example below registers a simple data class with some basic validation
+rules, creates some data, and reads it back.</p>
+<pre><code class="ts">
+import {
+    AutoNumberField, TextField, SelectField,
+    ModelManager, InMemoryBackend
+} from 'rev-models';
+
+// Define model
+
+const POST_STATUS = [
+    ['draft', 'Draft'],
+    ['published', 'Published']
+];
+
+export class Post {
+    @AutoNumberField({ primaryKey: true })
+        id: number;
+    @TextField({ minLength: 5, maxLength: 100 })
+        title: string;
+    @TextField({ multiLine: true })
+        body: string;
+    @SelectField({ selection: POST_STATUS })
+        status: string;
+
+    constructor(data: Partial&lt;Post&gt;) {
+        Object.assign(this, data);
+    }
+}
+
+// Create ModelManager
+
+export const modelManager = new ModelManager();
+modelManager.registerBackend('default', new InMemoryBackend());
+modelManager.register(Post);
+
+(async () =&gt; {
+
+    // Create some data
+
+    await modelManager.create(new Post({
+        title: 'My First Post',
+        body: 'This is a really cool post made in RevJS',
+        status: 'draft'
+    }));
+
+    await modelManager.create(new Post({
+        title: 'RevJS is awesome!',
+        body: 'I should use it for ALL TEH THINGZZZ!',
+        status: 'published'
+    }));
+
+    // Read it back
+
+    const res = await modelManager.read(Post, {
+        where: {
+            _or: [
+                { title: { _like: '%RevJS%' }},
+                { body: { _like: '%RevJS%' }}
+            ]
+        }
+    });
+
+    console.log(res.results);
+
+})();
+</code></pre>
+
+<h2 id="built-in-field-types">Built-in Field Types<a class="headerlink" href="#built-in-field-types" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong><a href="../api/rev-models/classes/textfield.html">TextField</a></strong> - Single, or multi-line text field</li>
+<li><strong><a href="../api/rev-models/classes/emailfield.html">EmailField</a></strong> - TextField with e-mail address validation</li>
+<li><strong><a href="../api/rev-models/classes/urlfield.html">UrlField</a></strong> - TextField with URL validation</li>
+<li><strong><a href="../api/rev-models/classes/passwordfield.html">PasswordField</a></strong> - Password field</li>
+<li><strong><a href="../api/rev-models/classes/numberfield.html">NumberField</a></strong> - Number entry field (any numeric value)</li>
+<li><strong><a href="../api/rev-models/classes/integerfield.html">IntegerField</a></strong> - Integer entry field</li>
+<li><strong><a href="../api/rev-models/classes/autonumberfield.html">AutoNumberField</a></strong> - Auto-generated, sequential integer field</li>
+<li><strong><a href="../api/rev-models/classes/booleanfield.html">BooleanField</a></strong> - True / false</li>
+<li><strong><a href="../api/rev-models/classes/selectfield.html">SelectField</a></strong> - Single-item selection field</li>
+<li><strong><a href="../api/rev-models/classes/multiselectfield.html">MultiSelectField</a></strong> - Multiple-item selection field</li>
+<li><strong><a href="../api/rev-models/classes/datefield.html">DateField</a></strong> - Date-only field</li>
+<li><strong><a href="../api/rev-models/classes/timefield.html">TimeField</a></strong> - Time-only field</li>
+<li><strong><a href="../api/rev-models/classes/datetimefield.html">DateTimeField</a></strong> - Date &amp; Time field</li>
+<li><strong><a href="../api/rev-models/classes/relatedmodelfield.html">RelatedModelField</a></strong> - Foreign-key link to a related model</li>
+<li><strong><a href="../api/rev-models/classes/relatedmodellistfield.html">RelatedModelListField</a></strong> - List of related models</li>
+</ul>
+<h2 id="custom-validation">Custom Validation<a class="headerlink" href="#custom-validation" title="Permanent link">&para;</a></h2>
+<h2 id="modelmanager-functions">ModelManager functions<a class="headerlink" href="#modelmanager-functions" title="Permanent link">&para;</a></h2>
+<p><a href="../api/rev-models">rev-models API Documentation</a></p>
+<h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
 <p>We are actively looking to build a team around RevJS. If you are interesting in
 contributing, fork us on github or drop us a
 <a href="mailto:russ@russellbriggs.co">mail</a>!</p>
@@ -144,7 +245,7 @@ contributing, fork us on github or drop us a
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../rev-api/" class="btn btn-neutral float-right" title="Rev api">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../rev-api/" class="btn btn-neutral float-right" title="rev-api">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href=".." class="btn btn-neutral" title="Welcome to RevJS!"><span class="icon icon-circle-arrow-left"></span> Previous</a>
