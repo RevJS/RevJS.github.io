@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>QueryNode | rev-models</title>
+	<title>ValidationError | rev-models</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -52,50 +52,27 @@
 					<a href="../globals.html">Library Root</a>
 				</li>
 				<li>
-					<a href="querynode.html">QueryNode</a>
+					<a href="validationerror.html">ValidationError</a>
 				</li>
 			</ul>
-			<h1>Class QueryNode&lt;T&gt;</h1>
+			<h1>Class ValidationError</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-type-parameters">
-				<h3>Type parameters</h3>
-				<ul class="tsd-type-parameters">
-					<li>
-						<h4>T<span class="tsd-signature-symbol">: </span><a href="../interfaces/imodel.html" class="tsd-signature-type">IModel</a></h4>
-					</li>
-				</ul>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">QueryNode</span>
+						<span class="tsd-signature-type">Error</span>
 						<ul class="tsd-hierarchy">
 							<li>
-								<a href="conjunctionnode.html" class="tsd-signature-type">ConjunctionNode</a>
-							</li>
-							<li>
-								<a href="valueoperator.html" class="tsd-signature-type">ValueOperator</a>
-							</li>
-							<li>
-								<a href="fieldnode.html" class="tsd-signature-type">FieldNode</a>
-							</li>
-							<li>
-								<a href="valuelistoperator.html" class="tsd-signature-type">ValueListOperator</a>
+								<span class="target">ValidationError</span>
 							</li>
 						</ul>
 					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel">
-				<h3>Implements</h3>
-				<ul class="tsd-hierarchy">
-					<li><a href="../interfaces/iquerynode.html" class="tsd-signature-type">IQueryNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -105,23 +82,19 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="querynode.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="validationerror.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="querynode.html#children" class="tsd-kind-icon">children</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="querynode.html#model" class="tsd-kind-icon">model</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="querynode.html#operator" class="tsd-kind-icon">operator</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="querynode.html#parent" class="tsd-kind-icon">parent</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="querynode.html#parser" class="tsd-kind-icon">parser</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section ">
-							<h3>Methods</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="querynode.html#assertisnonemptyobject" class="tsd-kind-icon">assert<wbr>IsNon<wbr>Empty<wbr>Object</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="validationerror.html#result" class="tsd-kind-icon">result</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="validationerror.html#validation" class="tsd-kind-icon">validation</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><a href="validationerror.html#error" class="tsd-kind-icon">Error</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="validationerror.html#message" class="tsd-kind-icon">message</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="validationerror.html#name" class="tsd-kind-icon">name</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static"><a href="validationerror.html#result-1" class="tsd-kind-icon">result</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-static"><a href="validationerror.html#stack" class="tsd-kind-icon">stack</a></li>
 							</ul>
 						</section>
 					</div>
@@ -133,33 +106,25 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Query<wbr>Node<span class="tsd-signature-symbol">(</span>parser<span class="tsd-signature-symbol">: </span><a href="../interfaces/iqueryparser.html" class="tsd-signature-type">IQueryParser</a>, model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, operator<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, parent<span class="tsd-signature-symbol">: </span><a href="../interfaces/iquerynode.html" class="tsd-signature-type">IQueryNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="querynode.html" class="tsd-signature-type">QueryNode</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Validation<wbr>Error<span class="tsd-signature-symbol">(</span>validationResult<span class="tsd-signature-symbol">?: </span><a href="../interfaces/imodelvalidationresult.html" class="tsd-signature-type">IModelValidationResult</a>, detailsInMessage<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="validationerror.html" class="tsd-signature-type">ValidationError</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/eef9248/packages/rev-models/src/queries/nodes/query.ts#L7">queries/nodes/query.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/eef9248/packages/rev-models/src/validation/validationerror.ts#L7">validation/validationerror.ts:7</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>parser: <a href="../interfaces/iqueryparser.html" class="tsd-signature-type">IQueryParser</a></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> validationResult: <a href="../interfaces/imodelvalidationresult.html" class="tsd-signature-type">IModelValidationResult</a><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
 								</li>
 								<li>
-									<h5>model: <span class="tsd-signature-type">object</span></h5>
-									<ul class="tsd-parameters">
-									</ul>
-								</li>
-								<li>
-									<h5>operator: <span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li>
-									<h5>parent: <a href="../interfaces/iquerynode.html" class="tsd-signature-type">IQueryNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> detailsInMessage: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="querynode.html" class="tsd-signature-type">QueryNode</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="validationerror.html" class="tsd-signature-type">ValidationError</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -167,88 +132,79 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="children" class="tsd-anchor"></a>
-					<h3>children</h3>
-					<div class="tsd-signature tsd-kind-icon">children<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/iquerynode.html" class="tsd-signature-type">IQueryNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<a name="result" class="tsd-anchor"></a>
+					<h3>result</h3>
+					<div class="tsd-signature tsd-kind-icon">result<span class="tsd-signature-symbol">:</span> <a href="../interfaces/imodeloperationresult.html" class="tsd-signature-type">IModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
-						<p>Implementation of <a href="../interfaces/iquerynode.html">IQueryNode</a>.<a href="../interfaces/iquerynode.html#children">children</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/eef9248/packages/rev-models/src/queries/nodes/query.ts#L7">queries/nodes/query.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/eef9248/packages/rev-models/src/validation/validationerror.ts#L6">validation/validationerror.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="model" class="tsd-anchor"></a>
-					<h3>model</h3>
-					<div class="tsd-signature tsd-kind-icon">model<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<a name="validation" class="tsd-anchor"></a>
+					<h3>validation</h3>
+					<div class="tsd-signature tsd-kind-icon">validation<span class="tsd-signature-symbol">:</span> <a href="../interfaces/imodelvalidationresult.html" class="tsd-signature-type">IModelValidationResult</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/eef9248/packages/rev-models/src/queries/nodes/query.ts#L11">queries/nodes/query.ts:11</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-						</ul>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="operator" class="tsd-anchor"></a>
-					<h3>operator</h3>
-					<div class="tsd-signature tsd-kind-icon">operator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<p>Implementation of <a href="../interfaces/iquerynode.html">IQueryNode</a>.<a href="../interfaces/iquerynode.html#operator">operator</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/eef9248/packages/rev-models/src/queries/nodes/query.ts#L12">queries/nodes/query.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/eef9248/packages/rev-models/src/validation/validationerror.ts#L7">validation/validationerror.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="parent" class="tsd-anchor"></a>
-					<h3>parent</h3>
-					<div class="tsd-signature tsd-kind-icon">parent<span class="tsd-signature-symbol">:</span> <a href="../interfaces/iquerynode.html" class="tsd-signature-type">IQueryNode</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
+					<a name="error" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> Error</h3>
+					<div class="tsd-signature tsd-kind-icon">Error<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ErrorConstructor</span></div>
 					<aside class="tsd-sources">
-						<p>Implementation of <a href="../interfaces/iquerynode.html">IQueryNode</a>.<a href="../interfaces/iquerynode.html#parent">parent</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/eef9248/packages/rev-models/src/queries/nodes/query.ts#L13">queries/nodes/query.ts:13</a></li>
+							<li>Defined in /home/russell/code/revjs/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:884</li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
-					<a name="parser" class="tsd-anchor"></a>
-					<h3>parser</h3>
-					<div class="tsd-signature tsd-kind-icon">parser<span class="tsd-signature-symbol">:</span> <a href="../interfaces/iqueryparser.html" class="tsd-signature-type">IQueryParser</a></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="message" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> message</h3>
+					<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from Error.message</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/eef9248/packages/rev-models/src/queries/nodes/query.ts#L10">queries/nodes/query.ts:10</a></li>
+							<li>Defined in /home/russell/code/revjs/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:874</li>
 						</ul>
 					</aside>
 				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="assertisnonemptyobject" class="tsd-anchor"></a>
-					<h3>assert<wbr>IsNon<wbr>Empty<wbr>Object</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">assert<wbr>IsNon<wbr>Empty<wbr>Object<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/eef9248/packages/rev-models/src/queries/nodes/query.ts#L24">queries/nodes/query.ts:24</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>value: <span class="tsd-signature-type">any</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="name" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> name</h3>
+					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Error.name</p>
+						<ul>
+							<li>Defined in /home/russell/code/revjs/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:873</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+					<a name="result-1" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagOptional">Optional</span> result</h3>
+					<div class="tsd-signature tsd-kind-icon">result<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Error.result</p>
+						<ul>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/eef9248/packages/rev-models/src/types.d.ts#L7">types.d.ts:7</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-static">
+					<a name="stack" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagOptional">Optional</span> stack</h3>
+					<div class="tsd-signature tsd-kind-icon">stack<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<p>Inherited from Error.stack</p>
+						<p>Overrides Error.stack</p>
+						<ul>
+							<li>Defined in /home/russell/code/revjs/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:875</li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -264,29 +220,32 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-class tsd-has-type-parameter">
-						<a href="querynode.html" class="tsd-kind-icon">Query<wbr>Node</a>
+					<li class="current tsd-kind-class">
+						<a href="validationerror.html" class="tsd-kind-icon">Validation<wbr>Error</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="querynode.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="validationerror.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="querynode.html#children" class="tsd-kind-icon">children</a>
+								<a href="validationerror.html#result" class="tsd-kind-icon">result</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="querynode.html#model" class="tsd-kind-icon">model</a>
+								<a href="validationerror.html#validation" class="tsd-kind-icon">validation</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="querynode.html#operator" class="tsd-kind-icon">operator</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-static">
+								<a href="validationerror.html#error" class="tsd-kind-icon">Error</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="querynode.html#parent" class="tsd-kind-icon">parent</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="validationerror.html#message" class="tsd-kind-icon">message</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="querynode.html#parser" class="tsd-kind-icon">parser</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="validationerror.html#name" class="tsd-kind-icon">name</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="querynode.html#assertisnonemptyobject" class="tsd-kind-icon">assert<wbr>IsNon<wbr>Empty<wbr>Object</a>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-static">
+								<a href="validationerror.html#result-1" class="tsd-kind-icon">result</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-static">
+								<a href="validationerror.html#stack" class="tsd-kind-icon">stack</a>
 							</li>
 						</ul>
 					</li>

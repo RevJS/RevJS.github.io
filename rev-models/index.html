@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>rev-models - RevJS</title>
+  <title>rev-models - RevJS Guide</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -36,7 +36,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
       <div class="wy-side-nav-search">
-        <a href=".." class="icon icon-home"> RevJS</a>
+        <a href=".." class="icon icon-home"> RevJS Guide</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -74,6 +74,8 @@
         
             <li><a class="toctree-l4" href="#modelmanager-functions">ModelManager functions</a></li>
         
+            <li><a class="toctree-l4" href="#supported-backends">Supported Backends</a></li>
+        
             <li><a class="toctree-l4" href="#contributing">Contributing</a></li>
         
         </ul>
@@ -106,7 +108,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="..">RevJS</a>
+        <a href="..">RevJS Guide</a>
       </nav>
 
       
@@ -143,6 +145,8 @@
 <li>A <a href="#modelmanager-functions">ModelManager</a> object, which holds the list of
    your registered models, and provides functions for <strong>create</strong>, <strong>read</strong>,
    <strong>update</strong> and <strong>delete</strong>.</li>
+<li>An <strong>in-memory</strong> storage backend, so you can play with RevJS functions without
+   needing to set up a database.</li>
 </ul>
 <h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
 <p>The example below registers a simple data class with some basic validation
@@ -170,7 +174,7 @@ export class Post {
     @SelectField({ selection: POST_STATUS })
         status: string;
 
-    constructor(data: Partial&lt;Post&gt;) {
+    constructor(data?: Partial&lt;Post&gt;) {
         Object.assign(this, data);
     }
 }
@@ -232,8 +236,121 @@ modelManager.register(Post);
 <li><strong><a href="../api/rev-models/classes/relatedmodellistfield.html">RelatedModelListField</a></strong> - List of related models</li>
 </ul>
 <h2 id="custom-validation">Custom Validation<a class="headerlink" href="#custom-validation" title="Permanent link">&para;</a></h2>
+<p>In addition to the built-in, configurable validation provided by the
+standard field types, you can specify your own validation rules directly on your
+models, as shown in the example below</p>
+<pre><code class="ts">
+import {
+    AutoNumberField, TextField, BooleanField,
+    ModelManager, InMemoryBackend, IValidationContext
+} from 'rev-models';
+
+// Define model with some custom validation
+
+export class Post {
+    @AutoNumberField({ primaryKey: true })
+        id: number;
+    @TextField()
+        title: string;
+    @TextField({ multiLine: true })
+        body: string;
+    @BooleanField()
+        is_published: boolean;
+
+    constructor(data?: Partial&lt;Post&gt;) {
+        Object.assign(this, data);
+    }
+
+    // Define synchronous validation
+    validate(ctx: IValidationContext) {
+        if (this.body.includes('fake news')) {
+            ctx.result.addFieldError('body', 'Body must not contain fake news!');
+        }
+    }
+
+    // Define some asynchronous validation
+    async validateAsync(ctx: IValidationContext) {
+        if (ctx.operation.operationName == 'create') {
+            const duplicates = await ctx.manager.read(Post, {
+                where: {
+                    title: { _like: this.title }
+                }
+            });
+            if (duplicates.meta.totalCount &gt; 0) {
+                ctx.result.addFieldError('title', 'Cannot create post with a duplicate title!');
+            }
+        }
+    }
+}
+
+// Create ModelManager
+
+export const modelManager = new ModelManager();
+modelManager.registerBackend('default', new InMemoryBackend());
+modelManager.register(Post);
+
+// Create some data
+
+(async () =&gt; {
+    try {
+
+        // Create a valid post
+        await modelManager.create(new Post({
+            title: 'This is a valid post',
+            body: 'No alternative facts here!',
+            is_published: true
+        }));
+
+        // Try to create a duplicate post...
+        await modelManager.create(new Post({
+            title: 'This is a valid post',
+            body: 'Not really! Its a duplicate, so should cause an error...',
+            is_published: true
+        }));
+
+    }
+    catch (e) {
+        console.error(e.message);
+    }
+})();
+</code></pre>
+
+<p>The output of the above code is:</p>
+<pre><code>ValidationError
+ * title: Cannot create post with a duplicate title!
+</code></pre>
+
+<p>For further information on model validation functions, check out the
+<a href="../api/rev-models/interfaces/imodel.html">IModel</a> interface</p>
 <h2 id="modelmanager-functions">ModelManager functions<a class="headerlink" href="#modelmanager-functions" title="Permanent link">&para;</a></h2>
-<p><a href="../api/rev-models">rev-models API Documentation</a></p>
+<p>The RevJS <a href="../api/rev-models/classes/modelmanager.html">ModelManager</a> has the
+following main functions:</p>
+<ul>
+<li><a href="../api/rev-models/classes/modelmanager.html#registerbackend">registerBackend()</a> -
+   used to configure the database or API where your models are stored</li>
+<li><a href="../api/rev-models/classes/modelmanager.html#read">read()</a> - read models from
+   your backend</li>
+<li><a href="../api/rev-models/classes/modelmanager.html#create">create()</a> - store a new
+   model in your backend</li>
+<li><a href="../api/rev-models/classes/modelmanager.html#update">update()</a> - update a model
+   already stored in the backend</li>
+<li><a href="../api/rev-models/classes/modelmanager.html#remove">remove()</a> - remove a model
+   that is currently stored in the backend</li>
+</ul>
+<h2 id="supported-backends">Supported Backends<a class="headerlink" href="#supported-backends" title="Permanent link">&para;</a></h2>
+<p>The following back-ends are currently supported:</p>
+<ul>
+<li><a href="../api/rev-models/classes/inmemorybackend.html">InMemoryBackend</a> - stores your
+   model data in-memory. Ideal for initial development and automated testing.</li>
+<li><strong>ModelApiBackend</strong> - designed for use in the browser or mobile app.
+   Uses the API created by <code>rev-api</code> to store and retrieve your models.</li>
+<li><strong>MongoDBBackend</strong> - stores and retrieves your data from MongoDB</li>
+</ul>
+<p>We have defined a standard <a href="../api/rev-models/interfaces/ibackend.html">IBackend</a>
+interface, as well as a
+<a href="https://github.com/RevJS/revjs/blob/master/packages/rev-models/src/backends/testsuite/index.ts">Standard Test Suite</a>
+to aid with new backend development, and are keen to accept any contributions
+from the community!</p>
 <h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
 <p>We are actively looking to build a team around RevJS. If you are interesting in
 contributing, fork us on github or drop us a
