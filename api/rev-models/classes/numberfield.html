@@ -8,6 +8,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
 	<link rel="stylesheet" href="../assets/css/style.css">
+	<link rel="stylesheet" href="../assets/css/highlight.css">
 </head>
 <body>
 <header>
@@ -46,6 +47,22 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>A NumberField stores any numeric value supported by JavaScript
+						Use the <strong>@NumberField()</strong> decorator to add a NumberField to your model</p>
+					</div>
+					<p><strong>Accepted Values:</strong> a <em>number</em></p>
+					<pre><code class="lang-ts"><span class="hljs-keyword">import</span> { NumberField } <span class="hljs-keyword">from</span> <span class="hljs-string">'rev-models'</span>;
+
+<span class="hljs-keyword">class</span> MyClass {
+    <span class="hljs-meta">@NumberField</span>()
+        amount: <span class="hljs-built_in">number</span>;
+}
+</code></pre>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -73,13 +90,30 @@
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/RevJS/revjs/blob/1bc59d9/packages/rev-models/src/decorators/fields.ts#L54">decorators/fields.ts:54</a></li>
+								<li>Defined in <a href="https://github.com/RevJS/revjs/blob/59c3a98/packages/rev-models/src/decorators/fields.ts#L119">decorators/fields.ts:119</a></li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Use the <strong>@NumberField()</strong> decorator to add a NumberField to your model</p>
+							</div>
+							<pre><code class="lang-ts"><span class="hljs-keyword">import</span> { NumberField } <span class="hljs-keyword">from</span> <span class="hljs-string">'rev-models'</span>;
+
+<span class="hljs-keyword">class</span> MyClass {
+    <span class="hljs-meta">@NumberField</span>()
+        amount: <span class="hljs-built_in">number</span>;
+}
+</code></pre>
+						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/inumberfieldoptions.html" class="tsd-signature-type">INumberFieldOptions</a></h5>
+								<div class="tsd-comment tsd-typography">
+									<div class="lead">
+										<p>Options for the NumberField</p>
+									</div>
+								</div>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
@@ -129,7 +163,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="field.html">Field</a>.<a href="field.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/1bc59d9/packages/rev-models/src/fields/numberfields.ts#L11">fields/numberfields.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/59c3a98/packages/rev-models/src/fields/numberfields.ts#L16">fields/numberfields.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -155,7 +189,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="field.html">Field</a>.<a href="field.html#asyncvalidators">asyncValidators</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/1bc59d9/packages/rev-models/src/fields/field.ts#L32">fields/field.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/59c3a98/packages/rev-models/src/fields/field.ts#L32">fields/field.ts:32</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -166,7 +200,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="field.html">Field</a>.<a href="field.html#name">name</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/1bc59d9/packages/rev-models/src/fields/field.ts#L34">fields/field.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/59c3a98/packages/rev-models/src/fields/field.ts#L34">fields/field.ts:34</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -176,8 +210,8 @@
 					<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/1bc59d9/packages/rev-models/src/fields/numberfields.ts#L11">fields/numberfields.ts:11</a></li>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/1bc59d9/packages/rev-models/src/fields/field.ts#L34">fields/field.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/59c3a98/packages/rev-models/src/fields/numberfields.ts#L16">fields/numberfields.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/59c3a98/packages/rev-models/src/fields/field.ts#L34">fields/field.ts:34</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -188,7 +222,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="field.html">Field</a>.<a href="field.html#validators">validators</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/1bc59d9/packages/rev-models/src/fields/field.ts#L31">fields/field.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/59c3a98/packages/rev-models/src/fields/field.ts#L31">fields/field.ts:31</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -206,7 +240,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="field.html">Field</a>.<a href="field.html#frombackendvalue">fromBackendValue</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/1bc59d9/packages/rev-models/src/fields/field.ts#L78">fields/field.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/59c3a98/packages/rev-models/src/fields/field.ts#L78">fields/field.ts:78</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -233,7 +267,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="field.html">Field</a>.<a href="field.html#tobackendvalue">toBackendValue</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/1bc59d9/packages/rev-models/src/fields/field.ts#L74">fields/field.ts:74</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/59c3a98/packages/rev-models/src/fields/field.ts#L74">fields/field.ts:74</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -260,7 +294,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="field.html">Field</a>.<a href="field.html#validate">validate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/1bc59d9/packages/rev-models/src/fields/field.ts#L46">fields/field.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/59c3a98/packages/rev-models/src/fields/field.ts#L46">fields/field.ts:46</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
