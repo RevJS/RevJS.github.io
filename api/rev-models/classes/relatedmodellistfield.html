@@ -51,10 +51,18 @@
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
 						<p>A RelatedModelListField allows you easily retrieve all the related models
-						that are linked to the current model.</p>
+							that are linked to the current model. Use the <strong>@RelatedModelList()</strong>
+						decorator to add a RelatedModelListField to your model</p>
 					</div>
-					<p><strong>Note:</strong> Currently RelatedModelListField lists are read-only. You can
+					<p><strong>Note:</strong> Currently RelatedModelListField lists are <strong>read-only</strong>. You can
 					link new models by updating their corresponding <a href="relatedmodelfield.html">RelatedModelField</a></p>
+					<pre><code class="lang-ts"><span class="hljs-keyword">import</span> { RelatedModelList } <span class="hljs-keyword">from</span> <span class="hljs-string">'rev-models'</span>;
+
+<span class="hljs-keyword">class</span> City {
+    <span class="hljs-meta">@RelatedModelList</span>({ model: <span class="hljs-string">'Customer'</span>, field: <span class="hljs-string">'city'</span> })
+        customers: Customer[];
+}
+</code></pre>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
@@ -113,7 +121,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="field.html">Field</a>.<a href="field.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/59c3a98/packages/rev-models/src/fields/relatedfields.ts#L73">fields/relatedfields.ts:73</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/fields/relatedfields.ts#L93">fields/relatedfields.ts:93</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -139,7 +147,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="field.html">Field</a>.<a href="field.html#asyncvalidators">asyncValidators</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/59c3a98/packages/rev-models/src/fields/field.ts#L32">fields/field.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/fields/field.ts#L32">fields/field.ts:32</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -150,7 +158,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="field.html">Field</a>.<a href="field.html#name">name</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/59c3a98/packages/rev-models/src/fields/field.ts#L34">fields/field.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/fields/field.ts#L34">fields/field.ts:34</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -160,8 +168,8 @@
 					<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/59c3a98/packages/rev-models/src/fields/relatedfields.ts#L73">fields/relatedfields.ts:73</a></li>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/59c3a98/packages/rev-models/src/fields/field.ts#L34">fields/field.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/fields/relatedfields.ts#L93">fields/relatedfields.ts:93</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/fields/field.ts#L34">fields/field.ts:34</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -172,7 +180,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="field.html">Field</a>.<a href="field.html#validators">validators</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/59c3a98/packages/rev-models/src/fields/field.ts#L31">fields/field.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/fields/field.ts#L31">fields/field.ts:31</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -190,7 +198,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="field.html">Field</a>.<a href="field.html#frombackendvalue">fromBackendValue</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/59c3a98/packages/rev-models/src/fields/field.ts#L78">fields/field.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/fields/field.ts#L78">fields/field.ts:78</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -217,7 +225,7 @@
 							<aside class="tsd-sources">
 								<p>Overrides <a href="field.html">Field</a>.<a href="field.html#tobackendvalue">toBackendValue</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/59c3a98/packages/rev-models/src/fields/relatedfields.ts#L95">fields/relatedfields.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/fields/relatedfields.ts#L115">fields/relatedfields.ts:115</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -244,7 +252,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="field.html">Field</a>.<a href="field.html#validate">validate</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/59c3a98/packages/rev-models/src/fields/field.ts#L46">fields/field.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/fields/field.ts#L46">fields/field.ts:46</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
