@@ -47,14 +47,32 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The IModelOperationResult interface is the standard data structure returned by
+						all RevJS model operations (create, update, etc.)</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-type-parameters">
 				<h3>Type parameters</h3>
 				<ul class="tsd-type-parameters">
 					<li>
 						<h4>T</h4>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>The model class</p>
+							</div>
+						</div>
 					</li>
 					<li>
 						<h4>M<span class="tsd-signature-symbol">: </span><a href="ioperationmeta.html" class="tsd-signature-type">IOperationMeta</a></h4>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>The structure of the data returned in the &#39;meta&#39; key</p>
+							</div>
+						</div>
 					</li>
 				</ul>
 			</section>
@@ -99,9 +117,14 @@
 					<div class="tsd-signature tsd-kind-icon">errors<span class="tsd-signature-symbol">:</span> <a href="ioperationerror.html" class="tsd-signature-type">IOperationError</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/operations/operationresult.ts#L21">operations/operationresult.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/operations/operationresult.ts#L52">operations/operationresult.ts:52</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>List of any errors that occured during the operation</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="meta" class="tsd-anchor"></a>
@@ -109,9 +132,14 @@
 					<div class="tsd-signature tsd-kind-icon">meta<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">M</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/operations/operationresult.ts#L22">operations/operationresult.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/operations/operationresult.ts#L56">operations/operationresult.ts:56</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Additional metadata related to the operation, e.g. &quot;totalCount&quot; - the number of records affected</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="operation" class="tsd-anchor"></a>
@@ -119,9 +147,14 @@
 					<div class="tsd-signature tsd-kind-icon">operation<span class="tsd-signature-symbol">:</span> <a href="imodeloperation.html" class="tsd-signature-type">IModelOperation</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/operations/operationresult.ts#L16">operations/operationresult.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/operations/operationresult.ts#L32">operations/operationresult.ts:32</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The name and other information about the current operation</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="result" class="tsd-anchor"></a>
@@ -129,9 +162,14 @@
 					<div class="tsd-signature tsd-kind-icon">result<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/operations/operationresult.ts#L19">operations/operationresult.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/operations/operationresult.ts#L44">operations/operationresult.ts:44</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>For operations that act on a sngle record (e.g. &#39;create&#39;), the created/updated model</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="results" class="tsd-anchor"></a>
@@ -139,9 +177,14 @@
 					<div class="tsd-signature tsd-kind-icon">results<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/operations/operationresult.ts#L20">operations/operationresult.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/operations/operationresult.ts#L48">operations/operationresult.ts:48</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>For operations that act on multiple models (e.g. &#39;read&#39;), the list of associated models</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="success" class="tsd-anchor"></a>
@@ -149,19 +192,29 @@
 					<div class="tsd-signature tsd-kind-icon">success<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/operations/operationresult.ts#L17">operations/operationresult.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/operations/operationresult.ts#L36">operations/operationresult.ts:36</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A boolean indicating whether the information was successful or not</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="validation" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> validation</h3>
-					<div class="tsd-signature tsd-kind-icon">validation<span class="tsd-signature-symbol">:</span> <a href="../classes/modelvalidationresult.html" class="tsd-signature-type">ModelValidationResult</a></div>
+					<div class="tsd-signature tsd-kind-icon">validation<span class="tsd-signature-symbol">:</span> <a href="imodelvalidationresult.html" class="tsd-signature-type">IModelValidationResult</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/operations/operationresult.ts#L18">operations/operationresult.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/operations/operationresult.ts#L40">operations/operationresult.ts:40</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The results of any model validation carried out</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>

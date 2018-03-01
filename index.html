@@ -174,7 +174,7 @@ export class Customer {
         age: number;
     @SelectField({ selection: [['M', 'Male'], ['F', 'Female']] })
         gender: string;
-    @RelatedModel({ model: 'City' })
+    @RelatedModel({ model: 'City', required: false })
         city: City;
 
     constructor(data?: Partial&lt;Customer&gt;) {
@@ -182,7 +182,7 @@ export class Customer {
     }
 }
 
-// Create ModelManager
+// Create ModelManager and register the models
 
 export const modelManager = new ModelManager();
 modelManager.registerBackend('default', new InMemoryBackend());
@@ -265,5 +265,5 @@ contributing, fork us on github or drop us a
 
 <!--
 MkDocs version : 0.17.2
-Build Date UTC : 2018-02-25 07:02:19
+Build Date UTC : 2018-03-01 06:36:08
 -->

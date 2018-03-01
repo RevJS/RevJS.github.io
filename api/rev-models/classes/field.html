@@ -47,6 +47,13 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Base class for all RevJS Field Types</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -111,7 +118,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="field.html#frombackendvalue" class="tsd-kind-icon">from<wbr>Backend<wbr>Value</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="field.html#tobackendvalue" class="tsd-kind-icon">to<wbr>Backend<wbr>Value</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="field.html#validate" class="tsd-kind-icon">validate</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private"><a href="field.html#validate" class="tsd-kind-icon">validate</a></li>
 							</ul>
 						</section>
 					</div>
@@ -129,7 +136,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/fields/field.ts#L32">fields/field.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/fields/field.ts#L52">fields/field.ts:52</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -154,9 +161,14 @@
 					<div class="tsd-signature tsd-kind-icon">async<wbr>Validators<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">validators.IAsyncFieldValidator</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/fields/field.ts#L32">fields/field.ts:32</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/fields/field.ts#L52">fields/field.ts:52</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Array of asynchronous field validators, used when an instance of this field is validated.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="name" class="tsd-anchor"></a>
@@ -164,7 +176,7 @@
 					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/fields/field.ts#L34">fields/field.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/fields/field.ts#L54">fields/field.ts:54</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -174,7 +186,7 @@
 					<div class="tsd-signature tsd-kind-icon">options<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/fields/field.ts#L34">fields/field.ts:34</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/fields/field.ts#L54">fields/field.ts:54</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -184,9 +196,14 @@
 					<div class="tsd-signature tsd-kind-icon">validators<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">validators.IFieldValidator</span><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/fields/field.ts#L31">fields/field.ts:31</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/fields/field.ts#L47">fields/field.ts:47</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Array of synchronous field validators, used when an instance of this field is validated.</p>
+						</div>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -201,19 +218,31 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/fields/field.ts#L78">fields/field.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/fields/field.ts#L114">fields/field.ts:114</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Convert a backend value into a model instance value</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>manager: <a href="../interfaces/imodelmanager.html" class="tsd-signature-type">IModelManager</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ModelManager associated with the model</p>
+									</div>
 								</li>
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The value to convert</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>The value to be stored in the model instance</p>
 						</li>
 					</ul>
 				</section>
@@ -227,35 +256,49 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/fields/field.ts#L74">fields/field.ts:74</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/fields/field.ts#L104">fields/field.ts:104</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Convert a model instance value to a value for storing in a backend</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>manager: <a href="../interfaces/imodelmanager.html" class="tsd-signature-type">IModelManager</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The ModelManager associated with the model</p>
+									</div>
 								</li>
 								<li>
 									<h5>value: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The value to convert</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+							<p>The backend value</p>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
 					<a name="validate" class="tsd-anchor"></a>
-					<h3>validate</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> validate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
 						<li class="tsd-signature tsd-kind-icon">validate&lt;T&gt;<span class="tsd-signature-symbol">(</span>manager<span class="tsd-signature-symbol">: </span><a href="../interfaces/imodelmanager.html" class="tsd-signature-type">IModelManager</a>, model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, operation<span class="tsd-signature-symbol">: </span><a href="../interfaces/imodeloperation.html" class="tsd-signature-type">IModelOperation</a>, result<span class="tsd-signature-symbol">: </span><a href="modelvalidationresult.html" class="tsd-signature-type">ModelValidationResult</a>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/ivalidationoptions.html" class="tsd-signature-type">IValidationOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modelvalidationresult.html" class="tsd-signature-type">ModelValidationResult</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/fields/field.ts#L46">fields/field.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/fields/field.ts#L70">fields/field.ts:70</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
 								<li>
@@ -319,7 +362,7 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="field.html#tobackendvalue" class="tsd-kind-icon">to<wbr>Backend<wbr>Value</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
 								<a href="field.html#validate" class="tsd-kind-icon">validate</a>
 							</li>
 						</ul>

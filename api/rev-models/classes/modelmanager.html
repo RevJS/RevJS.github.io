@@ -59,6 +59,12 @@
 					</ul>
 					<p>The example below shows how to create a new model manager:</p>
 					<pre><code class="lang-ts">
+<span class="hljs-keyword">import</span> { ModelManager, InMemoryBackend } <span class="hljs-keyword">from</span> <span class="hljs-string">'rev-models'</span>;
+
+<span class="hljs-comment">// Create a ModelManager with an InMemoryBackend</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> modelManager = <span class="hljs-keyword">new</span> ModelManager();
+modelManager.registerBackend(<span class="hljs-string">'default'</span>, <span class="hljs-keyword">new</span> InMemoryBackend());
+
 </code></pre>
 				</div>
 			</section>
@@ -121,7 +127,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/models/manager.ts#L35">models/manager.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L35">models/manager.ts:35</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="modelmanager.html" class="tsd-signature-type">ModelManager</a></h4>
@@ -135,13 +141,13 @@
 					<a name="create" class="tsd-anchor"></a>
 					<h3>create</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">create&lt;T&gt;<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/icreateoptions.html" class="tsd-signature-type">ICreateOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/icreatemeta.html" class="tsd-signature-type">ICreateMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">create&lt;T&gt;<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/icreateoptions.html" class="tsd-signature-type">ICreateOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/imodeloperationresult.html" class="tsd-signature-type">IModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/icreatemeta.html" class="tsd-signature-type">ICreateMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/models/manager.ts#L233">models/manager.ts:233</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L233">models/manager.ts:233</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -151,6 +157,36 @@
 								</div>
 								<p>Below is an example of how to use the create method:</p>
 								<pre><code class="lang-ts">
+<span class="hljs-keyword">import</span> { Customer, modelManager } <span class="hljs-keyword">from</span> <span class="hljs-string">'./creating_models'</span>;
+
+<span class="hljs-function">(<span class="hljs-params"><span class="hljs-keyword">async</span> (<span class="hljs-params"></span>) =&gt; {
+
+    <span class="hljs-keyword">let</span> person = <span class="hljs-keyword">new</span> Customer(<span class="hljs-params">{
+        first_name: 'Bill',
+        last_name: 'Bloggs',
+        age: 31,
+        gender: 'M'
+    }</span>);
+
+    <span class="hljs-comment">// models.create() will throw if model is invalid</span>
+
+    <span class="hljs-keyword">let</span> res = <span class="hljs-keyword">await</span> modelManager.create(<span class="hljs-params">person</span>);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-params">'Created Customer ID', res.result.id</span>);
+
+    <span class="hljs-comment">// You can also manually trigger validation:</span>
+
+    <span class="hljs-keyword">let</span> invalid_person = <span class="hljs-keyword">new</span> Customer(<span class="hljs-params"></span>);
+    invalid_person.gender = 'Z';
+
+    <span class="hljs-keyword">let</span> validationResult = <span class="hljs-keyword">await</span> modelManager.validate(<span class="hljs-params">invalid_person</span>);
+
+    <span class="hljs-keyword">if</span> (<span class="hljs-params">!validationResult.valid</span>) {
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-params">'Field errors:', validationResult.fieldErrors</span>);
+        <span class="hljs-built_in">console</span>.log(<span class="hljs-params">'Model errors:', validationResult.modelErrors</span>);
+    }
+
+}</span>)<span class="hljs-params">()</span>;
+</span>
 </code></pre>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -175,7 +211,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/icreatemeta.html" class="tsd-signature-type">ICreateMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/imodeloperationresult.html" class="tsd-signature-type">IModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/icreatemeta.html" class="tsd-signature-type">ICreateMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -183,13 +219,13 @@
 					<a name="exec" class="tsd-anchor"></a>
 					<h3>exec</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">exec&lt;R&gt;<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><a href="../interfaces/imodel.html" class="tsd-signature-type">IModel</a>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/iexecoptions.html" class="tsd-signature-type">IExecOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">exec&lt;R&gt;<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><a href="../interfaces/imodel.html" class="tsd-signature-type">IModel</a>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/iexecoptions.html" class="tsd-signature-type">IExecOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/imodeloperationresult.html" class="tsd-signature-type">IModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/models/manager.ts#L333">models/manager.ts:333</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L333">models/manager.ts:333</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -222,7 +258,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/imodeloperationresult.html" class="tsd-signature-type">IModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -236,7 +272,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/models/manager.ts#L184">models/manager.ts:184</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L184">models/manager.ts:184</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -269,7 +305,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/models/manager.ts#L197">models/manager.ts:197</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L197">models/manager.ts:197</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -291,7 +327,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/models/manager.ts#L124">models/manager.ts:124</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L124">models/manager.ts:124</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -326,7 +362,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/models/manager.ts#L109">models/manager.ts:109</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L109">models/manager.ts:109</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -348,7 +384,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/models/manager.ts#L348">models/manager.ts:348</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L348">models/manager.ts:348</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -397,7 +433,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/models/manager.ts#L209">models/manager.ts:209</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L209">models/manager.ts:209</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -436,7 +472,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/models/manager.ts#L47">models/manager.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L47">models/manager.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -458,13 +494,13 @@
 					<a name="read" class="tsd-anchor"></a>
 					<h3>read</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">read&lt;T&gt;<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/ireadoptions.html" class="tsd-signature-type">IReadOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/ireadmeta.html" class="tsd-signature-type">IReadMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">read&lt;T&gt;<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/ireadoptions.html" class="tsd-signature-type">IReadOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/imodeloperationresult.html" class="tsd-signature-type">IModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/ireadmeta.html" class="tsd-signature-type">IReadMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/models/manager.ts#L298">models/manager.ts:298</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L298">models/manager.ts:298</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -473,7 +509,47 @@
 									<strong>where</strong> clause.</p>
 								</div>
 								<p>Below is an example of how to use the read method:</p>
-								<pre><code class="lang-ts">
+								<pre><code class="lang-ts"><span class="hljs-keyword">import</span> { City, modelManager } <span class="hljs-keyword">from</span> <span class="hljs-string">'./creating_models'</span>;
+
+<span class="hljs-function">(<span class="hljs-params"><span class="hljs-keyword">async</span> (<span class="hljs-params"></span>) =&gt; {
+
+    <span class="hljs-keyword">await</span> modelManager.create(<span class="hljs-params"><span class="hljs-keyword">new</span> City(<span class="hljs-params">{ name: 'Wellington' }</span>)</span>);
+    <span class="hljs-keyword">await</span> modelManager.create(<span class="hljs-params"><span class="hljs-keyword">new</span> City(<span class="hljs-params">{ name: 'Auckland' }</span>)</span>);
+    <span class="hljs-keyword">await</span> modelManager.create(<span class="hljs-params"><span class="hljs-keyword">new</span> City(<span class="hljs-params">{ name: 'Hamilton' }</span>)</span>);
+    <span class="hljs-keyword">await</span> modelManager.create(<span class="hljs-params"><span class="hljs-keyword">new</span> City(<span class="hljs-params">{ name: 'Christchurch' }</span>)</span>);
+
+    <span class="hljs-comment">// No filter</span>
+    <span class="hljs-keyword">const</span> allRecords = <span class="hljs-keyword">await</span> modelManager.read(<span class="hljs-params">City</span>);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-params">'All cities:', allRecords.results</span>);
+
+    <span class="hljs-comment">// Sorting</span>
+    <span class="hljs-keyword">const</span> sortedRecords = <span class="hljs-keyword">await</span> modelManager.read(<span class="hljs-params">City, { orderBy: ['name'] }</span>);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-params">'All cities, sorted by name:', sortedRecords.results</span>);
+
+    <span class="hljs-comment">// Searching</span>
+
+    <span class="hljs-keyword">const</span> subscribers = <span class="hljs-keyword">await</span> modelManager.read(<span class="hljs-params">City, {
+        where: {
+            name: { _like: '%ton' }
+        }
+    }</span>);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-params">'Cities that end <span class="hljs-keyword">in</span> "ton":', subscribers.results</span>);
+
+    <span class="hljs-keyword">const</span> agedPeople = <span class="hljs-keyword">await</span> modelManager.read(<span class="hljs-params">City, { where: {
+        _or: [
+            { name: { _like: '%e%' }},
+            { name: { _like: '%a%' }}
+        ]
+    }}</span>);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-params">'Cities that have an E or an A <span class="hljs-keyword">in</span> the name:', agedPeople.results</span>);
+
+    <span class="hljs-comment">// Paging</span>
+
+    <span class="hljs-keyword">const</span> last3Records = <span class="hljs-keyword">await</span> modelManager.read(<span class="hljs-params">City, { orderBy: ['name'], offset: 2, limit: 2 }</span>);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-params">'Last 2 records:', last3Records.results</span>);
+
+}</span>)<span class="hljs-params">()</span>;
+</span>
 </code></pre>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -499,7 +575,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/ireadmeta.html" class="tsd-signature-type">IReadMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/imodeloperationresult.html" class="tsd-signature-type">IModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/ireadmeta.html" class="tsd-signature-type">IReadMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -513,7 +589,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/models/manager.ts#L89">models/manager.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L89">models/manager.ts:89</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -528,6 +604,32 @@
 								<p>The below example shows the creation of a model, and registering it with
 								a ModelModelManager:</p>
 								<pre><code class="lang-ts">
+<span class="hljs-keyword">import</span> { TextField, ModelManager, InMemoryBackend } <span class="hljs-keyword">from</span> <span class="hljs-string">'rev-models'</span>;
+
+<span class="hljs-comment">// Define models</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> User {
+    <span class="hljs-meta">@TextField</span>()
+        first_name: <span class="hljs-built_in">string</span>;
+    <span class="hljs-meta">@TextField</span>()
+        last_name: <span class="hljs-built_in">string</span>;
+}
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> Post {
+    <span class="hljs-meta">@TextField</span>()
+        title: <span class="hljs-built_in">string</span>;
+    <span class="hljs-meta">@TextField</span>({ multiLine: <span class="hljs-literal">true</span> })
+        body: <span class="hljs-built_in">string</span>;
+}
+
+<span class="hljs-comment">// Create ModelManager and register the models</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> modelManager = <span class="hljs-keyword">new</span> ModelManager();
+modelManager.registerBackend(<span class="hljs-string">'default'</span>, <span class="hljs-keyword">new</span> InMemoryBackend());
+
+modelManager.register(User);
+modelManager.register(Post);
+
 </code></pre>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -568,7 +670,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/models/manager.ts#L162">models/manager.ts:162</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L162">models/manager.ts:162</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -607,13 +709,13 @@
 					<a name="remove" class="tsd-anchor"></a>
 					<h3>remove</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">remove&lt;T&gt;<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/iremoveoptions.html" class="tsd-signature-type">IRemoveOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/iremovemeta.html" class="tsd-signature-type">IRemoveMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">remove&lt;T&gt;<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/iremoveoptions.html" class="tsd-signature-type">IRemoveOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/imodeloperationresult.html" class="tsd-signature-type">IModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/iremovemeta.html" class="tsd-signature-type">IRemoveMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/models/manager.ts#L281">models/manager.ts:281</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L281">models/manager.ts:281</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -627,6 +729,34 @@
 								set the <code>where</code> option (see <a href="../interfaces/iupdateoptions.html#where">IUpdateOptions.where</a>)</p>
 								<p>Below is an example of how to use the remove method:</p>
 								<pre><code class="lang-ts">
+<span class="hljs-keyword">import</span> { City, modelManager } <span class="hljs-keyword">from</span> <span class="hljs-string">'./creating_models'</span>;
+
+<span class="hljs-function">(<span class="hljs-params"><span class="hljs-keyword">async</span> (<span class="hljs-params"></span>) =&gt; {
+
+    <span class="hljs-keyword">await</span> modelManager.create(<span class="hljs-params"><span class="hljs-keyword">new</span> City(<span class="hljs-params">{ name: 'Wellington' }</span>)</span>);
+    <span class="hljs-keyword">await</span> modelManager.create(<span class="hljs-params"><span class="hljs-keyword">new</span> City(<span class="hljs-params">{ name: 'Auckland' }</span>)</span>);
+    <span class="hljs-keyword">await</span> modelManager.create(<span class="hljs-params"><span class="hljs-keyword">new</span> City(<span class="hljs-params">{ name: 'Hamilton' }</span>)</span>);
+    <span class="hljs-keyword">await</span> modelManager.create(<span class="hljs-params"><span class="hljs-keyword">new</span> City(<span class="hljs-params">{ name: 'Christchurch' }</span>)</span>);
+
+    <span class="hljs-keyword">const</span> origRecords = <span class="hljs-keyword">await</span> modelManager.read(<span class="hljs-params">City</span>);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-params">'Original Records:', origRecords.results</span>);
+
+    <span class="hljs-comment">// Retrieve Auckland</span>
+    <span class="hljs-keyword">const</span> cities = <span class="hljs-keyword">await</span> modelManager.read(<span class="hljs-params">City, { where: {
+            name: 'Auckland'
+    }}</span>);
+
+    <span class="hljs-comment">// Remove it!</span>
+    <span class="hljs-keyword">await</span> modelManager.remove(<span class="hljs-params">cities.results[0]</span>);
+
+    <span class="hljs-comment">// Retrieve remaining records</span>
+    <span class="hljs-keyword">const</span> newRecords = <span class="hljs-keyword">await</span> modelManager.read(<span class="hljs-params">City</span>);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-params">'Remaining Records:', newRecords.results</span>);
+
+}</span>)<span class="hljs-params">()</span>;
+
+// <span class="hljs-params">It</span> <span class="hljs-params">is</span> <span class="hljs-params">also</span> <span class="hljs-params">possible</span> <span class="hljs-params">to</span> <span class="hljs-params">remove</span> <span class="hljs-params">multiple</span> <span class="hljs-params">records</span> <span class="hljs-params">using</span> <span class="hljs-params">the</span> '<span class="hljs-params">where</span>' <span class="hljs-params">option</span>
+</span>
 </code></pre>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -652,7 +782,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/iremovemeta.html" class="tsd-signature-type">IRemoveMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/imodeloperationresult.html" class="tsd-signature-type">IModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/iremovemeta.html" class="tsd-signature-type">IRemoveMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -660,13 +790,13 @@
 					<a name="update" class="tsd-anchor"></a>
 					<h3>update</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">update&lt;T&gt;<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/iupdateoptions.html" class="tsd-signature-type">IUpdateOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/iupdatemeta.html" class="tsd-signature-type">IUpdateMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">update&lt;T&gt;<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/iupdateoptions.html" class="tsd-signature-type">IUpdateOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/imodeloperationresult.html" class="tsd-signature-type">IModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/iupdatemeta.html" class="tsd-signature-type">IUpdateMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/models/manager.ts#L257">models/manager.ts:257</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L257">models/manager.ts:257</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -679,7 +809,37 @@
 								<p>If the model does not have a primary key defined, then you&#39;ll need to
 								set the <code>where</code> option (see <a href="../interfaces/iupdateoptions.html#where">IUpdateOptions.where</a>)</p>
 								<p>Below is an example of how to use the update method:</p>
-								<pre><code class="lang-ts">
+								<pre><code class="lang-ts"><span class="hljs-keyword">import</span> { City, modelManager } <span class="hljs-keyword">from</span> <span class="hljs-string">'./creating_models'</span>;
+
+<span class="hljs-function">(<span class="hljs-params"><span class="hljs-keyword">async</span> (<span class="hljs-params"></span>) =&gt; {
+
+    <span class="hljs-keyword">await</span> modelManager.create(<span class="hljs-params"><span class="hljs-keyword">new</span> City(<span class="hljs-params">{ name: 'Wellington' }</span>)</span>);
+    <span class="hljs-keyword">await</span> modelManager.create(<span class="hljs-params"><span class="hljs-keyword">new</span> City(<span class="hljs-params">{ name: 'Auckland' }</span>)</span>);
+    <span class="hljs-keyword">await</span> modelManager.create(<span class="hljs-params"><span class="hljs-keyword">new</span> City(<span class="hljs-params">{ name: 'Hamilton' }</span>)</span>);
+    <span class="hljs-keyword">await</span> modelManager.create(<span class="hljs-params"><span class="hljs-keyword">new</span> City(<span class="hljs-params">{ name: 'Christchurch' }</span>)</span>);
+
+    <span class="hljs-comment">// Retrieve Auckland's record</span>
+    <span class="hljs-keyword">const</span> cities = <span class="hljs-keyword">await</span> modelManager.read(<span class="hljs-params">City, { where: {
+            name: 'Auckland'
+    }}</span>);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-params">'Original Record:', cities.results[0]</span>);
+
+    <span class="hljs-comment">// Change it's name and trigger an update</span>
+    <span class="hljs-keyword">const</span> auckland = cities.results[0];
+    auckland.name = 'City of Sails';
+    <span class="hljs-keyword">await</span> modelManager.update(<span class="hljs-params">auckland</span>);
+
+    <span class="hljs-comment">// Check that Auckland's record has been updated</span>
+    <span class="hljs-keyword">const</span> janeRetrieved = <span class="hljs-keyword">await</span> modelManager.read(<span class="hljs-params">City, { where: {
+            name: 'City of Sails'
+    }}</span>);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-params">'Updated Record:', janeRetrieved.results[0]</span>);
+
+}</span>)<span class="hljs-params">()</span>;
+
+// <span class="hljs-params">It</span> <span class="hljs-params">is</span> <span class="hljs-params">also</span> <span class="hljs-params">possible</span> <span class="hljs-params">to</span> <span class="hljs-params">target</span> <span class="hljs-params">multiple</span> <span class="hljs-params">records</span> <span class="hljs-params">with</span> <span class="hljs-params">an</span> <span class="hljs-params">update</span> <span class="hljs-params">using</span> <span class="hljs-params">the</span>
+// '<span class="hljs-params">where</span>' <span class="hljs-params">option</span>.
+</span>
 </code></pre>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -704,7 +864,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/iupdatemeta.html" class="tsd-signature-type">IUpdateMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/imodeloperationresult.html" class="tsd-signature-type">IModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/iupdatemeta.html" class="tsd-signature-type">IUpdateMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -712,13 +872,13 @@
 					<a name="validate" class="tsd-anchor"></a>
 					<h3>validate</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">validate&lt;T&gt;<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/ivalidationoptions.html" class="tsd-signature-type">IValidationOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modelvalidationresult.html" class="tsd-signature-type">ModelValidationResult</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">validate&lt;T&gt;<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/ivalidationoptions.html" class="tsd-signature-type">IValidationOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/imodelvalidationresult.html" class="tsd-signature-type">IModelValidationResult</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/cfead1d/packages/rev-models/src/models/manager.ts#L315">models/manager.ts:315</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L315">models/manager.ts:315</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -754,7 +914,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modelvalidationresult.html" class="tsd-signature-type">ModelValidationResult</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/imodelvalidationresult.html" class="tsd-signature-type">IModelValidationResult</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
