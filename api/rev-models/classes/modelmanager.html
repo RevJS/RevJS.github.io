@@ -127,7 +127,7 @@ modelManager.registerBackend(<span class="hljs-string">'default'</span>, <span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L35">models/manager.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/85bc501/packages/rev-models/src/models/manager.ts#L35">models/manager.ts:35</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="modelmanager.html" class="tsd-signature-type">ModelManager</a></h4>
@@ -147,7 +147,7 @@ modelManager.registerBackend(<span class="hljs-string">'default'</span>, <span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L233">models/manager.ts:233</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/85bc501/packages/rev-models/src/models/manager.ts#L233">models/manager.ts:233</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -157,33 +157,67 @@ modelManager.registerBackend(<span class="hljs-string">'default'</span>, <span c
 								</div>
 								<p>Below is an example of how to use the create method:</p>
 								<pre><code class="lang-ts">
-<span class="hljs-keyword">import</span> { Customer, modelManager } <span class="hljs-keyword">from</span> <span class="hljs-string">'./creating_models'</span>;
+<span class="hljs-keyword">import</span> {
+    AutoNumberField, TextField, SelectField,
+    ModelManager, InMemoryBackend
+} <span class="hljs-keyword">from</span> <span class="hljs-string">'rev-models'</span>;
+
+<span class="hljs-comment">// Define model</span>
+
+<span class="hljs-keyword">const</span> POST_STATUS = [
+    [<span class="hljs-string">'draft'</span>, <span class="hljs-string">'Draft'</span>],
+    [<span class="hljs-string">'published'</span>, <span class="hljs-string">'Published'</span>]
+];
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> Post {
+    <span class="hljs-meta">@AutoNumberField</span>({ primaryKey: <span class="hljs-literal">true</span> })
+        id: <span class="hljs-built_in">number</span>;
+    <span class="hljs-meta">@TextField</span>({ minLength: <span class="hljs-number">5</span>, maxLength: <span class="hljs-number">100</span> })
+        title: <span class="hljs-built_in">string</span>;
+    <span class="hljs-meta">@TextField</span>({ multiLine: <span class="hljs-literal">true</span> })
+        body: <span class="hljs-built_in">string</span>;
+    <span class="hljs-meta">@SelectField</span>({ selection: POST_STATUS })
+        status: <span class="hljs-built_in">string</span>;
+
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params">data?: Partial&lt;Post&gt;</span>) {
+        <span class="hljs-built_in">Object</span>.assign(<span class="hljs-keyword">this</span>, data);
+    }
+}
+
+<span class="hljs-comment">// Create ModelManager</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> modelManager = <span class="hljs-keyword">new</span> ModelManager();
+modelManager.registerBackend(<span class="hljs-string">'default'</span>, <span class="hljs-keyword">new</span> InMemoryBackend());
+modelManager.register(Post);
 
 <span class="hljs-function">(<span class="hljs-params"><span class="hljs-keyword">async</span> (<span class="hljs-params"></span>) =&gt; {
 
-    <span class="hljs-keyword">let</span> person = <span class="hljs-keyword">new</span> Customer(<span class="hljs-params">{
-        first_name: 'Bill',
-        last_name: 'Bloggs',
-        age: 31,
-        gender: 'M'
+    <span class="hljs-comment">// Create some data</span>
+
+    <span class="hljs-keyword">await</span> modelManager.create(<span class="hljs-params"><span class="hljs-keyword">new</span> Post(<span class="hljs-params">{
+        title: 'My First Post',
+        body: 'This is a really cool post made <span class="hljs-keyword">in</span> RevJS',
+        status: 'draft'
+    }</span>)</span>);
+
+    <span class="hljs-keyword">await</span> modelManager.create(<span class="hljs-params"><span class="hljs-keyword">new</span> Post(<span class="hljs-params">{
+        title: 'RevJS is awesome!',
+        body: 'I should use it <span class="hljs-keyword">for</span> ALL TEH THINGZZZ!',
+        status: 'published'
+    }</span>)</span>);
+
+    <span class="hljs-comment">// Read it back</span>
+
+    <span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> modelManager.read(<span class="hljs-params">Post, {
+        where: {
+            _or: [
+                { title: { _like: '%RevJS%' }},
+                { body: { _like: '%RevJS%' }}
+            ]
+        }
     }</span>);
 
-    <span class="hljs-comment">// models.create() will throw if model is invalid</span>
-
-    <span class="hljs-keyword">let</span> res = <span class="hljs-keyword">await</span> modelManager.create(<span class="hljs-params">person</span>);
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-params">'Created Customer ID', res.result.id</span>);
-
-    <span class="hljs-comment">// You can also manually trigger validation:</span>
-
-    <span class="hljs-keyword">let</span> invalid_person = <span class="hljs-keyword">new</span> Customer(<span class="hljs-params"></span>);
-    invalid_person.gender = 'Z';
-
-    <span class="hljs-keyword">let</span> validationResult = <span class="hljs-keyword">await</span> modelManager.validate(<span class="hljs-params">invalid_person</span>);
-
-    <span class="hljs-keyword">if</span> (<span class="hljs-params">!validationResult.valid</span>) {
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-params">'Field errors:', validationResult.fieldErrors</span>);
-        <span class="hljs-built_in">console</span>.log(<span class="hljs-params">'Model errors:', validationResult.modelErrors</span>);
-    }
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-params">res.results</span>);
 
 }</span>)<span class="hljs-params">()</span>;
 </span>
@@ -219,13 +253,13 @@ modelManager.registerBackend(<span class="hljs-string">'default'</span>, <span c
 					<a name="exec" class="tsd-anchor"></a>
 					<h3>exec</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">exec&lt;R&gt;<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><a href="../interfaces/imodel.html" class="tsd-signature-type">IModel</a>, options<span class="tsd-signature-symbol">?: </span><a href="../interfaces/iexecoptions.html" class="tsd-signature-type">IExecOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/imodeloperationresult.html" class="tsd-signature-type">IModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">exec&lt;R&gt;<span class="tsd-signature-symbol">(</span>model<span class="tsd-signature-symbol">: </span><a href="../interfaces/imodel.html" class="tsd-signature-type">IModel</a>, options<span class="tsd-signature-symbol">: </span><a href="../interfaces/iexecoptions.html" class="tsd-signature-type">IExecOptions</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/imodeloperationresult.html" class="tsd-signature-type">IModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L333">models/manager.ts:333</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/85bc501/packages/rev-models/src/models/manager.ts#L332">models/manager.ts:332</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -252,9 +286,10 @@ modelManager.registerBackend(<span class="hljs-string">'default'</span>, <span c
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> options: <a href="../interfaces/iexecoptions.html" class="tsd-signature-type">IExecOptions</a></h5>
+									<h5>options: <a href="../interfaces/iexecoptions.html" class="tsd-signature-type">IExecOptions</a></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Additional options</p>
+										<p>Options for the for the method call, including the method
+										name and any arguments to pass</p>
 									</div>
 								</li>
 							</ul>
@@ -272,7 +307,7 @@ modelManager.registerBackend(<span class="hljs-string">'default'</span>, <span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L184">models/manager.ts:184</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/85bc501/packages/rev-models/src/models/manager.ts#L184">models/manager.ts:184</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -305,7 +340,7 @@ modelManager.registerBackend(<span class="hljs-string">'default'</span>, <span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L197">models/manager.ts:197</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/85bc501/packages/rev-models/src/models/manager.ts#L197">models/manager.ts:197</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -327,7 +362,7 @@ modelManager.registerBackend(<span class="hljs-string">'default'</span>, <span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L124">models/manager.ts:124</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/85bc501/packages/rev-models/src/models/manager.ts#L124">models/manager.ts:124</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -362,7 +397,7 @@ modelManager.registerBackend(<span class="hljs-string">'default'</span>, <span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L109">models/manager.ts:109</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/85bc501/packages/rev-models/src/models/manager.ts#L109">models/manager.ts:109</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -384,7 +419,7 @@ modelManager.registerBackend(<span class="hljs-string">'default'</span>, <span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L348">models/manager.ts:348</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/85bc501/packages/rev-models/src/models/manager.ts#L347">models/manager.ts:347</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -433,7 +468,7 @@ modelManager.registerBackend(<span class="hljs-string">'default'</span>, <span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L209">models/manager.ts:209</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/85bc501/packages/rev-models/src/models/manager.ts#L209">models/manager.ts:209</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -472,7 +507,7 @@ modelManager.registerBackend(<span class="hljs-string">'default'</span>, <span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L47">models/manager.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/85bc501/packages/rev-models/src/models/manager.ts#L47">models/manager.ts:47</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -500,7 +535,7 @@ modelManager.registerBackend(<span class="hljs-string">'default'</span>, <span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L298">models/manager.ts:298</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/85bc501/packages/rev-models/src/models/manager.ts#L298">models/manager.ts:298</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -589,7 +624,7 @@ modelManager.registerBackend(<span class="hljs-string">'default'</span>, <span c
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L89">models/manager.ts:89</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/85bc501/packages/rev-models/src/models/manager.ts#L89">models/manager.ts:89</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -670,7 +705,7 @@ modelManager.register(Post);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L162">models/manager.ts:162</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/85bc501/packages/rev-models/src/models/manager.ts#L162">models/manager.ts:162</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -715,7 +750,7 @@ modelManager.register(Post);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L281">models/manager.ts:281</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/85bc501/packages/rev-models/src/models/manager.ts#L281">models/manager.ts:281</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -796,7 +831,7 @@ modelManager.register(Post);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L257">models/manager.ts:257</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/85bc501/packages/rev-models/src/models/manager.ts#L257">models/manager.ts:257</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -878,7 +913,7 @@ modelManager.register(Post);
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b2f551b/packages/rev-models/src/models/manager.ts#L315">models/manager.ts:315</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/85bc501/packages/rev-models/src/models/manager.ts#L315">models/manager.ts:315</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -890,7 +925,7 @@ modelManager.register(Post);
 								<p>Model validation proceeds as follows:</p>
 								<ol>
 									<li>Validate fields</li>
-									<li>Validate model (using <a href="../interfaces/imodel.html#validate">IModel.validate</a>)</li>
+									<li>Validate model (using <a href="../interfaces/imodel.html#validateasync">IModel.validateAsync</a> and <a href="../interfaces/imodel.html#validate">IModel.validate</a>)</li>
 								</ol>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
