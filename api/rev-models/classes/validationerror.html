@@ -47,6 +47,65 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>A ValidationError is thrown by a <a href="modelmanager.html">ModelManager</a> when an operation fails
+						due to model validation.</p>
+					</div>
+					<p>The <code>validation</code> property contains the failure details in a
+					<a href="../interfaces/imodelvalidationresult.html">IModelValidationResult</a> object.</p>
+					<p>The below example shows an example of handling a ValidationError returned
+					from a ModelManager:</p>
+					<pre><code class="lang-ts">
+<span class="hljs-keyword">import</span> {
+    TextField, SelectField, ModelManager, InMemoryBackend,
+    ValidationError
+} <span class="hljs-keyword">from</span> <span class="hljs-string">'rev-models'</span>;
+
+<span class="hljs-comment">// Define model</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> Comment {
+    <span class="hljs-meta">@TextField</span>()
+        comment: <span class="hljs-built_in">string</span>;
+    <span class="hljs-meta">@SelectField</span>({ selection: [[<span class="hljs-string">'draft'</span>, <span class="hljs-string">'Draft'</span>], [<span class="hljs-string">'posted'</span>, <span class="hljs-string">'Posted'</span>]]})
+        status: <span class="hljs-built_in">string</span>;
+
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params">data?: Partial&lt;Comment&gt;</span>) {
+        <span class="hljs-built_in">Object</span>.assign(<span class="hljs-keyword">this</span>, data);
+    }
+}
+
+<span class="hljs-keyword">const</span> modelManager = <span class="hljs-keyword">new</span> ModelManager();
+modelManager.registerBackend(<span class="hljs-string">'default'</span>, <span class="hljs-keyword">new</span> InMemoryBackend());
+modelManager.register(Comment);
+
+<span class="hljs-comment">// Try to create an invalid Comment</span>
+
+(<span class="hljs-keyword">async</span> () =&gt; {
+
+    <span class="hljs-keyword">try</span> {
+        <span class="hljs-keyword">await</span> modelManager.create(<span class="hljs-keyword">new</span> Comment({
+            comment: <span class="hljs-string">'This comment has an invalid status'</span>,
+            status: <span class="hljs-string">'Awesome!'</span>
+        }));
+    }
+    <span class="hljs-keyword">catch</span> (e) {
+        <span class="hljs-keyword">if</span> (e <span class="hljs-keyword">instanceof</span> ValidationError) {
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Model Failed Validation :('</span>);
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Field Errors:'</span>, e.validation.fieldErrors);
+            <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'Model Errors:'</span>, e.validation.modelErrors);
+        }
+        <span class="hljs-keyword">else</span> {
+            <span class="hljs-keyword">throw</span> e;
+        }
+    }
+
+})();
+
+</code></pre>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -97,7 +156,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/85bc501/packages/rev-models/src/validation/validationerror.ts#L7">validation/validationerror.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/f01976e/packages/rev-models/src/validation/validationerror.ts#L27">validation/validationerror.ts:27</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -122,9 +181,14 @@
 					<div class="tsd-signature tsd-kind-icon">result<span class="tsd-signature-symbol">:</span> <a href="../interfaces/imodeloperationresult.html" class="tsd-signature-type">IModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/85bc501/packages/rev-models/src/validation/validationerror.ts#L6">validation/validationerror.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/f01976e/packages/rev-models/src/validation/validationerror.ts#L23">validation/validationerror.ts:23</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The result of the model operation (normally failed due to model validation)</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="validation" class="tsd-anchor"></a>
@@ -132,9 +196,14 @@
 					<div class="tsd-signature tsd-kind-icon">validation<span class="tsd-signature-symbol">:</span> <a href="../interfaces/imodelvalidationresult.html" class="tsd-signature-type">IModelValidationResult</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/85bc501/packages/rev-models/src/validation/validationerror.ts#L7">validation/validationerror.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/f01976e/packages/rev-models/src/validation/validationerror.ts#L27">validation/validationerror.ts:27</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The details of the validation problem</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-static">
 					<a name="error" class="tsd-anchor"></a>
@@ -142,7 +211,7 @@
 					<div class="tsd-signature tsd-kind-icon">Error<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ErrorConstructor</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in /home/russell/code/revjs/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:884</li>
+							<li>Defined in /Users/russell.briggs/rev/revjs/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:884</li>
 						</ul>
 					</aside>
 				</section>
@@ -153,7 +222,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from Error.message</p>
 						<ul>
-							<li>Defined in /home/russell/code/revjs/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:874</li>
+							<li>Defined in /Users/russell.briggs/rev/revjs/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:874</li>
 						</ul>
 					</aside>
 				</section>
@@ -164,7 +233,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from Error.name</p>
 						<ul>
-							<li>Defined in /home/russell/code/revjs/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:873</li>
+							<li>Defined in /Users/russell.briggs/rev/revjs/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:873</li>
 						</ul>
 					</aside>
 				</section>
@@ -175,7 +244,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from Error.result</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/85bc501/packages/rev-models/src/types.d.ts#L7">types.d.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/f01976e/packages/rev-models/src/types.d.ts#L7">types.d.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -187,7 +256,7 @@
 						<p>Inherited from Error.stack</p>
 						<p>Overrides Error.stack</p>
 						<ul>
-							<li>Defined in /home/russell/code/revjs/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:875</li>
+							<li>Defined in /Users/russell.briggs/rev/revjs/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:875</li>
 						</ul>
 					</aside>
 				</section>
