@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Creating Model Data - RevJS Guide</title>
+  <title>Updating Model Data - RevJS Guide</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -19,9 +19,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Creating Model Data";
-    var mkdocs_page_input_path = "models/creating_data.md";
-    var mkdocs_page_url = "/models/creating_data/";
+    var mkdocs_page_name = "Updating Model Data";
+    var mkdocs_page_input_path = "models/updating_data.md";
+    var mkdocs_page_url = "/models/updating_data/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -62,31 +62,31 @@
                     
     <a class="" href="../creating_models/">Creating Models</a>
                 </li>
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Creating Model Data</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#creating-model-data">Creating Model Data</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#defining-model-constructors">Defining Model Constructors</a></li>
-        
-            <li><a class="toctree-l4" href="#storing-model-data">Storing Model Data</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../creating_data/">Creating Model Data</a>
                 </li>
                 <li class="">
                     
     <a class="" href="../reading_data/">Reading Model Data</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../updating_data/">Updating Model Data</a>
+    <a class="current" href="./">Updating Model Data</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#updating-model-data">Updating Model Data</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#updating-data-from-reads">Updating Data from Reads</a></li>
+        
+            <li><a class="toctree-l4" href="#updating-data-with-a-where-clause">Updating Data with a Where clause</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
@@ -144,10 +144,10 @@
         
       
     
-    <li>Creating Model Data</li>
+    <li>Updating Model Data</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/RevJS/revjs/edit/master/docs/mkdocs/src/models/creating_data.md"
+        <a href="https://github.com/RevJS/revjs/edit/master/docs/mkdocs/src/models/updating_data.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -157,109 +157,74 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="creating-model-data">Creating Model Data<a class="headerlink" href="#creating-model-data" title="Permanent link">&para;</a></h1>
-<p>Since RevJS models are just JavaScript classes, you create new records by
-creating new instances of your model class, and passing them to the
-<a href="../../api/rev-models/classes/modelmanager.html#create">ModelManager.create()</a>
-method.</p>
-<h2 id="defining-model-constructors">Defining Model Constructors<a class="headerlink" href="#defining-model-constructors" title="Permanent link">&para;</a></h2>
-<p>To make it easier to populate new records, we recommend adding a constructor
-function to your class, as shown in the example below:</p>
-<pre><code class="ts">class MyCoolModel {
-    @TextField()
-        title: string;
-    @TextField({ multiLine: true })
-        body: string;
-
-    constructor(data?: Partial&lt;MyCoolModel&gt;) {
-        Object.assign(this, data);
-    }
-}
-</code></pre>
-
-<p>Doing this means you can then construct new records with new data in a single
-statement, as shown below:</p>
-<pre><code class="ts">const new_record = new MyCoolModel({
-    title: 'New Record',
-    body: 'This is a cool new record with some data!'
-});
-</code></pre>
-
-<p><strong>IMPORTANT NOTE:</strong> It should also be possible to construct instances
-of your model <strong>without</strong> passing any data. RevJS needs to do this when
-hydrating models from data retrieved from a backend.</p>
-<h2 id="storing-model-data">Storing Model Data<a class="headerlink" href="#storing-model-data" title="Permanent link">&para;</a></h2>
-<p>To store data for your model in a backend, simply pass a populated instance
-of your model to the
-<a href="../../api/rev-models/classes/modelmanager.html#create">ModelManager.create()</a>
-method.</p>
-<p>The model data will be validated before it is passed to the backend. If any
-validation errors occur, a
-<a href="../../api/rev-models/classes/validationerror.html">ValidationError</a> will be
-thrown.</p>
-<p>The example below shows how to define a model and create some data for it:</p>
-<pre><code class="ts">
-import {
-    AutoNumberField, TextField, SelectField,
-    ModelManager, InMemoryBackend
-} from 'rev-models';
-
-// Define model
-
-const POST_STATUS = [
-    ['draft', 'Draft'],
-    ['published', 'Published']
-];
-
-export class Post {
-    @AutoNumberField({ primaryKey: true })
-        id: number;
-    @TextField({ minLength: 5, maxLength: 100 })
-        title: string;
-    @TextField({ multiLine: true })
-        body: string;
-    @SelectField({ selection: POST_STATUS })
-        status: string;
-
-    constructor(data?: Partial&lt;Post&gt;) {
-        Object.assign(this, data);
-    }
-}
-
-// Create ModelManager
-
-export const modelManager = new ModelManager();
-modelManager.registerBackend('default', new InMemoryBackend());
-modelManager.register(Post);
+                <h1 id="updating-model-data">Updating Model Data<a class="headerlink" href="#updating-model-data" title="Permanent link">&para;</a></h1>
+<p>You can update records using the
+<a href="../../api/rev-models/classes/modelmanager.html#update">ModelManager.update()</a>
+method. There are a couple of ways to use it:</p>
+<h2 id="updating-data-from-reads">Updating Data from Reads<a class="headerlink" href="#updating-data-from-reads" title="Permanent link">&para;</a></h2>
+<p>If you have retrieved some data via a
+<a href="../../api/rev-models/classes/modelmanager.html#read">read()</a> operation, then you
+can update the retrieved records directly, as shown in the example below:</p>
+<pre><code class="ts">import { City, modelManager } from './creating_models';
 
 (async () =&gt; {
 
-    // Create some data
+    await modelManager.create(new City({ name: 'Wellington' }));
+    await modelManager.create(new City({ name: 'Auckland' }));
+    await modelManager.create(new City({ name: 'Hamilton' }));
+    await modelManager.create(new City({ name: 'Christchurch' }));
 
-    await modelManager.create(new Post({
-        title: 'My First Post',
-        body: 'This is a really cool post made in RevJS',
-        status: 'draft'
-    }));
+    // Retrieve Auckland's record
+    const cities = await modelManager.read(City, { where: {
+            name: 'Auckland'
+    }});
+    console.log('Original Record:', cities.results[0]);
 
-    await modelManager.create(new Post({
-        title: 'RevJS is awesome!',
-        body: 'I should use it for ALL TEH THINGZZZ!',
-        status: 'published'
-    }));
+    // Change it's name and trigger an update
+    const auckland = cities.results[0];
+    auckland.name = 'City of Sails';
 
-    // Read it back
+    await modelManager.update(auckland);
 
-    const res = await modelManager.read(Post, {
+    // Check that Auckland's record has been updated
+    const cityRetrieved = await modelManager.read(City, { where: {
+            name: 'City of Sails'
+    }});
+    console.log('Updated Record:', cityRetrieved.results[0]);
+
+})();
+</code></pre>
+
+<p><strong>NOTE:</strong> In order to update records without specifying a <em>where</em> clause, your
+model must have a field with <code>primaryKey: true</code> set.</p>
+<h2 id="updating-data-with-a-where-clause">Updating Data with a Where clause<a class="headerlink" href="#updating-data-with-a-where-clause" title="Permanent link">&para;</a></h2>
+<p>If you wish to modify one or more fields across <em>multiple records</em>, you can
+use the <strong>where</strong> clause, as shown in the example below:</p>
+<pre><code class="ts">import { Post, modelManager, createData } from './post_model';
+
+(async () =&gt; {
+    await createData();
+
+    // Count unpublished posts
+    const unpublishedPosts = await modelManager.read(Post, {
         where: {
-            _or: [
-                { title: { _like: '%RevJS%' }},
-                { body: { _like: '%RevJS%' }}
-            ]
+            published: false
         }
     });
+    console.log('Number of unpublished posts:', unpublishedPosts.meta.totalCount);
 
-    console.log(res.results);
+    // Publish all unpublished posts!
+    const publishResult = await modelManager.update(
+        new Post({
+            published: true
+        }),
+        {
+            where: {
+                published: false
+            }
+        }
+    );
+    console.log('Updated records:', publishResult.meta.totalCount);
 
 })();
 </code></pre>
@@ -270,10 +235,10 @@ modelManager.register(Post);
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../reading_data/" class="btn btn-neutral float-right" title="Reading Model Data">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../deleting_data/" class="btn btn-neutral float-right" title="Deleting Model Data">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../creating_models/" class="btn btn-neutral" title="Creating Models"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../reading_data/" class="btn btn-neutral" title="Reading Model Data"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -301,10 +266,10 @@ modelManager.register(Post);
           <a href="https://github.com/RevJS/revjs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../creating_models/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../reading_data/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../reading_data/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../deleting_data/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

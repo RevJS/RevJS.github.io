@@ -29,6 +29,18 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>/models/updating_data/</loc>
+     <lastmod>2018-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/models/deleting_data/</loc>
+     <lastmod>2018-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
