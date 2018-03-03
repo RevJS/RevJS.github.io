@@ -47,6 +47,92 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The IModel interface defines the standard methods that RevJS models can
+						implement.</p>
+					</div>
+					<p>The below code gives an example of defining both validate() and
+					validateAsync() methods for a model:</p>
+					<pre><code class="lang-ts">
+<span class="hljs-keyword">import</span> {
+    AutoNumberField, TextField, BooleanField,
+    ModelManager, InMemoryBackend, IValidationContext
+} <span class="hljs-keyword">from</span> <span class="hljs-string">'rev-models'</span>;
+
+<span class="hljs-comment">// Define model with some custom validation</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> Post {
+    <span class="hljs-meta">@AutoNumberField</span>({ primaryKey: <span class="hljs-literal">true</span> })
+        id: <span class="hljs-built_in">number</span>;
+    <span class="hljs-meta">@TextField</span>()
+        title: <span class="hljs-built_in">string</span>;
+    <span class="hljs-meta">@TextField</span>({ multiLine: <span class="hljs-literal">true</span> })
+        body: <span class="hljs-built_in">string</span>;
+    <span class="hljs-meta">@BooleanField</span>()
+        is_published: <span class="hljs-built_in">boolean</span>;
+
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params">data?: Partial&lt;Post&gt;</span>) {
+        <span class="hljs-built_in">Object</span>.assign(<span class="hljs-keyword">this</span>, data);
+    }
+
+    <span class="hljs-comment">// Define synchronous validation</span>
+    validate(ctx: IValidationContext) {
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.body.includes(<span class="hljs-string">'fake news'</span>)) {
+            ctx.result.addFieldError(<span class="hljs-string">'body'</span>, <span class="hljs-string">'Body must not contain fake news!'</span>);
+        }
+    }
+
+    <span class="hljs-comment">// Define some asynchronous validation</span>
+    <span class="hljs-keyword">async</span> validateAsync(ctx: IValidationContext) {
+        <span class="hljs-keyword">if</span> (ctx.operation.operationName == <span class="hljs-string">'create'</span>) {
+            <span class="hljs-keyword">const</span> duplicates = <span class="hljs-keyword">await</span> ctx.manager.read(Post, {
+                where: {
+                    title: { _like: <span class="hljs-keyword">this</span>.title }
+                }
+            });
+            <span class="hljs-keyword">if</span> (duplicates.meta.totalCount &gt; <span class="hljs-number">0</span>) {
+                ctx.result.addFieldError(<span class="hljs-string">'title'</span>, <span class="hljs-string">'Cannot create post with a duplicate title!'</span>);
+            }
+        }
+    }
+}
+
+<span class="hljs-comment">// Create ModelManager</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> modelManager = <span class="hljs-keyword">new</span> ModelManager();
+modelManager.registerBackend(<span class="hljs-string">'default'</span>, <span class="hljs-keyword">new</span> InMemoryBackend());
+modelManager.register(Post);
+
+<span class="hljs-comment">// Create some data</span>
+
+(<span class="hljs-keyword">async</span> () =&gt; {
+    <span class="hljs-keyword">try</span> {
+
+        <span class="hljs-comment">// Create a valid post</span>
+        <span class="hljs-keyword">await</span> modelManager.create(<span class="hljs-keyword">new</span> Post({
+            title: <span class="hljs-string">'This is a valid post'</span>,
+            body: <span class="hljs-string">'No alternative facts here!'</span>,
+            is_published: <span class="hljs-literal">true</span>
+        }));
+
+        <span class="hljs-comment">// Try to create a duplicate post...</span>
+        <span class="hljs-keyword">await</span> modelManager.create(<span class="hljs-keyword">new</span> Post({
+            title: <span class="hljs-string">'This is a valid post'</span>,
+            body: <span class="hljs-string">'Not really! Its a duplicate, so should cause an error...'</span>,
+            is_published: <span class="hljs-literal">true</span>
+        }));
+
+    }
+    <span class="hljs-keyword">catch</span> (e) {
+        <span class="hljs-built_in">console</span>.error(e.message);
+    }
+})();
+
+</code></pre>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -58,6 +144,90 @@
 			<section class="tsd-panel tsd-kind-interface">
 				<h3 class="tsd-before-signature">Indexable</h3>
 				<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>fieldName: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></div>
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The IModel interface defines the standard methods that RevJS models can
+						implement.</p>
+					</div>
+					<p>The below code gives an example of defining both validate() and
+					validateAsync() methods for a model:</p>
+					<pre><code class="lang-ts">
+<span class="hljs-keyword">import</span> {
+    AutoNumberField, TextField, BooleanField,
+    ModelManager, InMemoryBackend, IValidationContext
+} <span class="hljs-keyword">from</span> <span class="hljs-string">'rev-models'</span>;
+
+<span class="hljs-comment">// Define model with some custom validation</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> Post {
+    <span class="hljs-meta">@AutoNumberField</span>({ primaryKey: <span class="hljs-literal">true</span> })
+        id: <span class="hljs-built_in">number</span>;
+    <span class="hljs-meta">@TextField</span>()
+        title: <span class="hljs-built_in">string</span>;
+    <span class="hljs-meta">@TextField</span>({ multiLine: <span class="hljs-literal">true</span> })
+        body: <span class="hljs-built_in">string</span>;
+    <span class="hljs-meta">@BooleanField</span>()
+        is_published: <span class="hljs-built_in">boolean</span>;
+
+    <span class="hljs-keyword">constructor</span>(<span class="hljs-params">data?: Partial&lt;Post&gt;</span>) {
+        <span class="hljs-built_in">Object</span>.assign(<span class="hljs-keyword">this</span>, data);
+    }
+
+    <span class="hljs-comment">// Define synchronous validation</span>
+    validate(ctx: IValidationContext) {
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.body.includes(<span class="hljs-string">'fake news'</span>)) {
+            ctx.result.addFieldError(<span class="hljs-string">'body'</span>, <span class="hljs-string">'Body must not contain fake news!'</span>);
+        }
+    }
+
+    <span class="hljs-comment">// Define some asynchronous validation</span>
+    <span class="hljs-keyword">async</span> validateAsync(ctx: IValidationContext) {
+        <span class="hljs-keyword">if</span> (ctx.operation.operationName == <span class="hljs-string">'create'</span>) {
+            <span class="hljs-keyword">const</span> duplicates = <span class="hljs-keyword">await</span> ctx.manager.read(Post, {
+                where: {
+                    title: { _like: <span class="hljs-keyword">this</span>.title }
+                }
+            });
+            <span class="hljs-keyword">if</span> (duplicates.meta.totalCount &gt; <span class="hljs-number">0</span>) {
+                ctx.result.addFieldError(<span class="hljs-string">'title'</span>, <span class="hljs-string">'Cannot create post with a duplicate title!'</span>);
+            }
+        }
+    }
+}
+
+<span class="hljs-comment">// Create ModelManager</span>
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> modelManager = <span class="hljs-keyword">new</span> ModelManager();
+modelManager.registerBackend(<span class="hljs-string">'default'</span>, <span class="hljs-keyword">new</span> InMemoryBackend());
+modelManager.register(Post);
+
+<span class="hljs-comment">// Create some data</span>
+
+(<span class="hljs-keyword">async</span> () =&gt; {
+    <span class="hljs-keyword">try</span> {
+
+        <span class="hljs-comment">// Create a valid post</span>
+        <span class="hljs-keyword">await</span> modelManager.create(<span class="hljs-keyword">new</span> Post({
+            title: <span class="hljs-string">'This is a valid post'</span>,
+            body: <span class="hljs-string">'No alternative facts here!'</span>,
+            is_published: <span class="hljs-literal">true</span>
+        }));
+
+        <span class="hljs-comment">// Try to create a duplicate post...</span>
+        <span class="hljs-keyword">await</span> modelManager.create(<span class="hljs-keyword">new</span> Post({
+            title: <span class="hljs-string">'This is a valid post'</span>,
+            body: <span class="hljs-string">'Not really! Its a duplicate, so should cause an error...'</span>,
+            is_published: <span class="hljs-literal">true</span>
+        }));
+
+    }
+    <span class="hljs-keyword">catch</span> (e) {
+        <span class="hljs-built_in">console</span>.error(e.message);
+    }
+})();
+
+</code></pre>
+				</div>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
@@ -85,9 +255,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/f01976e/packages/rev-models/src/models/types.ts#L26">models/types.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/875cd99/packages/rev-models/src/models/types.ts#L58">models/types.ts:58</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>You can define any synchronous model validation logic in this method.
+										Use the <code>vc.result</code> (<a href="../classes/modelvalidationresult.html">ModelValidationResult</a>) object to record any
+									validation errors.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -108,9 +285,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/f01976e/packages/rev-models/src/models/types.ts#L27">models/types.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/875cd99/packages/rev-models/src/models/types.ts#L64">models/types.ts:64</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>You can define any asynchronous model validation logic in this method.
+										This method must return a promise. Use the <code>vc.result</code>
+									(<a href="../classes/modelvalidationresult.html">ModelValidationResult</a>) object to record any validation errors.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
