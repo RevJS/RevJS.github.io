@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Working with Related Models - RevJS Guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/highlight.css" rel="stylesheet">
+  <link href="../../css/style.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Working with Related Models";
+    var mkdocs_page_input_path = "models/related_data.md";
+    var mkdocs_page_url = "/models/related_data/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> RevJS Guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Welcome to RevJS!</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Working with Models</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../creating_models/">Creating Models</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../creating_data/">Creating Model Data</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../reading_data/">Reading Model Data</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../updating_data/">Updating Model Data</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../deleting_data/">Deleting Model Data</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Working with Related Models</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#working-with-related-models">Working with Related Models</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#defining-relationships">Defining Relationships</a></li>
+        
+            <li><a class="toctree-l4" href="#creating-related-model-data">Creating Related Model Data</a></li>
+        
+            <li><a class="toctree-l4" href="#reading-related-model-data">Reading Related Model Data</a></li>
+        
+            <li><a class="toctree-l4" href="#updating-related-model-records">Updating Related Model Records</a></li>
+        
+            <li><a class="toctree-l4" href="#searching-based-on-related-model-data">Searching based on Related Model Data</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">RevJS Modules</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../components/rev-models/">rev-models</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../components/rev-api/">rev-api</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../components/rev-api-client/">rev-api-client</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../components/rev-ui/">rev-ui</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">RevJS Guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Working with Models &raquo;</li>
+        
+      
+    
+    <li>Working with Related Models</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/RevJS/revjs/edit/master/docs/mkdocs/src/models/related_data.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="working-with-related-models">Working with Related Models<a class="headerlink" href="#working-with-related-models" title="Permanent link">&para;</a></h1>
+<p>To fully model your data, you will normally want to define relationships
+between your models.</p>
+<p>For example, you might want to associate a <strong>Post</strong> model with a <strong>User</strong> (the
+author), and also your <strong>Post</strong> model may have many <strong>Comments</strong> linked with it.</p>
+<h2 id="defining-relationships">Defining Relationships<a class="headerlink" href="#defining-relationships" title="Permanent link">&para;</a></h2>
+<p>RevJS currently has two types of relational fields:</p>
+<ul>
+<li>A <a href="../../api/rev-models/classes/relatedmodelfield.html">RelatedModel</a> field is a
+  link from the current model to <strong>one record from another model</strong>. In the
+  <strong>Post</strong> example above, you would add a <code>@RelatedModel()</code> field for the
+  <code>user</code> field.</li>
+<li>A <a href="../../api/rev-models/classes/relatedmodellistfield.html">RelatedModelList</a>
+  field allows access to <strong>a list of records from another model</strong>, that are
+  linked to the current one via a RelatedModel field. In the <strong>Post</strong> example
+  above, you would add a <code>@RelatedModelList()</code> field for the <code>comments</code> field.</li>
+</ul>
+<p>Lets implement the <strong>Post</strong>, <strong>User</strong>, <strong>Comments</strong> example to show how these
+fields work:</p>
+<ul>
+<li>A <strong>User</strong> can have a <strong>list of Posts</strong> and a <strong>list of Comments</strong></li>
+<li>A <strong>Post</strong> is linked to a single <strong>User</strong>. and can have a <strong>list of Comments</strong></li>
+<li>A <strong>Comment</strong> is linked to a single <strong>User</strong> and a single <strong>Post</strong></li>
+</ul>
+<pre><code class="ts">
+import {
+    AutoNumberField, TextField, RelatedModel, RelatedModelList,
+    ModelManager, InMemoryBackend
+} from 'rev-models';
+
+export class User {
+    @AutoNumberField({ primaryKey: true })
+        id: number;
+    @TextField()
+        username: string;
+    @RelatedModelList({ model: 'Post', field: 'user' })
+        posts: Post[];
+    @RelatedModelList({ model: 'Comment', field: 'user' })
+        comments: Comment[];
+
+    constructor(data?: Partial&lt;User&gt;) {
+        Object.assign(this, data);
+    }
+}
+
+export class Post {
+    @AutoNumberField({ primaryKey: true })
+        id: number;
+    @RelatedModel({ model: 'User' })
+        user: User;
+    @TextField()
+        title: string;
+    @TextField({ multiLine: true })
+        body: string;
+    @RelatedModelList({ model: 'Comment', field: 'post' })
+        comments: Comment[];
+
+    constructor(data?: Partial&lt;Post&gt;) {
+        Object.assign(this, data);
+    }
+}
+
+export class Comment {
+    @AutoNumberField({ primaryKey: true })
+        id: number;
+    @RelatedModel({ model: 'Post' })
+        post: Post;
+    @RelatedModel({ model: 'User', required: false })
+        user: User;
+    @TextField()
+        comment: string;
+
+    constructor(data?: Partial&lt;Comment&gt;) {
+        Object.assign(this, data);
+    }
+}
+
+export const modelManager = new ModelManager();
+modelManager.registerBackend('default', new InMemoryBackend());
+modelManager.register(User);
+modelManager.register(Post);
+modelManager.register(Comment);
+</code></pre>
+
+<h2 id="creating-related-model-data">Creating Related Model Data<a class="headerlink" href="#creating-related-model-data" title="Permanent link">&para;</a></h2>
+<p>As with most RevJS operations, you can create relationships between models
+simply by assigning values to JavaScript objects as you normally would, then
+passing the resulting object to the
+<a href="../../api/rev-models/classes/modelmanager.html#create">create()</a> or
+<a href="../../api/rev-models/classes/modelmanager.html#update">update()</a> methods of
+your <a href="../../api/rev-models/classes/modelmanager.html">ModelManager</a>.</p>
+<p>The below example shows how to create a set of related Users, Posts and
+Comments:</p>
+<pre><code class="ts">
+import { User, Post, Comment, modelManager } from './creating_related_models';
+
+export async function createData() {
+
+    // Create Users
+
+    const joe = (await modelManager.create(new User({
+        username: 'joe123'
+    }))).result;
+
+    const bill = (await modelManager.create(new User({
+        username: 'bill27'
+    }))).result;
+
+    const jane = (await modelManager.create(new User({
+        username: 'jane12'
+    }))).result;
+
+    // Create Posts
+
+    const post1 = (await modelManager.create(new Post({
+        title: 'Related Data in RevJS',
+        body: 'Pretty easy to do eh?',
+        user: jane
+    }))).result;
+
+    const post2 = (await modelManager.create(new Post({
+        title: 'The Rain in Spain',
+        body: 'Really is a pain?',
+        user: jane
+    }))).result;
+
+    // Create Comments
+
+    await modelManager.create(new Comment({
+        comment: 'True!',
+        post: post1,
+        user: bill
+    }));
+
+    await modelManager.create(new Comment({
+        comment: 'Hmmm, but I reeeeaally like writing SQL...',
+        post: post1,
+        user: joe
+    }));
+
+
+</code></pre>
+
+<h2 id="reading-related-model-data">Reading Related Model Data<a class="headerlink" href="#reading-related-model-data" title="Permanent link">&para;</a></h2>
+<p>By default, RevJS will NOT return related model information (for performance
+reasons). However, it is easy to request this data using the <code>related</code> option
+for the
+<a href="../../api/rev-models/classes/modelmanager.html#read">ModelManager.read()</a> method.</p>
+<p>See below examples for how to read related model data:</p>
+<pre><code class="ts">
+import { User, Post, Comment, modelManager } from './creating_related_models';
+import { createData } from './creating_related_data';
+
+(async () =&gt; {
+    await createData();
+
+    // Read all posts (without related data)
+    const plainPosts = await modelManager.read(Post);
+    console.log('Plain posts:', plainPosts.results);
+
+    // Read all posts, including the 'user' field
+    const posts2 = await modelManager.read(Post, {
+        related: ['user']
+    });
+    console.log('Posts with User:', posts2.results);
+
+    // Read all posts, including the 'user' and 'comments'
+    const posts3 = await modelManager.read(Post, {
+        related: ['user', 'comments']
+    });
+    console.log('Posts with User and Comments:', posts3.results);
+
+    // Read all posts, including the 'user', 'comments' and 'comments.user'
+    const posts4 = await modelManager.read(Post, {
+        related: ['user', 'comments.user']
+    });
+    console.log('Posts with User, Comments and Comment Author:', posts3.results);
+
+})()
+</code></pre>
+
+<h2 id="updating-related-model-records">Updating Related Model Records<a class="headerlink" href="#updating-related-model-records" title="Permanent link">&para;</a></h2>
+<p>You can change the record linked to a RevJS model simply by attaching a
+different model instance, or setting the value to <code>null</code>, as shown in the
+examples below:</p>
+<pre><code class="ts">
+import { User, Post, Comment, modelManager } from './creating_related_models';
+import { createData } from './creating_related_data';
+
+(async () =&gt; {
+    await createData();
+
+    // Get the first post
+    const post1 = (await modelManager.read(Post, { limit: 1 })).results[0];
+
+    // Get the first user
+    const user1 = (await modelManager.read(User, { limit: 1 })).results[0];
+
+    // Make user1 the author of post1
+    post1.user = user1;
+    await modelManager.update(post1);
+
+    // If we know the ID of the record we want to link, we can pass a new
+    // model instance containing the related ID:
+    post1.user = new User({ id: 2 });
+    await modelManager.update(post1);
+
+    // To un-link a model, set the RelatedModel field to null
+    const comment1 = (await modelManager.read(Comment, { limit: 1 })).results[0];
+    comment1.user = null;
+    await modelManager.update(comment1);
+
+})()
+</code></pre>
+
+<p><strong>NOTE:</strong> - RevJS supports assigning values to <strong>RelatedModel</strong> fields <em>only</em> at
+the moment. Changes to RelatedModelList fields do not get stored
+currently.</p>
+<h2 id="searching-based-on-related-model-data">Searching based on Related Model Data<a class="headerlink" href="#searching-based-on-related-model-data" title="Permanent link">&para;</a></h2>
+<p>RevJS allows you to search records based on the Primary Key values stored in
+RelatedModel fields. For example:</p>
+<pre><code class="ts">// Retrieve all comments linked to User id = 1
+modelManager.read(Comment, {
+    where: {
+        user: 1
+    }
+})
+
+// Retrieve all comments that are not linked to a user
+modelManager.read(Comment, {
+    where: {
+        user: null
+    }
+})
+</code></pre>
+
+<p>RevJS does <em>not yet</em> support querying for records based on properties of related
+records. For example, the following is <strong>not yet possible</strong>, but would be cool:</p>
+<pre><code class="ts">modelManager.read(User, {
+    where: {
+        'posts.title': { _like: '%fake news%' }
+    }
+})
+</code></pre>
+
+<p>We hope to implement something like this in the future, and of course welcome
+contributions from the community! :)</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../components/rev-models/" class="btn btn-neutral float-right" title="rev-models">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../deleting_data/" class="btn btn-neutral" title="Deleting Model Data"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/RevJS/revjs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../deleting_data/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../components/rev-models/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../js/highlight.pack.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>
