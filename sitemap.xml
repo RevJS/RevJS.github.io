@@ -12,25 +12,41 @@
     
         
     <url>
-     <loc>/rev-models/</loc>
+     <loc>/models/creating_models/</loc>
      <lastmod>2018-03-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/rev-api/</loc>
+     <loc>/models/creating_data/</loc>
+     <lastmod>2018-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/components/rev-models/</loc>
      <lastmod>2018-03-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/rev-api-client/</loc>
+     <loc>/components/rev-api/</loc>
      <lastmod>2018-03-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/rev-ui/</loc>
+     <loc>/components/rev-api-client/</loc>
+     <lastmod>2018-03-03</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/components/rev-ui/</loc>
      <lastmod>2018-03-03</lastmod>
      <changefreq>daily</changefreq>
     </url>
