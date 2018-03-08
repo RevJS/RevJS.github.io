@@ -89,12 +89,12 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="inmemorybackend.html#create" class="tsd-kind-icon">create</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="inmemorybackend.html#exec" class="tsd-kind-icon">exec</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private"><a href="inmemorybackend.html#create" class="tsd-kind-icon">create</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private"><a href="inmemorybackend.html#exec" class="tsd-kind-icon">exec</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="inmemorybackend.html#load" class="tsd-kind-icon">load</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="inmemorybackend.html#read" class="tsd-kind-icon">read</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="inmemorybackend.html#remove" class="tsd-kind-icon">remove</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter"><a href="inmemorybackend.html#update" class="tsd-kind-icon">update</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private"><a href="inmemorybackend.html#read" class="tsd-kind-icon">read</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private"><a href="inmemorybackend.html#remove" class="tsd-kind-icon">remove</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private"><a href="inmemorybackend.html#update" class="tsd-kind-icon">update</a></li>
 							</ul>
 						</section>
 					</div>
@@ -112,7 +112,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/23172e7/packages/rev-models/src/backends/inmemory/backend.ts#L44">backends/inmemory/backend.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/62840a7/packages/rev-models/src/backends/inmemory/backend.ts#L29">backends/inmemory/backend.ts:29</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <a href="inmemorybackend.html" class="tsd-signature-type">InMemoryBackend</a></h4>
@@ -128,7 +128,7 @@
 					<div class="tsd-signature tsd-kind-icon">OPERATION_<wbr>DELAY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;0</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/23172e7/packages/rev-models/src/backends/inmemory/backend.ts#L44">backends/inmemory/backend.ts:44</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/62840a7/packages/rev-models/src/backends/inmemory/backend.ts#L29">backends/inmemory/backend.ts:29</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -137,10 +137,10 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
 					<a name="create" class="tsd-anchor"></a>
-					<h3>create</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> create</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
 						<li class="tsd-signature tsd-kind-icon">create&lt;T&gt;<span class="tsd-signature-symbol">(</span>manager<span class="tsd-signature-symbol">: </span><a href="../interfaces/imodelmanager.html" class="tsd-signature-type">IModelManager</a>, model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, options<span class="tsd-signature-symbol">: </span><a href="../interfaces/icreateoptions.html" class="tsd-signature-type">ICreateOptions</a>, result<span class="tsd-signature-symbol">: </span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/icreatemeta.html" class="tsd-signature-type">ICreateMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/icreatemeta.html" class="tsd-signature-type">ICreateMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
@@ -148,13 +148,10 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ibackend.html">IBackend</a>.<a href="../interfaces/ibackend.html#create">create</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/23172e7/packages/rev-models/src/backends/inmemory/backend.ts#L78">backends/inmemory/backend.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/62840a7/packages/rev-models/src/backends/inmemory/backend.ts#L63">backends/inmemory/backend.ts:63</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p><a href="../interfaces/ibackend.html#create">IBackend.create</a> implementation</p>
-								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -181,10 +178,10 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
 					<a name="exec" class="tsd-anchor"></a>
-					<h3>exec</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> exec</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
 						<li class="tsd-signature tsd-kind-icon">exec&lt;R&gt;<span class="tsd-signature-symbol">(</span>manager<span class="tsd-signature-symbol">: </span><a href="../interfaces/imodelmanager.html" class="tsd-signature-type">IModelManager</a>, model<span class="tsd-signature-symbol">: </span><a href="../interfaces/imodel.html" class="tsd-signature-type">IModel</a>, options<span class="tsd-signature-symbol">: </span><a href="../interfaces/iexecoptions.html" class="tsd-signature-type">IExecOptions</a>, result<span class="tsd-signature-symbol">: </span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/iexecmeta.html" class="tsd-signature-type">IExecMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/iexecmeta.html" class="tsd-signature-type">IExecMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
@@ -192,13 +189,10 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ibackend.html">IBackend</a>.<a href="../interfaces/ibackend.html#exec">exec</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/23172e7/packages/rev-models/src/backends/inmemory/backend.ts#L290">backends/inmemory/backend.ts:290</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/62840a7/packages/rev-models/src/backends/inmemory/backend.ts#L277">backends/inmemory/backend.ts:277</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p><a href="../interfaces/ibackend.html#exec">IBackend.exec</a> implementation (not supported by InMemoryBackend)</p>
-								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -235,7 +229,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/23172e7/packages/rev-models/src/backends/inmemory/backend.ts#L57">backends/inmemory/backend.ts:57</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/62840a7/packages/rev-models/src/backends/inmemory/backend.ts#L42">backends/inmemory/backend.ts:42</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -277,23 +271,20 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
 					<a name="read" class="tsd-anchor"></a>
-					<h3>read</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> read</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
 						<li class="tsd-signature tsd-kind-icon">read&lt;T&gt;<span class="tsd-signature-symbol">(</span>manager<span class="tsd-signature-symbol">: </span><a href="../interfaces/imodelmanager.html" class="tsd-signature-type">IModelManager</a>, model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, options<span class="tsd-signature-symbol">: </span><a href="../interfaces/ireadoptions.html" class="tsd-signature-type">IReadOptions</a>, result<span class="tsd-signature-symbol">: </span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/ireadmeta.html" class="tsd-signature-type">IReadMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/ireadmeta.html" class="tsd-signature-type">IReadMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/23172e7/packages/rev-models/src/backends/inmemory/backend.ts#L136">backends/inmemory/backend.ts:136</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/62840a7/packages/rev-models/src/backends/inmemory/backend.ts#L121">backends/inmemory/backend.ts:121</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p><a href="../interfaces/ibackend.html#read">IBackend.read</a> implementation</p>
-								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -322,10 +313,10 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
 					<a name="remove" class="tsd-anchor"></a>
-					<h3>remove</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> remove</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
 						<li class="tsd-signature tsd-kind-icon">remove&lt;T&gt;<span class="tsd-signature-symbol">(</span>manager<span class="tsd-signature-symbol">: </span><a href="../interfaces/imodelmanager.html" class="tsd-signature-type">IModelManager</a>, model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, options<span class="tsd-signature-symbol">: </span><a href="../interfaces/iremoveoptions.html" class="tsd-signature-type">IRemoveOptions</a>, result<span class="tsd-signature-symbol">: </span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/iremovemeta.html" class="tsd-signature-type">IRemoveMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/iremovemeta.html" class="tsd-signature-type">IRemoveMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
@@ -333,13 +324,10 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ibackend.html">IBackend</a>.<a href="../interfaces/ibackend.html#remove">remove</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/23172e7/packages/rev-models/src/backends/inmemory/backend.ts#L252">backends/inmemory/backend.ts:252</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/62840a7/packages/rev-models/src/backends/inmemory/backend.ts#L239">backends/inmemory/backend.ts:239</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p><a href="../interfaces/ibackend.html#remove">IBackend.remove</a> implementation</p>
-								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -366,10 +354,10 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
 					<a name="update" class="tsd-anchor"></a>
-					<h3>update</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> update</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
 						<li class="tsd-signature tsd-kind-icon">update&lt;T&gt;<span class="tsd-signature-symbol">(</span>manager<span class="tsd-signature-symbol">: </span><a href="../interfaces/imodelmanager.html" class="tsd-signature-type">IModelManager</a>, model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, options<span class="tsd-signature-symbol">: </span><a href="../interfaces/iupdateoptions.html" class="tsd-signature-type">IUpdateOptions</a>, result<span class="tsd-signature-symbol">: </span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/iupdatemeta.html" class="tsd-signature-type">IUpdateMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="../interfaces/iupdatemeta.html" class="tsd-signature-type">IUpdateMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
@@ -377,13 +365,10 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/ibackend.html">IBackend</a>.<a href="../interfaces/ibackend.html#update">update</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/23172e7/packages/rev-models/src/backends/inmemory/backend.ts#L102">backends/inmemory/backend.ts:102</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/62840a7/packages/rev-models/src/backends/inmemory/backend.ts#L87">backends/inmemory/backend.ts:87</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p><a href="../interfaces/ibackend.html#update">IBackend.update</a> implementation</p>
-								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -430,22 +415,22 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private">
 								<a href="inmemorybackend.html#operation_delay" class="tsd-kind-icon">OPERATION_<wbr>DELAY</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
 								<a href="inmemorybackend.html#create" class="tsd-kind-icon">create</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
 								<a href="inmemorybackend.html#exec" class="tsd-kind-icon">exec</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
 								<a href="inmemorybackend.html#load" class="tsd-kind-icon">load</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
 								<a href="inmemorybackend.html#read" class="tsd-kind-icon">read</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
 								<a href="inmemorybackend.html#remove" class="tsd-kind-icon">remove</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-has-type-parameter tsd-is-private">
 								<a href="inmemorybackend.html#update" class="tsd-kind-icon">update</a>
 							</li>
 						</ul>

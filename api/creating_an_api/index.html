@@ -118,11 +118,15 @@
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">RevJS Module Reference</span>
+    <span class="caption-text">RevJS Module Guide</span>
     <ul class="subnav">
                 <li class="">
                     
     <a class="" href="../../components/rev-models/">rev-models</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../components/rev-backend-mongodb/">rev-backend-mongodb</a>
                 </li>
                 <li class="">
                     
@@ -135,6 +139,10 @@
                 <li class="">
                     
     <a class="" href="../../components/rev-ui/">rev-ui</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../changelog/">Change Log</a>
                 </li>
     </ul>
 	    </li>
@@ -276,7 +284,7 @@ bundle.</p>
 <h2 id="exposing-your-api-via-http">Exposing your API via HTTP<a class="headerlink" href="#exposing-your-api-via-http" title="Permanent link">&para;</a></h2>
 <p>APIs created via <code>rev-api</code> can be exposed by any web framework that can
 serve <a href="https://github.com/graphql/graphql-js">GraphQL JS</a> schemas. A good
-example is <a href="https://github.com/apollographql/apollo-server">Appollog Server</a>
+example is <a href="https://github.com/apollographql/apollo-server">Apollo GraphQL Server</a>
 which supports most popular NodeJS Web Frameworks.</p>
 <p>In the example below, we use apollo graphql server to serve our API:</p>
 <pre><code class="ts">
@@ -309,7 +317,7 @@ app.use(router.allowedMethods());
 app.listen(port);
 
 console.log(`GraphQL Server is running on port ${port}.`);
-console.log(`GraphiQL UI is running at http://localhost:${port}/grapihql`);
+console.log(`GraphiQL UI is running at http://localhost:${port}/graphiql`);
 
 // Load sample data
 
@@ -343,7 +351,7 @@ above:</p>
 <p>The GraphQL <code>mutation {}</code> schema provides access to <code>create()</code>, <code>update()</code> and
 <code>remove()</code> functions, for all models you have enabled these for. Any
 custom API Methods you have created will also be available here.</p>
-<p>The screenshot below shows the GraphQL Mustation Schema generated from the
+<p>The screenshot below shows the GraphQL Mutation Schema generated from the
 examples above:</p>
 <p><img alt="GraphQL Mutation Schema" src="../../img/graphql-mutations.png" /></p>
 <h2 id="security">Security<a class="headerlink" href="#security" title="Permanent link">&para;</a></h2>

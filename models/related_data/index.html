@@ -118,11 +118,15 @@
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">RevJS Module Reference</span>
+    <span class="caption-text">RevJS Module Guide</span>
     <ul class="subnav">
                 <li class="">
                     
     <a class="" href="../../components/rev-models/">rev-models</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../components/rev-backend-mongodb/">rev-backend-mongodb</a>
                 </li>
                 <li class="">
                     
@@ -135,6 +139,10 @@
                 <li class="">
                     
     <a class="" href="../../components/rev-ui/">rev-ui</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../changelog/">Change Log</a>
                 </li>
     </ul>
 	    </li>
@@ -298,11 +306,11 @@ export async function createData() {
         user: jane
     }))).result;
 
-    const post2 = (await modelManager.create(new Post({
+    await modelManager.create(new Post({
         title: 'The Rain in Spain',
         body: 'Really is a pain?',
         user: jane
-    }))).result;
+    }));
 
     // Create Comments
 
@@ -328,7 +336,7 @@ for the
 <a href="../../api/rev-models/classes/modelmanager.html#read">ModelManager.read()</a> method.</p>
 <p>See below examples for how to read related model data:</p>
 <pre><code class="ts">
-import { User, Post, Comment, modelManager } from './creating_related_models';
+import { Post, modelManager } from './creating_related_models';
 import { createData } from './creating_related_data';
 
 (async () =&gt; {
@@ -354,7 +362,7 @@ import { createData } from './creating_related_data';
     const posts4 = await modelManager.read(Post, {
         related: ['user', 'comments.user']
     });
-    console.log('Posts with User, Comments and Comment Author:', posts3.results);
+    console.log('Posts with User, Comments and Comment Author:', posts4.results);
 
 })()
 </code></pre>

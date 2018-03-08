@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,37 +13,37 @@
         
     <url>
      <loc>/models/creating_models/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/models/creating_data/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/models/reading_data/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/models/updating_data/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/models/deleting_data/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/models/related_data/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -53,7 +53,7 @@
         
     <url>
      <loc>/api/creating_an_api/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -63,25 +63,37 @@
         
     <url>
      <loc>/components/rev-models/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/components/rev-backend-mongodb/</loc>
+     <lastmod>2018-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/components/rev-api/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/components/rev-api-client/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/components/rev-ui/</loc>
-     <lastmod>2018-03-04</lastmod>
+     <lastmod>2018-03-08</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/changelog/</loc>
+     <lastmod>2018-03-08</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
