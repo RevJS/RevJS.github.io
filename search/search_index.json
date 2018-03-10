@@ -327,7 +327,7 @@
         },
         {
             "location": "/changelog/",
-            "text": "Change Log\n\u00b6\n\n\nRevJS Module Releases\n\u00b6\n\n\n0.11.0 - 8th March 2018\n\u00b6\n\n\n\n\nFirst public release of \nrev-backend-mongodb\n. Passes full backend test suite\n\n\nDocs and guides updated\n\n\n\n\n0.10.0 - 3rd March 2018\n\u00b6\n\n\n\n\nRemove unnecessary \nIModelValidationResult.validationFinished\n property\n\n\nDocs updates\n\n\n\n\n0.9.1 - 3rd March 2018\n\u00b6\n\n\n\n\nDocs update\n\n\nMark some module internals as @privat",
+            "text": "Change Log\n\u00b6\n\n\nRevJS Module Releases\n\u00b6\n\n\n0.12.0 - 11th March 2018\n\u00b6\n\n\nrev-api\n\n\n\n\nImprove error when a GraphQL fieldMapping is not found for a field type\n\n\nFix GraphQL mappings for EmailField, URLField and PasswordField\n\n\n\n\nrev-api-client\n\n\n\n\nFix error when model fields are null\n\n\n\n\nrev-ui\n\n\n\n\nAdded viewContext.remove() method. We now have full CRUD :)\n\n\nAdded \n<RemoveAction />\n component for removing the current record in a \n<DetailView />\n\n\nAll Action components now have default labels\n\n\nStarted work on UI demos in \npackages/examples/src/creating_a_ui\n\n\n\n\n0.11.0 - 8th March 2018\n\u00b6\n\n\n\n\nFirst public release of \nrev-backend-mongodb\n. Passes full backend test suite\n\n\nDocs and guides updated\n\n\n\n\n0.10.0 - 3rd March 2018\n\u00b6\n\n\n\n\nRemove unnecessary \nIModelValidationResult.validationFinished\n property\n\n\nDocs updates\n\n\n\n\n0.9.1 - 3rd March 2018\n\u00b6\n\n\n\n\nDocs update\n\n\nMark some module internals as @privat",
             "title": "Change Log"
         },
         {
@@ -339,6 +339,11 @@
             "location": "/changelog/#revjs-module-releases",
             "text": "",
             "title": "RevJS Module Releases"
+        },
+        {
+            "location": "/changelog/#0120-11th-march-2018",
+            "text": "rev-api   Improve error when a GraphQL fieldMapping is not found for a field type  Fix GraphQL mappings for EmailField, URLField and PasswordField   rev-api-client   Fix error when model fields are null   rev-ui   Added viewContext.remove() method. We now have full CRUD :)  Added  <RemoveAction />  component for removing the current record in a  <DetailView />  All Action components now have default labels  Started work on UI demos in  packages/examples/src/creating_a_ui",
+            "title": "0.12.0 - 11th March 2018"
         },
         {
             "location": "/changelog/#0110-8th-march-2018",

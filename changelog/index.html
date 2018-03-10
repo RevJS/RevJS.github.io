@@ -98,7 +98,7 @@
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">RevJS Module Guide</span>
+    <span class="caption-text">RevJS Module Reference</span>
     <ul class="subnav">
                 <li class="">
                     
@@ -161,7 +161,7 @@
     
       
         
-          <li>RevJS Module Guide &raquo;</li>
+          <li>RevJS Module Reference &raquo;</li>
         
       
     
@@ -180,6 +180,23 @@
               
                 <h1 id="change-log">Change Log<a class="headerlink" href="#change-log" title="Permanent link">&para;</a></h1>
 <h2 id="revjs-module-releases">RevJS Module Releases<a class="headerlink" href="#revjs-module-releases" title="Permanent link">&para;</a></h2>
+<h3 id="0120-11th-march-2018">0.12.0 - 11th March 2018<a class="headerlink" href="#0120-11th-march-2018" title="Permanent link">&para;</a></h3>
+<p><strong><code>rev-api</code></strong></p>
+<ul>
+<li>Improve error when a GraphQL fieldMapping is not found for a field type</li>
+<li>Fix GraphQL mappings for EmailField, URLField and PasswordField</li>
+</ul>
+<p><strong><code>rev-api-client</code></strong></p>
+<ul>
+<li>Fix error when model fields are null</li>
+</ul>
+<p><strong><code>rev-ui</code></strong></p>
+<ul>
+<li>Added viewContext.remove() method. We now have full CRUD :)</li>
+<li>Added <code>&lt;RemoveAction /&gt;</code> component for removing the current record in a <code>&lt;DetailView /&gt;</code></li>
+<li>All Action components now have default labels</li>
+<li>Started work on UI demos in <code>packages/examples/src/creating_a_ui</code></li>
+</ul>
 <h3 id="0110-8th-march-2018">0.11.0 - 8th March 2018<a class="headerlink" href="#0110-8th-march-2018" title="Permanent link">&para;</a></h3>
 <ul>
 <li>First public release of <code>rev-backend-mongodb</code>. Passes full backend test suite</li>
