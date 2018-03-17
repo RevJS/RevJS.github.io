@@ -180,7 +180,25 @@
               
                 <h1 id="change-log">Change Log<a class="headerlink" href="#change-log" title="Permanent link">&para;</a></h1>
 <h2 id="revjs-module-releases">RevJS Module Releases<a class="headerlink" href="#revjs-module-releases" title="Permanent link">&para;</a></h2>
-<h3 id="0120-11th-march-2018">0.12.0 - 11th March 2018<a class="headerlink" href="#0120-11th-march-2018" title="Permanent link">&para;</a></h3>
+<h3 id="0130">0.13.0<a class="headerlink" href="#0130" title="Permanent link">&para;</a></h3>
+<p><strong><code>rev-models</code></strong></p>
+<ul>
+<li>Added support for fields with property getters. By default, RevJS fields
+  with a getter function are set to not be stored (<code>Field.options.stored == false</code>)</li>
+</ul>
+<p><strong><code>rev-api</code> &amp; <code>rev-api-client</code></strong></p>
+<ul>
+<li>API now passes all RevJS standard backend tests (including related model queries)</li>
+</ul>
+<p><strong><code>rev-ui</code></strong></p>
+<ul>
+<li><code>&lt;ListView /&gt;</code> Renamed <code>rowLimit</code> property to <code>limit</code> (to match IReadOptions)</li>
+<li><code>&lt;ListView /&gt;</code> Added <code>where</code> property for setting list filter</li>
+<li><code>&lt;ListView /&gt;</code> Added <code>related</code> property to included related model data</li>
+<li><code>&lt;ListView /&gt;</code> Added <code>orderBy</code> property for sorting results</li>
+<li><code>&lt;ListView /&gt;</code> supports RelatedModelFields (uses toString() on the class)</li>
+</ul>
+<h3 id="0120">0.12.0<a class="headerlink" href="#0120" title="Permanent link">&para;</a></h3>
 <p><strong><code>rev-api</code></strong></p>
 <ul>
 <li>Improve error when a GraphQL fieldMapping is not found for a field type</li>
@@ -195,7 +213,6 @@
 <li>Added viewContext.remove() method. We now have full CRUD :)</li>
 <li>Added <code>&lt;RemoveAction /&gt;</code> component for removing the current record in a <code>&lt;DetailView /&gt;</code></li>
 <li>All Action components now have default labels</li>
-<li>Started work on UI demos in <code>packages/examples/src/creating_a_ui</code></li>
 </ul>
 <h3 id="0110-8th-march-2018">0.11.0 - 8th March 2018<a class="headerlink" href="#0110-8th-march-2018" title="Permanent link">&para;</a></h3>
 <ul>
