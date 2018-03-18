@@ -131,9 +131,11 @@
     <a class="current" href="./">rev-api</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#rev-api">rev-api</a></li>
+    <li class="toctree-l3"><a href="#rev-api-revjs-graphql-api-generator">rev-api - RevJS GraphQL API Generator</a></li>
     
         <ul>
+        
+            <li><a class="toctree-l4" href="#example">Example</a></li>
         
             <li><a class="toctree-l4" href="#contributing">Contributing</a></li>
         
@@ -196,8 +198,98 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="rev-api"><code>rev-api</code><a class="headerlink" href="#rev-api" title="Permanent link">&para;</a></h1>
-<p>// TODO</p>
+                <h1 id="rev-api-revjs-graphql-api-generator">rev-api - RevJS GraphQL API Generator<a class="headerlink" href="#rev-api-revjs-graphql-api-generator" title="Permanent link">&para;</a></h1>
+<p>The <code>rev-api</code> module provides the following:</p>
+<ul>
+<li>A <strong>ModelApiManager</strong> object, for registering your models to be exposed via
+   the GraphQL API</li>
+<li>An <strong>@ApiOperations</strong> decorator, for annotating your models with the operations
+   that are allowed on them (<code>read</code>, <code>create</code>, etc.)</li>
+<li>An <strong>@ApiMethod</strong> decorator, for annotating any model methods that you
+   want to expose as GraphQL mutations.</li>
+</ul>
+<p>For more information, check out <a href="../../api/creating_an_api/">Creating an API</a></p>
+<p><em>Jump to the <a href="../../api/rev-api">rev-api API Documentation</a></em></p>
+<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
+<p>The example below creates a few models and assigns them to a ModelApiManager.</p>
+<pre><code class="ts">
+import {
+    AutoNumberField, TextField, RelatedModel, RelatedModelList,
+    ModelManager, InMemoryBackend
+} from 'rev-models';
+import { ApiOperations } from 'rev-api/lib/decorators';
+import { ModelApiManager } from 'rev-api';
+
+// Use the @ApiOperations decorator to specify what operations are allowed for each model
+
+@ApiOperations(
+    ['read']
+)
+export class User {
+    @AutoNumberField({ primaryKey: true })
+        id: number;
+    @TextField()
+        username: string;
+    @RelatedModelList({ model: 'Post', field: 'user' })
+        posts: Post[];
+    @RelatedModelList({ model: 'Comment', field: 'user' })
+        comments: Comment[];
+
+    constructor(data?: Partial&lt;User&gt;) {
+        Object.assign(this, data);
+    }
+}
+
+@ApiOperations(
+    ['create', 'read', 'update', 'remove']
+)
+export class Post {
+    @AutoNumberField({ primaryKey: true })
+        id: number;
+    @RelatedModel({ model: 'User' })
+        user: User;
+    @TextField()
+        title: string;
+    @TextField({ multiLine: true })
+        body: string;
+    @RelatedModelList({ model: 'Comment', field: 'post' })
+        comments: Comment[];
+
+    constructor(data?: Partial&lt;Post&gt;) {
+        Object.assign(this, data);
+    }
+}
+
+@ApiOperations(
+    ['create', 'read', 'remove']
+)
+export class Comment {
+    @AutoNumberField({ primaryKey: true })
+        id: number;
+    @RelatedModel({ model: 'Post' })
+        post: Post;
+    @RelatedModel({ model: 'User', required: false })
+        user: User;
+    @TextField()
+        comment: string;
+
+    constructor(data?: Partial&lt;Comment&gt;) {
+        Object.assign(this, data);
+    }
+}
+
+export const modelManager = new ModelManager();
+modelManager.registerBackend('default', new InMemoryBackend());
+modelManager.register(User);
+modelManager.register(Post);
+modelManager.register(Comment);
+
+export const api = new ModelApiManager(modelManager);
+api.register(User);
+api.register(Post);
+api.register(Comment)
+</code></pre>
+
 <h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
 <p>We are actively looking to build a team around RevJS. If you are interesting in
 contributing, fork us on github or drop us a

@@ -127,9 +127,11 @@
     <a class="current" href="./">rev-backend-mongodb</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#rev-backend-mongodb">rev-backend-mongodb</a></li>
+    <li class="toctree-l3"><a href="#rev-backend-mongodb-revjs-mongodb-backend">rev-backend-mongodb - RevJS MongoDB Backend</a></li>
     
         <ul>
+        
+            <li><a class="toctree-l4" href="#example">Example</a></li>
         
             <li><a class="toctree-l4" href="#contributing">Contributing</a></li>
         
@@ -196,8 +198,69 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="rev-backend-mongodb"><code>rev-backend-mongodb</code><a class="headerlink" href="#rev-backend-mongodb" title="Permanent link">&para;</a></h1>
-<p><a href="../../api/rev-backend-mongodb">rev-backend-mongodb API Documentation</a></p>
+                <h1 id="rev-backend-mongodb-revjs-mongodb-backend">rev-backend-mongodb - RevJS MongoDB Backend<a class="headerlink" href="#rev-backend-mongodb-revjs-mongodb-backend" title="Permanent link">&para;</a></h1>
+<p>The <code>rev-backend-mongodb</code> module provides the following:</p>
+<ul>
+<li>A <strong>MongoDBBackend</strong> class, which creates the interface between a RevJS
+   ModelManager and a MongoDB Database server</li>
+</ul>
+<p><em>Jump to the <a href="../../api/rev-backend-mongodb">rev-backend-mongodb API Documentation</a></em></p>
+<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
+<p>The example below shows how to create an instance of a MongoDBBackend, and
+store some data using it:</p>
+<pre><code class="ts">
+import {
+    AutoNumberField, TextField, IntegerField,
+    ModelManager
+} from 'rev-models';
+
+import { MongoDBBackend } from 'rev-backend-mongodb';
+
+class TestModel {
+    @AutoNumberField({ primaryKey: true })
+        item_number: number;
+    @TextField()
+        name: string;
+    @TextField({ required: false })
+        description: string;
+    @IntegerField()
+        score: number;
+
+    constructor(data: Partial&lt;TestModel&gt;) {
+        Object.assign(this, data);
+    }
+}
+
+(async () =&gt; {
+
+    // Create a MongoDBBackend and connect to MongoDB
+
+    const mongo = new MongoDBBackend({
+        url: 'mongodb://localhost:27017',
+        dbName: 'example_db'
+    });
+    await mongo.connect();
+
+    // Create a ModelManager, and assign MongoDB as the default backend
+
+    const modelManager = new ModelManager();
+    modelManager.registerBackend('default', mongo);
+    modelManager.register(TestModel);
+
+    // Create some data, then disconnect afterwards
+
+    await modelManager.create(new TestModel({
+        name: 'data from RevJS!',
+        description: 'This beautiful record was created by RevJS',
+        score: 110
+    }));
+    console.log('Data successfully created in MongoDB!');
+
+    await mongo.disconnect();
+
+})()
+</code></pre>
+
 <h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
 <p>We are actively looking to build a team around RevJS. If you are interesting in
 contributing, fork us on github or drop us a
