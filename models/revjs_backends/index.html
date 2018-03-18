@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Storage Backends - RevJS Guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/highlight.css" rel="stylesheet">
+  <link href="../../css/style.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Storage Backends";
+    var mkdocs_page_input_path = "models/revjs_backends.md";
+    var mkdocs_page_url = "/models/revjs_backends/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-115939002-1', 'revjs.org');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> RevJS Guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Welcome to RevJS!</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Working with Models</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../creating_models/">Defining Models</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../model_validation/">Adding Validation</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Storage Backends</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#revjs-backends">RevJS Backends</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#using-a-backend">Using a Backend</a></li>
+        
+            <li><a class="toctree-l4" href="#persistant-storage-backends">Persistant Storage Backends</a></li>
+        
+            <li><a class="toctree-l4" href="#api-backends">API Backends</a></li>
+        
+            <li><a class="toctree-l4" href="#ephemeral-backends">Ephemeral Backends</a></li>
+        
+            <li><a class="toctree-l4" href="#contributing">Contributing</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../creating_data/">Creating Data</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../reading_data/">Reading Data</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../updating_data/">Updating Data</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../deleting_data/">Deleting Data</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../related_data/">Working with Related Models</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Creating a GraphQL API</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../api/creating_an_api/">Creating an API</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">RevJS Module Reference</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../components/rev-models/">rev-models</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../components/rev-backend-mongodb/">rev-backend-mongodb</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../components/rev-api/">rev-api</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../components/rev-api-client/">rev-api-client</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../components/rev-ui/">rev-ui</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../changelog/">Change Log</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">RevJS Guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Working with Models &raquo;</li>
+        
+      
+    
+    <li>Storage Backends</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/RevJS/revjs/edit/master/docs/mkdocs/src/models/revjs_backends.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="revjs-backends">RevJS Backends<a class="headerlink" href="#revjs-backends" title="Permanent link">&para;</a></h1>
+<p>RevJS has a <strong>pluggable backend architecture</strong>, to allow you to store your
+models in a variety of databases, and send them across the network using APIs.</p>
+<h2 id="using-a-backend">Using a Backend<a class="headerlink" href="#using-a-backend" title="Permanent link">&para;</a></h2>
+<p>You specify a backend when you create an instance of a
+<a href="../../api/rev-models/classes/modelmanager.html">ModelManager</a>, for example:</p>
+<pre><code class="ts">const manager = new ModelManager();
+manager.registerBackend('default', new InMemoryBackend());
+</code></pre>
+
+<p>If you have data in multiple databases or APIs, you can register
+more than one backend for a model manager.</p>
+<p>When registering your models, you can tell the ModelManager which backend to
+source them from. For example:</p>
+<pre><code class="ts">manager.register(TestModel, { backend: 'customer_db' });
+</code></pre>
+
+<p>If you do not specify a backend when registering your model, then the
+<code>default</code> backend is used.</p>
+<h2 id="persistant-storage-backends">Persistant Storage Backends<a class="headerlink" href="#persistant-storage-backends" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong><a href="../../api/rev-backend-mongodb/classes/mongodbbackend.html">MongoDBBackend</a></strong> -
+   stores and retrieves your data from MongoDB</li>
+</ul>
+<h2 id="api-backends">API Backends<a class="headerlink" href="#api-backends" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong><a href="../../api/rev-api-client/classes/modelapibackend.html">ModelApiBackend</a></strong> -
+   store and retrieve data from a GraphQL API created by the <code>rev-api</code> module</li>
+</ul>
+<h2 id="ephemeral-backends">Ephemeral Backends<a class="headerlink" href="#ephemeral-backends" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong><a href="../../api/rev-models/classes/inmemorybackend.html">InMemoryBackend</a></strong> - stores your
+   model data temporarily in-memory. Ideal for initial development and automated
+   testing.</li>
+</ul>
+<h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
+<p>We have defined a standard <a href="../../api/rev-models/interfaces/ibackend.html">IBackend</a>
+interface, as well as a
+<a href="https://github.com/RevJS/revjs/blob/master/packages/rev-models/src/backends/testsuite/index.ts">Standard Test Suite</a>
+to help with new backend development. We're keen to accept any contributions
+from the community!</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../creating_data/" class="btn btn-neutral float-right" title="Creating Data">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../model_validation/" class="btn btn-neutral" title="Adding Validation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/RevJS/revjs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../model_validation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../creating_data/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../js/highlight.pack.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>

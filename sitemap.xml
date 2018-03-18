@@ -18,6 +18,18 @@
     </url>
         
     <url>
+     <loc>/models/model_validation/</loc>
+     <lastmod>2018-03-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/models/revjs_backends/</loc>
+     <lastmod>2018-03-17</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>/models/creating_data/</loc>
      <lastmod>2018-03-17</lastmod>
      <changefreq>daily</changefreq>
