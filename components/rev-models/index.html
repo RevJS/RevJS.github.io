@@ -70,35 +70,35 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../models/creating_models/">Defining Models</a>
+    <a class="" href="../../using_models/creating_models/">Defining Models</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../models/model_validation/">Adding Validation</a>
+    <a class="" href="../../using_models/model_validation/">Adding Validation</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../models/revjs_backends/">Storage Backends</a>
+    <a class="" href="../../using_models/revjs_backends/">Storage Backends</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../models/creating_data/">Creating Data</a>
+    <a class="" href="../../using_models/creating_data/">Creating Data</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../models/reading_data/">Reading Data</a>
+    <a class="" href="../../using_models/reading_data/">Reading Data</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../models/updating_data/">Updating Data</a>
+    <a class="" href="../../using_models/updating_data/">Updating Data</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../models/deleting_data/">Deleting Data</a>
+    <a class="" href="../../using_models/deleting_data/">Deleting Data</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../models/related_data/">Working with Related Models</a>
+    <a class="" href="../../using_models/related_data/">Working with Related Models</a>
                 </li>
     </ul>
 	    </li>
@@ -109,7 +109,22 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../api/creating_an_api/">Creating an API</a>
+    <a class="" href="../../creating_an_api/overview/">Creating an API</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Creating a User Interface</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../creating_a_ui/overview/">RevJS UI Overview</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../creating_a_ui/simple_list/">Simple List</a>
                 </li>
     </ul>
 	    </li>
@@ -127,7 +142,7 @@
     
         <ul>
         
-            <li><a class="toctree-l4" href="#example">Example</a></li>
+            <li><a class="toctree-l4" href="#storage-backends">Storage Backends</a></li>
         
             <li><a class="toctree-l4" href="#contributing">Contributing</a></li>
         
@@ -138,15 +153,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../rev-backend-mongodb/">rev-backend-mongodb</a>
-                </li>
-                <li class="">
-                    
     <a class="" href="../rev-api/">rev-api</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../rev-api-client/">rev-api-client</a>
                 </li>
                 <li class="">
                     
@@ -210,75 +217,14 @@
    needing to set up a database.</li>
 </ul>
 <p><em>Jump to the <a href="../../api/rev-models">rev-models API Documentation</a></em></p>
-<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<p>The example below registers a simple data class with some basic validation
-rules, creates some data, and reads it back.</p>
-<pre><code class="ts">
-import {
-    AutoNumberField, TextField, SelectField,
-    ModelManager, InMemoryBackend
-} from 'rev-models';
-
-// Define model
-
-const POST_STATUS = [
-    ['draft', 'Draft'],
-    ['published', 'Published']
-];
-
-export class Post {
-    @AutoNumberField({ primaryKey: true })
-        id: number;
-    @TextField({ minLength: 5, maxLength: 100 })
-        title: string;
-    @TextField({ multiLine: true })
-        body: string;
-    @SelectField({ selection: POST_STATUS })
-        status: string;
-
-    constructor(data?: Partial&lt;Post&gt;) {
-        Object.assign(this, data);
-    }
-}
-
-// Create ModelManager
-
-export const modelManager = new ModelManager();
-modelManager.registerBackend('default', new InMemoryBackend());
-modelManager.register(Post);
-
-(async () =&gt; {
-
-    // Create some data
-
-    await modelManager.create(new Post({
-        title: 'My First Post',
-        body: 'This is a really cool post made in RevJS',
-        status: 'draft'
-    }));
-
-    await modelManager.create(new Post({
-        title: 'RevJS is awesome!',
-        body: 'I should use it for ALL TEH THINGZZZ!',
-        status: 'published'
-    }));
-
-    // Read it back
-
-    const res = await modelManager.read(Post, {
-        where: {
-            _or: [
-                { title: { _like: '%RevJS%' }},
-                { body: { _like: '%RevJS%' }}
-            ]
-        }
-    });
-
-    console.log(res.results);
-
-})();
-</code></pre>
-
+<h2 id="storage-backends">Storage Backends<a class="headerlink" href="#storage-backends" title="Permanent link">&para;</a></h2>
+<p>In addition to in-memory storage, the following backends are available:</p>
+<p>The <code>rev-backend-mongodb</code> module provides a <strong>MongoDBBackend</strong> class which stores
+and retrieves data from a MongoDB No-SQL database. Jump to the
+<a href="../../api/rev-backend-mongodb">rev-backend-mongodb API Documentation</a>.</p>
+<p>The <code>rev-api-client</code> module provides a <strong>ModelApiBackend</strong> class which stores
+and retrieves data from the GraphQL API generated by <code>rev-api</code>.
+Jump to the <a href="../../api/rev-api-client">rev-api-client API Documentation</a>.</p>
 <h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
 <p>We are actively looking to build a team around RevJS. If you are interesting in
 contributing, fork us on github or drop us a
@@ -290,10 +236,10 @@ contributing, fork us on github or drop us a
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../rev-backend-mongodb/" class="btn btn-neutral float-right" title="rev-backend-mongodb">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../rev-api/" class="btn btn-neutral float-right" title="rev-api">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../api/creating_an_api/" class="btn btn-neutral" title="Creating an API"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../creating_a_ui/simple_list/" class="btn btn-neutral" title="Simple List"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -321,10 +267,10 @@ contributing, fork us on github or drop us a
           <a href="https://github.com/RevJS/revjs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../../api/creating_an_api/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../creating_a_ui/simple_list/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../rev-backend-mongodb/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../rev-api/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

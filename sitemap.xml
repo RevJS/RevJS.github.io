@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,50 +12,50 @@
     
         
     <url>
-     <loc>/models/creating_models/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <loc>/using_models/creating_models/</loc>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/models/model_validation/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <loc>/using_models/model_validation/</loc>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/models/revjs_backends/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <loc>/using_models/revjs_backends/</loc>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/models/creating_data/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <loc>/using_models/creating_data/</loc>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/models/reading_data/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <loc>/using_models/reading_data/</loc>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/models/updating_data/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <loc>/using_models/updating_data/</loc>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/models/deleting_data/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <loc>/using_models/deleting_data/</loc>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/models/related_data/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <loc>/using_models/related_data/</loc>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -64,8 +64,24 @@
     
         
     <url>
-     <loc>/api/creating_an_api/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <loc>/creating_an_api/overview/</loc>
+     <lastmod>2018-03-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/creating_a_ui/overview/</loc>
+     <lastmod>2018-03-20</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/creating_a_ui/simple_list/</loc>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -75,37 +91,25 @@
         
     <url>
      <loc>/components/rev-models/</loc>
-     <lastmod>2018-03-18</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/components/rev-backend-mongodb/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/components/rev-api/</loc>
-     <lastmod>2018-03-18</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/components/rev-api-client/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/components/rev-ui/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/changelog/</loc>
-     <lastmod>2018-03-18</lastmod>
+     <lastmod>2018-03-20</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

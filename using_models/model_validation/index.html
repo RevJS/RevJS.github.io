@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Adding Validation - RevJS Guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/highlight.css" rel="stylesheet">
+  <link href="../../css/style.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Adding Validation";
+    var mkdocs_page_input_path = "using_models/model_validation.md";
+    var mkdocs_page_url = "/using_models/model_validation/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-115939002-1', 'revjs.org');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> RevJS Guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Welcome to RevJS!</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Working with Models</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../creating_models/">Defining Models</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Adding Validation</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#defining-data-validation">Defining Data Validation</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#using-field-level-validation">Using Field-level validation</a></li>
+        
+            <li><a class="toctree-l4" href="#using-model-level-validation">Using Model-level validation</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../revjs_backends/">Storage Backends</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../creating_data/">Creating Data</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../reading_data/">Reading Data</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../updating_data/">Updating Data</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../deleting_data/">Deleting Data</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../related_data/">Working with Related Models</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Creating a GraphQL API</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../creating_an_api/overview/">Creating an API</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Creating a User Interface</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../creating_a_ui/overview/">RevJS UI Overview</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../creating_a_ui/simple_list/">Simple List</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">RevJS Module Reference</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../components/rev-models/">rev-models</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../components/rev-api/">rev-api</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../components/rev-ui/">rev-ui</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../changelog/">Change Log</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">RevJS Guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Working with Models &raquo;</li>
+        
+      
+    
+    <li>Adding Validation</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/RevJS/revjs/edit/master/docs/mkdocs/src/using_models/model_validation.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="defining-data-validation">Defining Data Validation<a class="headerlink" href="#defining-data-validation" title="Permanent link">&para;</a></h1>
+<p>One of the major benefits of using JavaScript on both the Client and Server is
+the ability to share business logic and validations across both platforms.</p>
+<p>RevJS provides two main methods of validating your data.</p>
+<ol>
+<li>Field-level validation, using the built-in field types or your own custom
+   field types.</li>
+<li>Model-level validation, by defining a <code>validate()</code> or <code>validateAsync()</code>
+   method on your model.</li>
+</ol>
+<h2 id="using-field-level-validation">Using Field-level validation<a class="headerlink" href="#using-field-level-validation" title="Permanent link">&para;</a></h2>
+<p>The build-in field types have a number of configurable validation options,
+which can be set directly on your models. For example:</p>
+<pre><code class="ts">class MyClass {
+    @TextField({ maxLength: 100, regEx: /abc/ })
+        name: string;
+}
+</code></pre>
+
+<p>For more information on the options available for each field type, check out
+the <a href="../../api/rev-models/interfaces/ifieldoptions.html">IFieldOptions interface</a>
+and its sub-classes.</p>
+<h2 id="using-model-level-validation">Using Model-level validation<a class="headerlink" href="#using-model-level-validation" title="Permanent link">&para;</a></h2>
+<p>You can implement more complex validation logic in a
+<a href="../../api/rev-models/interfaces/imodel.html#validate">validate()</a> or
+<a href="../../api/rev-models/interfaces/imodel.html#validateasync">validateAsync()</a> method
+directly in your model.</p>
+<p>RevJS will call these methods for every <code>create</code> or <code>update</code> operation. You
+simply check the property values of <code>this.</code> to determine if the model is valid.</p>
+<p>RevJS passes in a single
+<a href="../../api/rev-models/interfaces/ivalidationcontext.html">IValidationContext</a>
+parameter to the validation functions, which you can use to find out more about
+the validation context. For example you can check <code>ctx.operation.operationName</code>
+to determine if this is a <code>create</code> or <code>update</code>.</p>
+<p>If there is a validation error, you can record a field-level error by calling
+<a href="../../api/rev-models/classes/modelvalidationresult.html#addfielderror">ctx.result.addFieldError()</a>,
+or you can record a model-level error by calling
+<a href="../../api/rev-models/classes/modelvalidationresult.html#addmodelerror">ctx.result.addModelError()</a>,</p>
+<p>The example below demonstrates how to use both field-level and model-level validation.</p>
+<pre><code class="ts">
+import {
+    AutoNumberField, TextField, BooleanField,
+    ModelManager, InMemoryBackend, IValidationContext
+} from 'rev-models';
+
+// Define model with some custom validation
+
+export class Post {
+    @AutoNumberField({ primaryKey: true })
+        id: number;
+    @TextField()
+        title: string;
+    @TextField({ multiLine: true })
+        body: string;
+    @BooleanField()
+        is_published: boolean;
+
+    constructor(data?: Partial&lt;Post&gt;) {
+        Object.assign(this, data);
+    }
+
+    // Define synchronous validation
+    validate(ctx: IValidationContext) {
+        if (this.body.includes('fake news')) {
+            ctx.result.addFieldError('body', 'Body must not contain fake news!');
+        }
+    }
+
+    // Define some asynchronous validation
+    async validateAsync(ctx: IValidationContext) {
+        if (ctx.operation.operationName == 'create') {
+            const duplicates = await ctx.manager.read(Post, {
+                where: {
+                    title: { _like: this.title }
+                }
+            });
+            if (duplicates.meta.totalCount &gt; 0) {
+                ctx.result.addFieldError('title', 'Cannot create post with a duplicate title!');
+            }
+        }
+    }
+}
+
+// Create ModelManager
+
+export const modelManager = new ModelManager();
+modelManager.registerBackend('default', new InMemoryBackend());
+modelManager.register(Post);
+
+// Create some data
+
+(async () =&gt; {
+    try {
+
+        // Create a valid post
+        await modelManager.create(new Post({
+            title: 'This is a valid post',
+            body: 'No alternative facts here!',
+            is_published: true
+        }));
+
+        // Try to create a duplicate post...
+        await modelManager.create(new Post({
+            title: 'This is a valid post',
+            body: 'Not really! Its a duplicate, so should cause an error...',
+            is_published: true
+        }));
+
+    }
+    catch (e) {
+        console.error(e.message);
+    }
+})();
+</code></pre>
+
+<p>The output of the above code is:</p>
+<pre><code>ValidationError
+ * title: Cannot create post with a duplicate title!
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../revjs_backends/" class="btn btn-neutral float-right" title="Storage Backends">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../creating_models/" class="btn btn-neutral" title="Defining Models"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/RevJS/revjs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../creating_models/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../revjs_backends/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../js/highlight.pack.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>

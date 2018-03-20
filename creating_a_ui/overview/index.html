@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>RevJS UI Overview - RevJS Guide</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  <link href="../../css/highlight.css" rel="stylesheet">
+  <link href="../../css/style.css" rel="stylesheet">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "RevJS UI Overview";
+    var mkdocs_page_input_path = "creating_a_ui/overview.md";
+    var mkdocs_page_url = "/creating_a_ui/overview/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-115939002-1', 'revjs.org');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> RevJS Guide</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Welcome to RevJS!</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Working with Models</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../using_models/creating_models/">Defining Models</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../using_models/model_validation/">Adding Validation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../using_models/revjs_backends/">Storage Backends</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../using_models/creating_data/">Creating Data</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../using_models/reading_data/">Reading Data</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../using_models/updating_data/">Updating Data</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../using_models/deleting_data/">Deleting Data</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../using_models/related_data/">Working with Related Models</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Creating a GraphQL API</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../creating_an_api/overview/">Creating an API</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Creating a User Interface</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">RevJS UI Overview</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#building-a-ui-with-revjs">Building a UI with RevJS</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#revjs-ui-components">RevJS UI Components</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../simple_list/">Simple List</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">RevJS Module Reference</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../components/rev-models/">rev-models</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../components/rev-api/">rev-api</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../components/rev-ui/">rev-ui</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../changelog/">Change Log</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">RevJS Guide</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Creating a User Interface &raquo;</li>
+        
+      
+    
+    <li>RevJS UI Overview</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/RevJS/revjs/edit/master/docs/mkdocs/src/creating_a_ui/overview.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="building-a-ui-with-revjs">Building a UI with RevJS<a class="headerlink" href="#building-a-ui-with-revjs" title="Permanent link">&para;</a></h1>
+<p>The <code>rev-ui</code> module of RevJS provides a number of React components designed to
+help you quickly build data-driven user interfaces.</p>
+<p>When combined with <code>rev-api-client</code>, you can render data from your API with
+a very minimal amount of front-end code.</p>
+<h2 id="revjs-ui-components">RevJS UI Components<a class="headerlink" href="#revjs-ui-components" title="Permanent link">&para;</a></h2>
+<p>RevJS provides the follwing basic components, as building blocks for your data
+driven application. The rendering of each of these can be completely customised
+via the <code>component</code> property of each, or globally via the
+<a href="../../api/rev-ui/index.html#ui_components">UI_COMPONENTS</a> configuration setting.</p>
+<p><strong>Views</strong></p>
+<ul>
+<li><strong><a href="../../api/rev-ui/interfaces/ilistviewprops.html">&lt;ListView /&gt;</a></strong> - Loads and
+  renders a list of records, including <strong>filtering</strong>, <strong>sorting</strong> and
+  <strong>pagination</strong>.</li>
+<li><strong><a href="../../api/rev-ui/interfaces/idetailviewprops.html">&lt;DetailView /&gt;</a></strong> - Loads
+  a single record, and provides functions for <strong>validating</strong>, <strong>saving</strong>
+  and <strong>removing</strong> it.</li>
+</ul>
+<p><strong>Actions</strong></p>
+<p>The following components can be placed inside a <code>&lt;DetailView /&gt;</code>, to trigger
+the corresponding action.</p>
+<ul>
+<li><strong><a href="../../api/rev-ui/interfaces/isaveactionprops.html">&lt;SaveAction /&gt;</a></strong> - Validate
+  and save the curremt record.</li>
+<li><strong><a href="../../api/rev-ui/interfaces/iremoveactionprops.html">&lt;RemoveAction /&gt;</a></strong> -
+  Remove the current record.</li>
+<li><strong><a href="../../api/rev-ui/interfaces/ipostactionprops.html">&lt;PostAction /&gt;</a></strong> - Validate
+  the current record, then send the data as JSON to any HTTP endpoint.</li>
+</ul>
+<p><strong>Fields</strong></p>
+<p>The following components can be placed inside a <code>&lt;DetailView /&gt;</code>, to allow
+the user to edit the model data.</p>
+<ul>
+<li><strong><a href="../../api/rev-ui/interfaces/ifieldprops.html">&lt;Field /&gt;</a></strong> - Displays an
+  appropriate input control, depending on the type of the field specified.
+  Also displays any field-level validation errors when they occur.</li>
+</ul>
+<p><strong>Provider</strong></p>
+<ul>
+<li><strong><a href="../../api/rev-ui/interfaces/imodelproviderprops.html">&lt;ModelProvider /&gt;</a></strong> -
+  A React Provider that gives its sub-components access to models from the
+  specified RevJS ModelManager.</li>
+</ul>
+<p>The following sections give some complete examples of how to make use of the
+above components.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../simple_list/" class="btn btn-neutral float-right" title="Simple List">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../creating_an_api/overview/" class="btn btn-neutral" title="Creating an API"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/RevJS/revjs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../creating_an_api/overview/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../simple_list/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../js/highlight.pack.js"></script>
+      <script src="../../search/require.js"></script>
+      <script src="../../search/search.js"></script>
+
+</body>
+</html>
