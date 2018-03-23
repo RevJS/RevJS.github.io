@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Simple ListView - RevJS Guide</title>
+  <title>Showing Related Model Data - RevJS Guide</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -19,9 +19,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Simple ListView";
-    var mkdocs_page_input_path = "creating_a_ui/simple_list.md";
-    var mkdocs_page_url = "/creating_a_ui/simple_list/";
+    var mkdocs_page_name = "Showing Related Model Data";
+    var mkdocs_page_input_path = "creating_a_ui/related_data.md";
+    var mkdocs_page_url = "/creating_a_ui/related_data/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -122,29 +122,33 @@
                     
     <a class="" href="../overview/">RevJS UI Overview</a>
                 </li>
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Simple ListView</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#rendering-a-simple-listview">Rendering a Simple ListView</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#jsx-for-a-simple-list">JSX for a Simple List</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../simple_list/">Simple ListView</a>
                 </li>
                 <li class="">
                     
     <a class="" href="../custom_list/">Custom ListView</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../related_data/">Showing Related Model Data</a>
+    <a class="current" href="./">Showing Related Model Data</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#rendering-related-model-data">Rendering Related Model Data</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#displaying-relatedmodel-fields">Displaying RelatedModel fields</a></li>
+        
+            <li><a class="toctree-l4" href="#using-javascript-getters">Using JavaScript Getters</a></li>
+        
+            <li><a class="toctree-l4" href="#reading-related-models-in-listviews">Reading Related Models in ListViews</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -202,10 +206,10 @@
         
       
     
-    <li>Simple ListView</li>
+    <li>Showing Related Model Data</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/RevJS/revjs/edit/master/docs/mkdocs/src/creating_a_ui/simple_list.md"
+        <a href="https://github.com/RevJS/revjs/edit/master/docs/mkdocs/src/creating_a_ui/related_data.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -215,15 +219,76 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="rendering-a-simple-listview">Rendering a Simple ListView<a class="headerlink" href="#rendering-a-simple-listview" title="Permanent link">&para;</a></h1>
-<p>By default, a <a href="../../api/rev-ui/interfaces/ilistviewprops.html">&lt;ListView /&gt;</a>
-will render a table, as shown in the screenshot below:</p>
-<p><img alt="RevJS Simple ListView" src="../../img/ui-simple-list.png" /></p>
-<p>The data starts loading as soon as the ListView is rendered. A Loading
-indicator is shown until the data has finished loading. Once the data is loaded,
-the user can use the forward and back buttons to page through the data.</p>
-<h2 id="jsx-for-a-simple-list">JSX for a Simple List<a class="headerlink" href="#jsx-for-a-simple-list" title="Permanent link">&para;</a></h2>
-<p>The following JSX code will render the list shown above:</p>
+                <h1 id="rendering-related-model-data">Rendering Related Model Data<a class="headerlink" href="#rendering-related-model-data" title="Permanent link">&para;</a></h1>
+<p>One of the key things about a well structured Data Model is how the models
+are related.</p>
+<p>In the classic <code>Post</code>, <code>User</code>, <code>Comments</code> model, a User can be
+either an author of a Post, or of a Comment. If you need to update a User's
+name, ideally you don't want to have to go through all the Posts and Comments
+updating the name, instead you should update just the User object, and 
+have a "Link" between Posts and Comments, and the User.</p>
+<p>In RevJS, this is achieved with <code>RelatedModel</code> fields (see
+<a href="../../using_models/related_data/">Working with Related Models</a>).</p>
+<p>Once you have these relationships defined, you'll probably want to be able to
+display this related information to the user. The following sections
+describe a couple of ways this can be done.</p>
+<h2 id="displaying-relatedmodel-fields">Displaying RelatedModel fields<a class="headerlink" href="#displaying-relatedmodel-fields" title="Permanent link">&para;</a></h2>
+<p>In the example above, we mentioned that a User can be an Author of a Post.</p>
+<p>In our Post model, this is modelled as shown below:</p>
+<pre><code class="ts">export class Post {
+    @RelatedModel({ label: 'Author', model: 'User' })
+        user: User;
+    ...
+}
+</code></pre>
+
+<p>If we just include the <code>user</code> field in our ListView fields, it will
+appear as shown in the screenshot below:</p>
+<p><img alt="Default rendering of a RelatedModel field" src="../../img/ui-relatedmodel-default.png" /></p>
+<p>You may notice that "[object Object]" is the standard result of calling
+<code>toString()</code> on a JavaScript object. So, to have the Author name displayed,
+we just need to override the <code>toString()</code> method on the <code>User</code> model:</p>
+<pre><code class="ts">export class User {
+    ...
+
+    toString() {
+        return this.first_name + ' ' + this.last_name;
+    }
+}
+</code></pre>
+
+<p>This will result in the user's name being shown, which is what we want:</p>
+<p><img alt="Rendering of a RelatedModel field with toString() defined" src="../../img/ui-relatedmodel-tostring.png" /></p>
+<h2 id="using-javascript-getters">Using JavaScript Getters<a class="headerlink" href="#using-javascript-getters" title="Permanent link">&para;</a></h2>
+<p>There may be situations where just defining a toString() method on a model is
+not flexible enough, for example if you want a User's details to be displayed
+differently in different situations, or if the value you want to show is based
+on data from multiple models.</p>
+<p>In these situations you can a
+<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get">JavaScript Getter</a>
+function.</p>
+<p>In the example below, we define a Getter on our Post object which returns
+the number of Comments:</p>
+<pre><code class="ts">class Post {
+    ...
+    @IntegerField({ label: 'No. of Comments' })
+        get number_of_comments() {
+            return (this.comments &amp;&amp; this.comments.length) || 0;
+        }
+}
+</code></pre>
+
+<p><em>(Note: this requires retrieval of all the comments, so don't do this in
+production!)</em></p>
+<p>Once the getter is defined as a field, you can then add <code>number_of_comments</code> to
+the <code>fields</code> list of your ListView, and it will be displayed as shown below:</p>
+<p><img alt="Rendering of a RelatedModel field with a getter defined" src="../../img/ui-relatedmodel-getter.png" /></p>
+<h2 id="reading-related-models-in-listviews">Reading Related Models in ListViews<a class="headerlink" href="#reading-related-models-in-listviews" title="Permanent link">&para;</a></h2>
+<p>By default, when a <a href="../../api/rev-ui/interfaces/ilistviewprops.html">&lt;ListView /&gt;</a>
+fetches data, it will fetch fields from the <strong>specified model only</strong>.</p>
+<p>If you wish to fetch related model data, you will need to specify the <code>related</code>
+property.</p>
+<p>In the example below, we retrieve Posts along with their Author and Comments:</p>
 <pre><code class="jsx">&lt;ModelProvider modelManager={modelManager} &gt;
     &lt;ListView
         title=&quot;Current Posts&quot;
@@ -232,6 +297,12 @@ the user can use the forward and back buttons to page through the data.</p>
             'post_date',
             'title',
             'description',
+            'user',
+            'number_of_comments',
+        ]}
+        related={[
+            'user',
+            'comments'
         ]}
         where={{
             post_date: { _gt: '2017-01-01' }
@@ -243,10 +314,7 @@ the user can use the forward and back buttons to page through the data.</p>
 </code></pre>
 
 <p><em>(Complete working example
-<a href="https://github.com/RevJS/revjs/blob/master/packages/examples/src/creating_a_ui/simple_list/simple_list.tsx">here</a>).</em></p>
-<p>You can use the <code>fields</code> prop of the ListView to select which columns to
-show, and the <code>where</code>, <code>orderBy</code> and <code>limit</code> props to control the data shown.</p>
-<p>In the next example, we'll look at how to render your own list view components.</p>
+<a href="https://github.com/RevJS/revjs/blob/master/packages/examples/src/creating_a_ui/related_data/related_data.tsx">here</a>).</em></p>
               
             </div>
           </div>
@@ -254,10 +322,10 @@ show, and the <code>where</code>, <code>orderBy</code> and <code>limit</code> pr
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../custom_list/" class="btn btn-neutral float-right" title="Custom ListView">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../components/rev-models/" class="btn btn-neutral float-right" title="rev-models">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../overview/" class="btn btn-neutral" title="RevJS UI Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../custom_list/" class="btn btn-neutral" title="Custom ListView"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -285,10 +353,10 @@ show, and the <code>where</code>, <code>orderBy</code> and <code>limit</code> pr
           <a href="https://github.com/RevJS/revjs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../overview/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../custom_list/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../custom_list/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../components/rev-models/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

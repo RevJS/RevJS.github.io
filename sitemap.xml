@@ -91,6 +91,12 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>/creating_a_ui/related_data/</loc>
+     <lastmod>2018-03-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
@@ -103,6 +109,12 @@
         
     <url>
      <loc>/components/rev-api/</loc>
+     <lastmod>2018-03-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/components/rev-api-client/</loc>
      <lastmod>2018-03-23</lastmod>
      <changefreq>daily</changefreq>
     </url>
