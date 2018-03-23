@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>rev-api - RevJS Guide</title>
+  <title>Custom ListView - RevJS Guide</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -19,9 +19,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "rev-api";
-    var mkdocs_page_input_path = "components/rev-api.md";
-    var mkdocs_page_url = "/components/rev-api/";
+    var mkdocs_page_name = "Custom ListView";
+    var mkdocs_page_input_path = "creating_a_ui/custom_list.md";
+    var mkdocs_page_url = "/creating_a_ui/custom_list/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -120,15 +120,27 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../creating_a_ui/overview/">RevJS UI Overview</a>
+    <a class="" href="../overview/">RevJS UI Overview</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../creating_a_ui/simple_list/">Simple ListView</a>
+    <a class="" href="../simple_list/">Simple ListView</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../../creating_a_ui/custom_list/">Custom ListView</a>
+    <a class="current" href="./">Custom ListView</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#rendering-a-custom-listview">Rendering a Custom ListView</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#jsx-for-a-custom-listview-component">JSX for a Custom ListView Component</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -139,29 +151,15 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../rev-models/">rev-models</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">rev-api</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#rev-api-revjs-graphql-api-generator">rev-api - RevJS GraphQL API Generator</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#example">Example</a></li>
-        
-            <li><a class="toctree-l4" href="#contributing">Contributing</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../components/rev-models/">rev-models</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../rev-ui/">rev-ui</a>
+    <a class="" href="../../components/rev-api/">rev-api</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../components/rev-ui/">rev-ui</a>
                 </li>
                 <li class="">
                     
@@ -192,14 +190,14 @@
     
       
         
-          <li>RevJS Module Reference &raquo;</li>
+          <li>Creating a User Interface &raquo;</li>
         
       
     
-    <li>rev-api</li>
+    <li>Custom ListView</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/RevJS/revjs/edit/master/docs/mkdocs/src/components/rev-api.md"
+        <a href="https://github.com/RevJS/revjs/edit/master/docs/mkdocs/src/creating_a_ui/custom_list.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -209,102 +207,83 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="rev-api-revjs-graphql-api-generator">rev-api - RevJS GraphQL API Generator<a class="headerlink" href="#rev-api-revjs-graphql-api-generator" title="Permanent link">&para;</a></h1>
-<p>The <code>rev-api</code> module provides the following:</p>
-<ul>
-<li>A <strong>ModelApiManager</strong> object, for registering your models to be exposed via
-   the GraphQL API</li>
-<li>An <strong>@ApiOperations</strong> decorator, for annotating your models with the operations
-   that are allowed on them (<code>read</code>, <code>create</code>, etc.)</li>
-<li>An <strong>@ApiMethod</strong> decorator, for annotating any model methods that you
-   want to expose as GraphQL mutations.</li>
-</ul>
-<p>For more information, check out <a href="../../creating_an_api/overview/">Creating an API</a></p>
-<p><em>Jump to the <a href="../../api/rev-api">rev-api API Documentation</a></em></p>
-<h2 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h2>
-<p>The example below creates a few models and assigns them to a ModelApiManager.</p>
-<pre><code class="ts">
-import {
-    AutoNumberField, TextField, RelatedModel, RelatedModelList,
-    ModelManager, InMemoryBackend
-} from 'rev-models';
-import { ApiOperations } from 'rev-api/lib/decorators';
-import { ModelApiManager } from 'rev-api';
-
-// Use the @ApiOperations decorator to specify what operations are allowed for each model
-
-@ApiOperations(
-    ['read']
-)
-export class User {
-    @AutoNumberField({ primaryKey: true })
-        id: number;
-    @TextField()
-        username: string;
-    @RelatedModelList({ model: 'Post', field: 'user' })
-        posts: Post[];
-    @RelatedModelList({ model: 'Comment', field: 'user' })
-        comments: Comment[];
-
-    constructor(data?: Partial&lt;User&gt;) {
-        Object.assign(this, data);
+                <h1 id="rendering-a-custom-listview">Rendering a Custom ListView<a class="headerlink" href="#rendering-a-custom-listview" title="Permanent link">&para;</a></h1>
+<p>You can render a list of model data in any way you wish using the <code>component</code>
+property of the <a href="../../api/rev-ui/interfaces/ilistviewprops.html">&lt;ListView /&gt;</a>
+component. The screenshot below shows the posts from the previous example,
+rendered as a grid of cards instead of a table.</p>
+<p><img alt="RevJS Custom ListView" src="../../img/ui-custom-list.png" /></p>
+<p>To create a custom ListView component, you just need to implement a React
+component that accepts <a href="../../api/rev-ui/interfaces/ilistviewcomponentprops.html">IListViewComponentProps</a>,
+as shown in the example below</p>
+<h2 id="jsx-for-a-custom-listview-component">JSX for a Custom ListView Component<a class="headerlink" href="#jsx-for-a-custom-listview-component" title="Permanent link">&para;</a></h2>
+<p>First, create a React component that accepts
+<a href="../../api/rev-ui/interfaces/ilistviewcomponentprops.html">IListViewComponentProps</a>
+and renders the data as needed. We recommend creating a Stateless Functional
+Component for this, since RevJS handles the loading and data state for you:</p>
+<pre><code class="jsx">const MyCustomListView = (props: IListViewComponentProps&lt;models.Post&gt;) =&gt; {
+    if (props.loadState == 'LOADING') {
+        // Loading state
+        return (
+            &lt;Typography variant=&quot;subheading&quot;&gt;
+                Loading...
+            &lt;/Typography&gt;
+        );
     }
-}
+    else {
+        // Render the posts as a list of cards
+        const postCards = props.records.map((post) =&gt; (
+            &lt;Card&gt;
+                &lt;CardHeader
+                    avatar={
+                        &lt;Avatar style={{ backgroundColor: getColour() }}&gt;
+                            {post.title.substr(0, 1)}
+                        &lt;/Avatar&gt;
+                    }
+                    title={post.title}
+                    subheader={post.post_date}
+                /&gt;
+                &lt;CardContent&gt;
+                    &lt;Typography component=&quot;p&quot;&gt;
+                        {post.body}
+                    &lt;/Typography&gt;
+                &lt;/CardContent&gt;
+            &lt;/Card&gt;
+        ));
 
-@ApiOperations(
-    ['create', 'read', 'update', 'remove']
-)
-export class Post {
-    @AutoNumberField({ primaryKey: true })
-        id: number;
-    @RelatedModel({ model: 'User' })
-        user: User;
-    @TextField()
-        title: string;
-    @TextField({ multiLine: true })
-        body: string;
-    @RelatedModelList({ model: 'Comment', field: 'post' })
-        comments: Comment[];
-
-    constructor(data?: Partial&lt;Post&gt;) {
-        Object.assign(this, data);
+        return (
+            &lt;div&gt;
+                &lt;Typography variant=&quot;title&quot;&gt;
+                    {props.title}
+                &lt;/Typography&gt;
+                &lt;Grid container spacing={40}&gt;
+                    {postCards}
+                &lt;/Grid&gt;
+            &lt;/div&gt;
+        );
     }
-}
-
-@ApiOperations(
-    ['create', 'read', 'remove']
-)
-export class Comment {
-    @AutoNumberField({ primaryKey: true })
-        id: number;
-    @RelatedModel({ model: 'Post' })
-        post: Post;
-    @RelatedModel({ model: 'User', required: false })
-        user: User;
-    @TextField()
-        comment: string;
-
-    constructor(data?: Partial&lt;Comment&gt;) {
-        Object.assign(this, data);
-    }
-}
-
-export const modelManager = new ModelManager();
-modelManager.registerBackend('default', new InMemoryBackend());
-modelManager.register(User);
-modelManager.register(Post);
-modelManager.register(Comment);
-
-export const api = new ModelApiManager(modelManager);
-api.register(User);
-api.register(Post);
-api.register(Comment)
+};
 </code></pre>
 
-<h2 id="contributing">Contributing<a class="headerlink" href="#contributing" title="Permanent link">&para;</a></h2>
-<p>We are actively looking to build a team around RevJS. If you are interesting in
-contributing, fork us on github or drop us a
-<a href="mailto:russ@russellbriggs.co">mail</a>!</p>
+<p>To render your custom list component, simply pass it into RevJS's ListView
+component along with the query you want to populate it with. There is obviously
+no need to pass in the <code>fields</code> prop in this case - all the fields of the 
+<code>Post</code> model will be available for you to render.</p>
+<pre><code class="jsx">&lt;ModelProvider modelManager={modelManager} &gt;
+    &lt;ListView
+        title=&quot;Current Posts&quot;
+        model=&quot;Post&quot;
+        where={{
+            post_date: { _gt: '2017-01-01' }
+        }}
+        orderBy={['post_date desc']}
+        component={MyCustomListView}
+    /&gt;
+&lt;/ModelProvider&gt;
+</code></pre>
+
+<p><em>(Complete working example
+<a href="https://github.com/RevJS/revjs/blob/master/packages/examples/src/creating_a_ui/custom_list/custom_list.tsx">here</a>).</em></p>
               
             </div>
           </div>
@@ -312,10 +291,10 @@ contributing, fork us on github or drop us a
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../rev-ui/" class="btn btn-neutral float-right" title="rev-ui">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../components/rev-models/" class="btn btn-neutral float-right" title="rev-models">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../rev-models/" class="btn btn-neutral" title="rev-models"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../simple_list/" class="btn btn-neutral" title="Simple ListView"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -343,10 +322,10 @@ contributing, fork us on github or drop us a
           <a href="https://github.com/RevJS/revjs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../rev-models/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../simple_list/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../rev-ui/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../components/rev-models/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
