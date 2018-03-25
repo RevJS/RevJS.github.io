@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Showing Related Model Data - RevJS Guide</title>
+  <title>Listing Related Model Data - RevJS Guide</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -19,7 +19,7 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Showing Related Model Data";
+    var mkdocs_page_name = "Listing Related Model Data";
     var mkdocs_page_input_path = "creating_a_ui/related_data.md";
     var mkdocs_page_url = "/creating_a_ui/related_data/";
   </script>
@@ -132,14 +132,14 @@
                 </li>
                 <li class=" current">
                     
-    <a class="current" href="./">Showing Related Model Data</a>
+    <a class="current" href="./">Listing Related Model Data</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#rendering-related-model-data">Rendering Related Model Data</a></li>
+    <li class="toctree-l3"><a href="#showing-related-model-data">Showing Related Model Data</a></li>
     
         <ul>
         
-            <li><a class="toctree-l4" href="#displaying-relatedmodel-fields">Displaying RelatedModel fields</a></li>
+            <li><a class="toctree-l4" href="#showing-relatedmodel-fields">Showing RelatedModel fields</a></li>
         
             <li><a class="toctree-l4" href="#using-javascript-getters">Using JavaScript Getters</a></li>
         
@@ -149,6 +149,10 @@
     
 
     </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../detail_view/">DetailViews</a>
                 </li>
     </ul>
 	    </li>
@@ -206,7 +210,7 @@
         
       
     
-    <li>Showing Related Model Data</li>
+    <li>Listing Related Model Data</li>
     <li class="wy-breadcrumbs-aside">
       
         <a href="https://github.com/RevJS/revjs/edit/master/docs/mkdocs/src/creating_a_ui/related_data.md"
@@ -219,7 +223,7 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="rendering-related-model-data">Rendering Related Model Data<a class="headerlink" href="#rendering-related-model-data" title="Permanent link">&para;</a></h1>
+                <h1 id="showing-related-model-data">Showing Related Model Data<a class="headerlink" href="#showing-related-model-data" title="Permanent link">&para;</a></h1>
 <p>One of the key things about a well structured Data Model is how the models
 are related.</p>
 <p>In the classic <code>Post</code>, <code>User</code>, <code>Comments</code> model, a User can be
@@ -232,7 +236,7 @@ have a "Link" between Posts and Comments, and the User.</p>
 <p>Once you have these relationships defined, you'll probably want to be able to
 display this related information to the user. The following sections
 describe a couple of ways this can be done.</p>
-<h2 id="displaying-relatedmodel-fields">Displaying RelatedModel fields<a class="headerlink" href="#displaying-relatedmodel-fields" title="Permanent link">&para;</a></h2>
+<h2 id="showing-relatedmodel-fields">Showing RelatedModel fields<a class="headerlink" href="#showing-relatedmodel-fields" title="Permanent link">&para;</a></h2>
 <p>In the example above, we mentioned that a User can be an Author of a Post.</p>
 <p>In our Post model, this is modelled as shown below:</p>
 <pre><code class="ts">export class Post {
@@ -322,7 +326,7 @@ property.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../components/rev-models/" class="btn btn-neutral float-right" title="rev-models">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../detail_view/" class="btn btn-neutral float-right" title="DetailViews">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../custom_list/" class="btn btn-neutral" title="Custom ListView"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -356,7 +360,7 @@ property.</p>
         <span><a href="../custom_list/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../components/rev-models/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../detail_view/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

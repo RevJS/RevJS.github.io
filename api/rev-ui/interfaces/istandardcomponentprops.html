@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IModelError | rev-models</title>
+	<title>IStandardComponentProps | rev-ui</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -37,10 +37,10 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../index.html">rev-models</a>
+					<a href="../index.html">rev-ui</a>
 				</li>
 			</ul>
-			<h1>Interface: IModelError</h1>
+			<h1>Interface: IStandardComponentProps</h1>
 		</div>
 	</div>
 </header>
@@ -55,13 +55,38 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IModelError</span>
+						<span class="target">IStandardComponentProps</span>
+						<ul class="tsd-hierarchy">
+							<li>
+								<a href="idetailviewprops.html" class="tsd-signature-type">IDetailViewProps</a>
+							</li>
+							<li>
+								<a href="iactioncomponentprops.html" class="tsd-signature-type">IActionComponentProps</a>
+							</li>
+							<li>
+								<a href="ipostactionprops.html" class="tsd-signature-type">IPostActionProps</a>
+							</li>
+							<li>
+								<a href="iremoveactionprops.html" class="tsd-signature-type">IRemoveActionProps</a>
+							</li>
+							<li>
+								<a href="isaveactionprops.html" class="tsd-signature-type">ISaveActionProps</a>
+							</li>
+							<li>
+								<a href="ifieldprops.html" class="tsd-signature-type">IFieldProps</a>
+							</li>
+							<li>
+								<a href="ifieldcomponentprops.html" class="tsd-signature-type">IFieldComponentProps</a>
+							</li>
+							<li>
+								<a href="ilistviewprops.html" class="tsd-signature-type">IListViewProps</a>
+							</li>
+							<li>
+								<a href="ilistviewcomponentprops.html" class="tsd-signature-type">IListViewComponentProps</a>
+							</li>
+						</ul>
 					</li>
 				</ul>
-			</section>
-			<section class="tsd-panel tsd-kind-interface tsd-is-private">
-				<h3 class="tsd-before-signature">Indexable</h3>
-				<div class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></div>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
@@ -70,8 +95,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="imodelerror.html#code" class="tsd-kind-icon">code</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="imodelerror.html#message" class="tsd-kind-icon">message</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="istandardcomponentprops.html#style" class="tsd-kind-icon">style</a></li>
 							</ul>
 						</section>
 					</div>
@@ -80,22 +104,12 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="code" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> code</h3>
-					<div class="tsd-signature tsd-kind-icon">code<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="style" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> style</h3>
+					<div class="tsd-signature tsd-kind-icon">style<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Partial</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CSSProperties</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3e64ba0/packages/rev-models/src/validation/validationresult.ts#L16">validation/validationresult.ts:16</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="message" class="tsd-anchor"></a>
-					<h3>message</h3>
-					<div class="tsd-signature tsd-kind-icon">message<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3e64ba0/packages/rev-models/src/validation/validationresult.ts#L15">validation/validationresult.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3e64ba0/packages/rev-ui/src/utils/props.ts#L7">utils/props.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -108,21 +122,111 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-class tsd-has-type-parameter tsd-is-private">
+						<a href="../classes/detailview.html" class="tsd-kind-icon">Detail<wbr>View</a>
+					</li>
+					<li class=" tsd-kind-class tsd-is-private">
+						<a href="../classes/listview.html" class="tsd-kind-icon">List<wbr>View</a>
+					</li>
+					<li class=" tsd-kind-class tsd-has-type-parameter tsd-is-private">
+						<a href="../classes/modelprovider.html" class="tsd-kind-icon">Model<wbr>Provider</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-is-private">
+						<a href="iactioncomponentprops.html" class="tsd-kind-icon">IAction<wbr>Component<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-private">
+						<a href="idetailviewcontext.html" class="tsd-kind-icon">IDetail<wbr>View<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-private">
+						<a href="idetailviewcontextprop.html" class="tsd-kind-icon">IDetail<wbr>View<wbr>Context<wbr>Prop</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="idetailviewprops.html" class="tsd-kind-icon">IDetail<wbr>View<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-is-private">
+						<a href="ifieldcomponentprops.html" class="tsd-kind-icon">IField<wbr>Component<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="ifieldprops.html" class="tsd-kind-icon">IField<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-is-private">
+						<a href="ifieldstate.html" class="tsd-kind-icon">IField<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-has-type-parameter tsd-is-private">
+						<a href="ilistviewcomponentprops.html" class="tsd-kind-icon">IList<wbr>View<wbr>Component<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="ilistviewprops.html" class="tsd-kind-icon">IList<wbr>View<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-is-private">
+						<a href="ilistviewstate.html" class="tsd-kind-icon">IList<wbr>View<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-is-private">
+						<a href="imodelmanagerprop.html" class="tsd-kind-icon">IModel<wbr>Manager<wbr>Prop</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-is-private">
+						<a href="imodelprovidercontext.html" class="tsd-kind-icon">IModel<wbr>Provider<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="imodelproviderprops.html" class="tsd-kind-icon">IModel<wbr>Provider<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="ipostactionprops.html" class="tsd-kind-icon">IPost<wbr>Action<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="iremoveactionprops.html" class="tsd-kind-icon">IRemove<wbr>Action<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface">
+						<a href="isaveactionprops.html" class="tsd-kind-icon">ISave<wbr>Action<wbr>Props</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-is-private">
-						<a href="imodelerror.html" class="tsd-kind-icon">IModel<wbr>Error</a>
+						<a href="istandardcomponentprops.html" class="tsd-kind-icon">IStandard<wbr>Component<wbr>Props</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="imodelerror.html#code" class="tsd-kind-icon">code</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="imodelerror.html#message" class="tsd-kind-icon">message</a>
+								<a href="istandardcomponentprops.html#style" class="tsd-kind-icon">style</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-type-alias tsd-is-private">
+						<a href="../index.html#colspanoptions" class="tsd-kind-icon">Colspan<wbr>Options</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-is-private">
+						<a href="../index.html#idetailviewloadstate" class="tsd-kind-icon">IDetail<wbr>View<wbr>Load<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-is-private">
+						<a href="../index.html#ilistviewloadstate" class="tsd-kind-icon">IList<wbr>View<wbr>Load<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-private">
+						<a href="../index.html#field" class="tsd-kind-icon">Field</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-private">
+						<a href="../index.html#postaction" class="tsd-kind-icon">Post<wbr>Action</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-private">
+						<a href="../index.html#removeaction" class="tsd-kind-icon">Remove<wbr>Action</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-is-private">
+						<a href="../index.html#saveaction" class="tsd-kind-icon">Save<wbr>Action</a>
+					</li>
+					<li class=" tsd-kind-function tsd-is-private">
+						<a href="../index.html#getstandardprops" class="tsd-kind-icon">get<wbr>Standard<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="../index.html#withdetailviewcontext" class="tsd-kind-icon">with<wbr>Detail<wbr>View<wbr>Context</a>
+					</li>
+					<li class=" tsd-kind-function tsd-has-type-parameter">
+						<a href="../index.html#withmodelmanager" class="tsd-kind-icon">with<wbr>Model<wbr>Manager</a>
+					</li>
+					<li class=" tsd-kind-object-literal">
+						<a href="../index.html#ui_components" class="tsd-kind-icon">UI_<wbr>COMPONENTS</a>
+					</li>
+					<li class=" tsd-kind-object-literal tsd-is-private">
+						<a href="../index.html#lifecycleoptions" class="tsd-kind-icon">lifecycle<wbr>Options</a>
+					</li>
 				</ul>
 			</nav>
 		</div>

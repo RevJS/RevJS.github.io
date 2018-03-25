@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Updating Data - RevJS Guide</title>
+  <title>DetailViews - RevJS Guide</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -19,9 +19,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Updating Data";
-    var mkdocs_page_input_path = "using_models/updating_data.md";
-    var mkdocs_page_url = "/using_models/updating_data/";
+    var mkdocs_page_name = "DetailViews";
+    var mkdocs_page_input_path = "creating_a_ui/detail_view.md";
+    var mkdocs_page_url = "/creating_a_ui/detail_view/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -70,49 +70,35 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../creating_models/">Defining Models</a>
+    <a class="" href="../../using_models/creating_models/">Defining Models</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../model_validation/">Adding Validation</a>
+    <a class="" href="../../using_models/model_validation/">Adding Validation</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../revjs_backends/">Storage Backends</a>
+    <a class="" href="../../using_models/revjs_backends/">Storage Backends</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../creating_data/">Creating Data</a>
+    <a class="" href="../../using_models/creating_data/">Creating Data</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../reading_data/">Reading Data</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Updating Data</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#updating-model-data">Updating Model Data</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#updating-data-from-reads">Updating Data from Reads</a></li>
-        
-            <li><a class="toctree-l4" href="#updating-data-with-a-where-clause">Updating Data with a Where clause</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../using_models/reading_data/">Reading Data</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../deleting_data/">Deleting Data</a>
+    <a class="" href="../../using_models/updating_data/">Updating Data</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../related_data/">Working with Related Models</a>
+    <a class="" href="../../using_models/deleting_data/">Deleting Data</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../using_models/related_data/">Working with Related Models</a>
                 </li>
     </ul>
 	    </li>
@@ -134,23 +120,37 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../creating_a_ui/overview/">RevJS UI Overview</a>
+    <a class="" href="../overview/">RevJS UI Overview</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../creating_a_ui/simple_list/">Simple ListView</a>
+    <a class="" href="../simple_list/">Simple ListView</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../creating_a_ui/custom_list/">Custom ListView</a>
+    <a class="" href="../custom_list/">Custom ListView</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../creating_a_ui/related_data/">Listing Related Model Data</a>
+    <a class="" href="../related_data/">Listing Related Model Data</a>
                 </li>
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../../creating_a_ui/detail_view/">DetailViews</a>
+    <a class="current" href="./">DetailViews</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#creating-a-detailview">Creating a DetailView</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#jsx-for-a-create-post-detailview">JSX for a "Create Post" DetailView</a></li>
+        
+            <li><a class="toctree-l4" href="#editing-an-existing-record-in-a-detailview">Editing an existing record in a DetailView</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -204,14 +204,14 @@
     
       
         
-          <li>Working with Models &raquo;</li>
+          <li>Creating a User Interface &raquo;</li>
         
       
     
-    <li>Updating Data</li>
+    <li>DetailViews</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/RevJS/revjs/edit/master/docs/mkdocs/src/using_models/updating_data.md"
+        <a href="https://github.com/RevJS/revjs/edit/master/docs/mkdocs/src/creating_a_ui/detail_view.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -221,77 +221,75 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="updating-model-data">Updating Model Data<a class="headerlink" href="#updating-model-data" title="Permanent link">&para;</a></h1>
-<p>You can update records using the
-<a href="../../api/rev-models/classes/modelmanager.html#update">ModelManager.update()</a>
-method. There are a couple of ways to use it:</p>
-<h2 id="updating-data-from-reads">Updating Data from Reads<a class="headerlink" href="#updating-data-from-reads" title="Permanent link">&para;</a></h2>
-<p>If you have retrieved some data via a
-<a href="../../api/rev-models/classes/modelmanager.html#read">read()</a> operation, then you
-can update the retrieved records directly, as shown in the example below:</p>
-<pre><code class="ts">import { City, modelManager } from './creating_models';
+                <h1 id="creating-a-detailview">Creating a DetailView<a class="headerlink" href="#creating-a-detailview" title="Permanent link">&para;</a></h1>
+<p>You can use a <a href="../../api/rev-ui/interfaces/idetailviewprops.html">&lt;DetailView /&gt;</a>,
+combined with
+<a href="../../api/rev-ui/interfaces/ifieldprops.html">&lt;Field /&gt;</a>s and a
+<a href="../../api/rev-ui/interfaces/isaveactionprops.html">&lt;SaveAction /&gt;</a>
+to quickly build a form to allow users to edit model data.</p>
+<p><img alt="RevJS Example DetailView" src="../../img/ui-detailview-create.png" /></p>
+<p>RevJS uses the metadata you have defined on your models to determine the type
+of input to display for each field.</p>
+<p>When the Save button is clicked, the data is validated
+against the rules you have defined on your model, and any validation problems
+are displayed to the user, as shown in the example below:</p>
+<p><img alt="DetailView with Validation error" src="../../img/ui-detailview-invalid.png" /></p>
+<h2 id="jsx-for-a-create-post-detailview">JSX for a "Create Post" DetailView<a class="headerlink" href="#jsx-for-a-create-post-detailview" title="Permanent link">&para;</a></h2>
+<p>The following JSX code will render the DetailView shown above:</p>
+<pre><code class="jsx">&lt;ModelProvider modelManager={modelManager} &gt;
 
-(async () =&gt; {
+    &lt;Typography variant=&quot;display1&quot;&gt;Create Post&lt;/Typography&gt;
 
-    await modelManager.create(new City({ name: 'Wellington' }));
-    await modelManager.create(new City({ name: 'Auckland' }));
-    await modelManager.create(new City({ name: 'Hamilton' }));
-    await modelManager.create(new City({ name: 'Christchurch' }));
+    &lt;DetailView model=&quot;Post&quot;&gt;
+        &lt;Field name=&quot;title&quot; colspan={12} /&gt;
+        &lt;Field name=&quot;description&quot; colspan={12} /&gt;
+        &lt;Field name=&quot;body&quot; colspan={12} /&gt;
+        &lt;Field name=&quot;post_date&quot; /&gt;
+        &lt;Field name=&quot;user&quot; /&gt;
 
-    // Retrieve Auckland's record
-    const cities = await modelManager.read(City, { where: {
-            name: 'Auckland'
-    }});
-    console.log('Original Record:', cities.results[0]);
+        &lt;SaveAction label=&quot;Create Post&quot; /&gt;
+    &lt;/DetailView&gt;
 
-    // Change it's name and trigger an update
-    const auckland = cities.results[0];
-    auckland.name = 'City of Sails';
-
-    await modelManager.update(auckland);
-
-    // Check that Auckland's record has been updated
-    const cityRetrieved = await modelManager.read(City, { where: {
-            name: 'City of Sails'
-    }});
-    console.log('Updated Record:', cityRetrieved.results[0]);
-
-})();
+&lt;/ModelProvider&gt;
 </code></pre>
 
-<p><strong>NOTE:</strong> In order to update records without specifying a <em>where</em> clause, your
-model must have a field with <code>primaryKey: true</code> set.</p>
-<h2 id="updating-data-with-a-where-clause">Updating Data with a Where clause<a class="headerlink" href="#updating-data-with-a-where-clause" title="Permanent link">&para;</a></h2>
-<p>If you wish to modify one or more fields across <em>multiple records</em>, you can
-use the <strong>where</strong> clause, as shown in the example below:</p>
-<pre><code class="ts">import { Post, modelManager, createData } from './post_model';
+<p>To help with easy field layout, a DetailView defines a 12-column, responsive
+grid in which your fields are placed. You can use the <code>colspan</code>,
+<code>colspanNarrow</code> and <code>colspanWide</code> properties of the <code>&lt;field /&gt;</code> component to
+specify how wide each field is, depending on the screen size. The default
+colspan for fields is 6 on 'normal' and 'wide' screens, and 12 on 'narrow'
+screens.</p>
+<p>A DetailView acts on a <strong>single model instance</strong>. If you don't specify the
+<code>primaryKeyValue</code> property for the <code>&lt;DetailView /&gt;</code> then a new record will
+be created when the SaveAction is triggered.</p>
+<h2 id="editing-an-existing-record-in-a-detailview">Editing an existing record in a DetailView<a class="headerlink" href="#editing-an-existing-record-in-a-detailview" title="Permanent link">&para;</a></h2>
+<p>Editing an existing record in a DetailView is simply a case of setting the
+<code>primaryKeyValue</code> property. In the example below, we grab a post ID from the
+URL to allow it to be edited:</p>
+<pre><code class="jsx">const currentUrl = new URL(window.location.href);
+const postId = currentUrl.searchParams.get('id');
 
-(async () =&gt; {
-    await createData();
+&lt;ModelProvider modelManager={modelManager}&gt;
 
-    // Count unpublished posts
-    const unpublishedPosts = await modelManager.read(Post, {
-        where: {
-            published: false
-        }
-    });
-    console.log('Number of unpublished posts:', unpublishedPosts.meta.totalCount);
+    &lt;Typography variant=&quot;display1&quot;&gt;Edit Post&lt;/Typography&gt;
 
-    // Publish all unpublished posts!
-    const publishResult = await modelManager.update(
-        new Post({
-            published: true
-        }),
-        {
-            where: {
-                published: false
-            }
-        }
-    );
-    console.log('Updated records:', publishResult.meta.totalCount);
+    &lt;DetailView model=&quot;Post&quot; primaryKeyValue={postId}&gt;
+        &lt;Field name=&quot;title&quot; colspan={12} /&gt;
+        &lt;Field name=&quot;description&quot; colspan={12} /&gt;
+        &lt;Field name=&quot;body&quot; colspan={12} /&gt;
+        &lt;Field name=&quot;post_date&quot; /&gt;
+        &lt;Field name=&quot;user&quot; /&gt;
 
-})();
+        &lt;SaveAction label=&quot;Save Post&quot; /&gt;
+    &lt;/DetailView&gt;
+
+&lt;/ModelProvider&gt;
 </code></pre>
+
+<p>In this case, when the Save button is clicked, the existing record will be
+updated.</p>
+<p>There is a complete working example that demonstrates the above functionality
+<a href="https://github.com/RevJS/revjs/blob/master/packages/examples/src/creating_a_ui/detailview/detailview.tsx">here</a>.</p>
               
             </div>
           </div>
@@ -299,10 +297,10 @@ use the <strong>where</strong> clause, as shown in the example below:</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../deleting_data/" class="btn btn-neutral float-right" title="Deleting Data">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../components/rev-models/" class="btn btn-neutral float-right" title="rev-models">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../reading_data/" class="btn btn-neutral" title="Reading Data"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../related_data/" class="btn btn-neutral" title="Listing Related Model Data"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -330,10 +328,10 @@ use the <strong>where</strong> clause, as shown in the example below:</p>
           <a href="https://github.com/RevJS/revjs/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../reading_data/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../related_data/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../deleting_data/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../components/rev-models/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

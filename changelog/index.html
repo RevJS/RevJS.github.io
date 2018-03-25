@@ -132,7 +132,11 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../creating_a_ui/related_data/">Showing Related Model Data</a>
+    <a class="" href="../creating_a_ui/related_data/">Listing Related Model Data</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../creating_a_ui/detail_view/">DetailViews</a>
                 </li>
     </ul>
 	    </li>
@@ -217,12 +221,15 @@
               
                 <h1 id="change-log">Change Log<a class="headerlink" href="#change-log" title="Permanent link">&para;</a></h1>
 <h2 id="revjs-module-releases">RevJS Module Releases<a class="headerlink" href="#revjs-module-releases" title="Permanent link">&para;</a></h2>
-<h3 id="next-release">Next Release<a class="headerlink" href="#next-release" title="Permanent link">&para;</a></h3>
+<h3 id="0150-25th-march-2018">0.15.0 - 25th March 2018<a class="headerlink" href="#0150-25th-march-2018" title="Permanent link">&para;</a></h3>
 <p><strong><code>rev-ui</code></strong></p>
 <ul>
 <li>Exported 'Component' interfaces from the root, for easier use</li>
-<li>IListViewComponentProps now generic to enable types on props.records</li>
-<li>ListView.fields prop now optional</li>
+<li><code>IListViewComponentProps</code> now generic to enable types on props.records</li>
+<li><code>ListView.fields</code> prop now optional</li>
+<li>IListViewComponentProps.records -&gt; results (to be consistent with IModelOperationResult)</li>
+<li>UI Components now support pass-through of standard properties (e.g. style)</li>
+<li>Added <code>MUISelectField</code> and <code>MUIRelatedModelField</code> implementations</li>
 </ul>
 <h3 id="0140-18th-march-2018">0.14.0 - 18th March 2018<a class="headerlink" href="#0140-18th-march-2018" title="Permanent link">&para;</a></h3>
 <p><strong><code>rev-ui</code></strong></p>

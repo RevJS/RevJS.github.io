@@ -144,7 +144,11 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../related_data/">Showing Related Model Data</a>
+    <a class="" href="../related_data/">Listing Related Model Data</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../detail_view/">DetailViews</a>
                 </li>
     </ul>
 	    </li>
@@ -240,7 +244,7 @@ Component for this, since RevJS handles the loading and data state for you:</p>
     }
     else {
         // Render the posts as a list of cards
-        const postCards = props.records.map((post) =&gt; (
+        const postCards = props.results.map((post) =&gt; (
             &lt;Card&gt;
                 &lt;CardHeader
                     avatar={
@@ -299,7 +303,7 @@ no need to pass in the <code>fields</code> prop in this case - all the fields of
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../related_data/" class="btn btn-neutral float-right" title="Showing Related Model Data">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../related_data/" class="btn btn-neutral float-right" title="Listing Related Model Data">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../simple_list/" class="btn btn-neutral" title="Simple ListView"><span class="icon icon-circle-arrow-left"></span> Previous</a>
