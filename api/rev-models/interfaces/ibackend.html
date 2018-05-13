@@ -47,13 +47,6 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Interface that all RevJS backends are required to implement</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -91,13 +84,13 @@
 					<a name="create" class="tsd-anchor"></a>
 					<h3>create</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">create&lt;T&gt;<span class="tsd-signature-symbol">(</span>manager<span class="tsd-signature-symbol">: </span><a href="imodelmanager.html" class="tsd-signature-type">IModelManager</a>, model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, options<span class="tsd-signature-symbol">: </span><a href="icreateoptions.html" class="tsd-signature-type">ICreateOptions</a>, result<span class="tsd-signature-symbol">: </span><a href="../classes/modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="icreatemeta.html" class="tsd-signature-type">ICreateMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="icreatemeta.html" class="tsd-signature-type">ICreateMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">create&lt;T&gt;<span class="tsd-signature-symbol">(</span>manager<span class="tsd-signature-symbol">: </span><a href="imodelmanager.html" class="tsd-signature-type">IModelManager</a>, model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, params<span class="tsd-signature-symbol">: </span><a href="icreateparams.html" class="tsd-signature-type">ICreateParams</a>, result<span class="tsd-signature-symbol">: </span><a href="../classes/modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="icreatemeta.html" class="tsd-signature-type">ICreateMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="icreatemeta.html" class="tsd-signature-type">ICreateMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/fb34ba5/packages/rev-models/src/backends/backend.ts#L9">backends/backend.ts:9</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/204471e/packages/rev-models/src/backends/backend.ts#L42">backends/backend.ts:42</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -115,7 +108,7 @@
 									<h5>model: <span class="tsd-signature-type">T</span></h5>
 								</li>
 								<li>
-									<h5>options: <a href="icreateoptions.html" class="tsd-signature-type">ICreateOptions</a></h5>
+									<h5>params: <a href="icreateparams.html" class="tsd-signature-type">ICreateParams</a></h5>
 								</li>
 								<li>
 									<h5>result: <a href="../classes/modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="icreatemeta.html" class="tsd-signature-type">ICreateMeta</a><span class="tsd-signature-symbol">&gt;</span></h5>
@@ -129,13 +122,13 @@
 					<a name="exec" class="tsd-anchor"></a>
 					<h3>exec</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">exec&lt;R&gt;<span class="tsd-signature-symbol">(</span>manager<span class="tsd-signature-symbol">: </span><a href="imodelmanager.html" class="tsd-signature-type">IModelManager</a>, model<span class="tsd-signature-symbol">: </span><a href="imodel.html" class="tsd-signature-type">IModel</a>, options<span class="tsd-signature-symbol">: </span><a href="iexecoptions.html" class="tsd-signature-type">IExecOptions</a>, result<span class="tsd-signature-symbol">: </span><a href="../classes/modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">, </span><a href="iexecmeta.html" class="tsd-signature-type">IExecMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">, </span><a href="iexecmeta.html" class="tsd-signature-type">IExecMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">exec&lt;R&gt;<span class="tsd-signature-symbol">(</span>manager<span class="tsd-signature-symbol">: </span><a href="imodelmanager.html" class="tsd-signature-type">IModelManager</a>, model<span class="tsd-signature-symbol">: </span><a href="imodel.html" class="tsd-signature-type">IModel</a>, params<span class="tsd-signature-symbol">: </span><a href="iexecparams.html" class="tsd-signature-type">IExecParams</a>, result<span class="tsd-signature-symbol">: </span><a href="../classes/modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">, </span><a href="iexecmeta.html" class="tsd-signature-type">IExecMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">, </span><a href="iexecmeta.html" class="tsd-signature-type">IExecMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/fb34ba5/packages/rev-models/src/backends/backend.ts#L13">backends/backend.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/204471e/packages/rev-models/src/backends/backend.ts#L46">backends/backend.ts:46</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -153,7 +146,7 @@
 									<h5>model: <a href="imodel.html" class="tsd-signature-type">IModel</a></h5>
 								</li>
 								<li>
-									<h5>options: <a href="iexecoptions.html" class="tsd-signature-type">IExecOptions</a></h5>
+									<h5>params: <a href="iexecparams.html" class="tsd-signature-type">IExecParams</a></h5>
 								</li>
 								<li>
 									<h5>result: <a href="../classes/modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">R</span><span class="tsd-signature-symbol">, </span><a href="iexecmeta.html" class="tsd-signature-type">IExecMeta</a><span class="tsd-signature-symbol">&gt;</span></h5>
@@ -167,13 +160,13 @@
 					<a name="read" class="tsd-anchor"></a>
 					<h3>read</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">read&lt;T&gt;<span class="tsd-signature-symbol">(</span>manager<span class="tsd-signature-symbol">: </span><a href="imodelmanager.html" class="tsd-signature-type">IModelManager</a>, model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, options<span class="tsd-signature-symbol">: </span><a href="ireadoptions.html" class="tsd-signature-type">IReadOptions</a>, result<span class="tsd-signature-symbol">: </span><a href="../classes/modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="ireadmeta.html" class="tsd-signature-type">IReadMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="ireadmeta.html" class="tsd-signature-type">IReadMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">read&lt;T&gt;<span class="tsd-signature-symbol">(</span>manager<span class="tsd-signature-symbol">: </span><a href="imodelmanager.html" class="tsd-signature-type">IModelManager</a>, model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, params<span class="tsd-signature-symbol">: </span><a href="ireadparams.html" class="tsd-signature-type">IReadParams</a>, result<span class="tsd-signature-symbol">: </span><a href="../classes/modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="ireadmeta.html" class="tsd-signature-type">IReadMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="ireadmeta.html" class="tsd-signature-type">IReadMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/fb34ba5/packages/rev-models/src/backends/backend.ts#L12">backends/backend.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/204471e/packages/rev-models/src/backends/backend.ts#L45">backends/backend.ts:45</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -193,7 +186,7 @@
 									</ul>
 								</li>
 								<li>
-									<h5>options: <a href="ireadoptions.html" class="tsd-signature-type">IReadOptions</a></h5>
+									<h5>params: <a href="ireadparams.html" class="tsd-signature-type">IReadParams</a></h5>
 								</li>
 								<li>
 									<h5>result: <a href="../classes/modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="ireadmeta.html" class="tsd-signature-type">IReadMeta</a><span class="tsd-signature-symbol">&gt;</span></h5>
@@ -207,13 +200,13 @@
 					<a name="remove" class="tsd-anchor"></a>
 					<h3>remove</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">remove&lt;T&gt;<span class="tsd-signature-symbol">(</span>manager<span class="tsd-signature-symbol">: </span><a href="imodelmanager.html" class="tsd-signature-type">IModelManager</a>, model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, options<span class="tsd-signature-symbol">: </span><a href="iremoveoptions.html" class="tsd-signature-type">IRemoveOptions</a>, result<span class="tsd-signature-symbol">: </span><a href="../classes/modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="iremovemeta.html" class="tsd-signature-type">IRemoveMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="iremovemeta.html" class="tsd-signature-type">IRemoveMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">remove&lt;T&gt;<span class="tsd-signature-symbol">(</span>manager<span class="tsd-signature-symbol">: </span><a href="imodelmanager.html" class="tsd-signature-type">IModelManager</a>, model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, params<span class="tsd-signature-symbol">: </span><a href="iremoveparams.html" class="tsd-signature-type">IRemoveParams</a>, result<span class="tsd-signature-symbol">: </span><a href="../classes/modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="iremovemeta.html" class="tsd-signature-type">IRemoveMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="iremovemeta.html" class="tsd-signature-type">IRemoveMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/fb34ba5/packages/rev-models/src/backends/backend.ts#L11">backends/backend.ts:11</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/204471e/packages/rev-models/src/backends/backend.ts#L44">backends/backend.ts:44</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -231,7 +224,7 @@
 									<h5>model: <span class="tsd-signature-type">T</span></h5>
 								</li>
 								<li>
-									<h5>options: <a href="iremoveoptions.html" class="tsd-signature-type">IRemoveOptions</a></h5>
+									<h5>params: <a href="iremoveparams.html" class="tsd-signature-type">IRemoveParams</a></h5>
 								</li>
 								<li>
 									<h5>result: <a href="../classes/modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="iremovemeta.html" class="tsd-signature-type">IRemoveMeta</a><span class="tsd-signature-symbol">&gt;</span></h5>
@@ -245,13 +238,13 @@
 					<a name="update" class="tsd-anchor"></a>
 					<h3>update</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">update&lt;T&gt;<span class="tsd-signature-symbol">(</span>manager<span class="tsd-signature-symbol">: </span><a href="imodelmanager.html" class="tsd-signature-type">IModelManager</a>, model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, options<span class="tsd-signature-symbol">: </span><a href="iupdateoptions.html" class="tsd-signature-type">IUpdateOptions</a>, result<span class="tsd-signature-symbol">: </span><a href="../classes/modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="iupdatemeta.html" class="tsd-signature-type">IUpdateMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="iupdatemeta.html" class="tsd-signature-type">IUpdateMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">update&lt;T&gt;<span class="tsd-signature-symbol">(</span>manager<span class="tsd-signature-symbol">: </span><a href="imodelmanager.html" class="tsd-signature-type">IModelManager</a>, model<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, params<span class="tsd-signature-symbol">: </span><a href="iupdateparams.html" class="tsd-signature-type">IUpdateParams</a>, result<span class="tsd-signature-symbol">: </span><a href="../classes/modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="iupdatemeta.html" class="tsd-signature-type">IUpdateMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../classes/modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="iupdatemeta.html" class="tsd-signature-type">IUpdateMeta</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/fb34ba5/packages/rev-models/src/backends/backend.ts#L10">backends/backend.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/204471e/packages/rev-models/src/backends/backend.ts#L43">backends/backend.ts:43</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -269,7 +262,7 @@
 									<h5>model: <span class="tsd-signature-type">T</span></h5>
 								</li>
 								<li>
-									<h5>options: <a href="iupdateoptions.html" class="tsd-signature-type">IUpdateOptions</a></h5>
+									<h5>params: <a href="iupdateparams.html" class="tsd-signature-type">IUpdateParams</a></h5>
 								</li>
 								<li>
 									<h5>result: <a href="../classes/modeloperationresult.html" class="tsd-signature-type">ModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><a href="iupdatemeta.html" class="tsd-signature-type">IUpdateMeta</a><span class="tsd-signature-symbol">&gt;</span></h5>

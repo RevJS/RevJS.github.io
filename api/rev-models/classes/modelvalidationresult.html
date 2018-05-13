@@ -105,19 +105,19 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Model<wbr>Validation<wbr>Result<span class="tsd-signature-symbol">(</span>valid<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="modelvalidationresult.html" class="tsd-signature-type">ModelValidationResult</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Model<wbr>Validation<wbr>Result<span class="tsd-signature-symbol">(</span>valid<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="modelvalidationresult.html" class="tsd-signature-type">ModelValidationResult</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/fb34ba5/packages/rev-models/src/validation/validationresult.ts#L51">validation/validationresult.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/204471e/packages/rev-models/src/validation/validationresult.ts#L51">validation/validationresult.ts:51</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> valid: <span class="tsd-signature-type">boolean</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> valid: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="modelvalidationresult.html" class="tsd-signature-type">ModelValidationResult</a></h4>
@@ -134,7 +134,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/imodelvalidationresult.html">IModelValidationResult</a>.<a href="../interfaces/imodelvalidationresult.html#fielderrors">fieldErrors</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/fb34ba5/packages/rev-models/src/validation/validationresult.ts#L48">validation/validationresult.ts:48</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/204471e/packages/rev-models/src/validation/validationresult.ts#L48">validation/validationresult.ts:48</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-type-declaration">
@@ -153,7 +153,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/imodelvalidationresult.html">IModelValidationResult</a>.<a href="../interfaces/imodelvalidationresult.html#modelerrors">modelErrors</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/fb34ba5/packages/rev-models/src/validation/validationresult.ts#L51">validation/validationresult.ts:51</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/204471e/packages/rev-models/src/validation/validationresult.ts#L51">validation/validationresult.ts:51</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -164,7 +164,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/imodelvalidationresult.html">IModelValidationResult</a>.<a href="../interfaces/imodelvalidationresult.html#valid">valid</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/fb34ba5/packages/rev-models/src/validation/validationresult.ts#L47">validation/validationresult.ts:47</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/204471e/packages/rev-models/src/validation/validationresult.ts#L47">validation/validationresult.ts:47</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -175,13 +175,13 @@
 					<a name="addfielderror" class="tsd-anchor"></a>
 					<h3>add<wbr>Field<wbr>Error</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">add<wbr>Field<wbr>Error<span class="tsd-signature-symbol">(</span>fieldName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, code<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Field<wbr>Error<span class="tsd-signature-symbol">(</span>fieldName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, code<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span>, data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/fb34ba5/packages/rev-models/src/validation/validationresult.ts#L75">validation/validationresult.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/204471e/packages/rev-models/src/validation/validationresult.ts#L75">validation/validationresult.ts:75</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -205,7 +205,7 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> code: <span class="tsd-signature-type">string</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> code: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>A code that can be used by calling methods to identify the type of error</p>
 									</div>
@@ -225,13 +225,13 @@
 					<a name="addmodelerror" class="tsd-anchor"></a>
 					<h3>add<wbr>Model<wbr>Error</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">add<wbr>Model<wbr>Error<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, code<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Model<wbr>Error<span class="tsd-signature-symbol">(</span>message<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, code<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span>, data<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/fb34ba5/packages/rev-models/src/validation/validationresult.ts#L105">validation/validationresult.ts:105</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/204471e/packages/rev-models/src/validation/validationresult.ts#L105">validation/validationresult.ts:105</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -249,7 +249,7 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> code: <span class="tsd-signature-type">string</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> code: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>A code that can be used by calling methods to identify the type of error</p>
 									</div>

@@ -150,19 +150,19 @@ modelManager.register(Comment);
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Validation<wbr>Error<span class="tsd-signature-symbol">(</span>validationResult<span class="tsd-signature-symbol">?: </span><a href="../interfaces/imodelvalidationresult.html" class="tsd-signature-type">IModelValidationResult</a>, detailsInMessage<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="validationerror.html" class="tsd-signature-type">ValidationError</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Validation<wbr>Error<span class="tsd-signature-symbol">(</span>validationResult<span class="tsd-signature-symbol">?: </span><a href="../interfaces/imodelvalidationresult.html" class="tsd-signature-type">IModelValidationResult</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span>, detailsInMessage<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="validationerror.html" class="tsd-signature-type">ValidationError</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/fb34ba5/packages/rev-models/src/validation/validationerror.ts#L27">validation/validationerror.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/204471e/packages/rev-models/src/validation/validationerror.ts#L27">validation/validationerror.ts:27</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> validationResult: <a href="../interfaces/imodelvalidationresult.html" class="tsd-signature-type">IModelValidationResult</a><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> validationResult: <a href="../interfaces/imodelvalidationresult.html" class="tsd-signature-type">IModelValidationResult</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> =&nbsp;null</span></h5>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> detailsInMessage: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;true</span></h5>
@@ -181,7 +181,7 @@ modelManager.register(Comment);
 					<div class="tsd-signature tsd-kind-icon">result<span class="tsd-signature-symbol">:</span> <a href="../interfaces/imodeloperationresult.html" class="tsd-signature-type">IModelOperationResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/fb34ba5/packages/rev-models/src/validation/validationerror.ts#L23">validation/validationerror.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/204471e/packages/rev-models/src/validation/validationerror.ts#L23">validation/validationerror.ts:23</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -193,10 +193,10 @@ modelManager.register(Comment);
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="validation" class="tsd-anchor"></a>
 					<h3>validation</h3>
-					<div class="tsd-signature tsd-kind-icon">validation<span class="tsd-signature-symbol">:</span> <a href="../interfaces/imodelvalidationresult.html" class="tsd-signature-type">IModelValidationResult</a></div>
+					<div class="tsd-signature tsd-kind-icon">validation<span class="tsd-signature-symbol">:</span> <a href="../interfaces/imodelvalidationresult.html" class="tsd-signature-type">IModelValidationResult</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/fb34ba5/packages/rev-models/src/validation/validationerror.ts#L27">validation/validationerror.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/204471e/packages/rev-models/src/validation/validationerror.ts#L27">validation/validationerror.ts:27</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -211,7 +211,7 @@ modelManager.register(Comment);
 					<div class="tsd-signature tsd-kind-icon">Error<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ErrorConstructor</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in /Users/russell.briggs/rev/revjs/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:884</li>
+							<li>Defined in /home/russell/code/revjs/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:896</li>
 						</ul>
 					</aside>
 				</section>
@@ -222,7 +222,7 @@ modelManager.register(Comment);
 					<aside class="tsd-sources">
 						<p>Inherited from Error.message</p>
 						<ul>
-							<li>Defined in /Users/russell.briggs/rev/revjs/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:874</li>
+							<li>Defined in /home/russell/code/revjs/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:886</li>
 						</ul>
 					</aside>
 				</section>
@@ -233,7 +233,7 @@ modelManager.register(Comment);
 					<aside class="tsd-sources">
 						<p>Inherited from Error.name</p>
 						<ul>
-							<li>Defined in /Users/russell.briggs/rev/revjs/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:873</li>
+							<li>Defined in /home/russell/code/revjs/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:885</li>
 						</ul>
 					</aside>
 				</section>
@@ -244,19 +244,19 @@ modelManager.register(Comment);
 					<aside class="tsd-sources">
 						<p>Inherited from Error.result</p>
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/fb34ba5/packages/rev-models/src/types.d.ts#L7">types.d.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/204471e/packages/rev-models/src/types.d.ts#L7">types.d.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite tsd-is-inherited tsd-is-static">
 					<a name="stack" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> <span class="tsd-flag ts-flagOptional">Optional</span> stack</h3>
-					<div class="tsd-signature tsd-kind-icon">stack<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<div class="tsd-signature tsd-kind-icon">stack<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<p>Inherited from Error.stack</p>
 						<p>Overrides Error.stack</p>
 						<ul>
-							<li>Defined in /Users/russell.briggs/rev/revjs/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:875</li>
+							<li>Defined in /home/russell/code/revjs/node_modules/typedoc/node_modules/typescript/lib/lib.es5.d.ts:887</li>
 						</ul>
 					</aside>
 				</section>
