@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>ICreateOptions | rev-models</title>
+	<title>IDefaultsContext | rev-models</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -40,7 +40,7 @@
 					<a href="../index.html">rev-models</a>
 				</li>
 			</ul>
-			<h1>Interface: ICreateOptions</h1>
+			<h1>Interface: IDefaultsContext</h1>
 		</div>
 	</div>
 </header>
@@ -49,13 +49,19 @@
 		<div class="col-8 col-content">
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>The IDefaultsContext interface represents the object passed to the
+						<a href="imodel.html#defaults">IModel.defaults</a> method</p>
+					</div>
+					<p>This interface will most likely be extended with additional contextual
+					information in the future</p>
 				</div>
 			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">ICreateOptions</span>
+						<span class="target">IDefaultsContext</span>
 					</li>
 				</ul>
 			</section>
@@ -66,7 +72,7 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="icreateoptions.html#validation" class="tsd-kind-icon">validation</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="idefaultscontext.html#manager" class="tsd-kind-icon">manager</a></li>
 							</ul>
 						</section>
 					</div>
@@ -75,14 +81,19 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="validation" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> validation</h3>
-					<div class="tsd-signature tsd-kind-icon">validation<span class="tsd-signature-symbol">:</span> <a href="ivalidationoptions.html" class="tsd-signature-type">IValidationOptions</a></div>
+					<a name="manager" class="tsd-anchor"></a>
+					<h3>manager</h3>
+					<div class="tsd-signature tsd-kind-icon">manager<span class="tsd-signature-symbol">:</span> <a href="imodelmanager.html" class="tsd-signature-type">IModelManager</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3d03078/packages/rev-models/src/models/types.ts#L138">models/types.ts:138</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3d03078/packages/rev-models/src/models/types.ts#L51">models/types.ts:51</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The associated ModelManager</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -95,11 +106,11 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface tsd-is-private">
-						<a href="icreateoptions.html" class="tsd-kind-icon">ICreate<wbr>Options</a>
+					<li class="current tsd-kind-interface">
+						<a href="idefaultscontext.html" class="tsd-kind-icon">IDefaults<wbr>Context</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="icreateoptions.html#validation" class="tsd-kind-icon">validation</a>
+								<a href="idefaultscontext.html#manager" class="tsd-kind-icon">manager</a>
 							</li>
 						</ul>
 					</li>

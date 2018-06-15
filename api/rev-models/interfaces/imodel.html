@@ -236,6 +236,7 @@ modelManager.register(Post);
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="imodel.html#defaults" class="tsd-kind-icon">defaults</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="imodel.html#validate" class="tsd-kind-icon">validate</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="imodel.html#validateasync" class="tsd-kind-icon">validate<wbr>Async</a></li>
 							</ul>
@@ -246,16 +247,46 @@ modelManager.register(Post);
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="validate" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> validate</h3>
+					<a name="defaults" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> defaults</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">validate<span class="tsd-signature-symbol">(</span>vc<span class="tsd-signature-symbol">: </span><a href="ivalidationcontext.html" class="tsd-signature-type">IValidationContext</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">defaults<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><a href="idefaultscontext.html" class="tsd-signature-type">IDefaultsContext</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/f91ef49/packages/rev-models/src/models/types.ts#L58">models/types.ts:58</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3d03078/packages/rev-models/src/models/types.ts#L72">models/types.ts:72</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>You should use this method (and not the constructor) to set any default
+										field values by assigning them to <code>this</code>. You can use the objects
+									passed in the <a href="idefaultscontext.html">IDefaultsContext</a> to help determine what defaults to set.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>ctx: <a href="idefaultscontext.html" class="tsd-signature-type">IDefaultsContext</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
+					<a name="validate" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> validate</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
+						<li class="tsd-signature tsd-kind-icon">validate<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><a href="ivalidationcontext.html" class="tsd-signature-type">IValidationContext</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3d03078/packages/rev-models/src/models/types.ts#L78">models/types.ts:78</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -268,7 +299,7 @@ modelManager.register(Post);
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>vc: <a href="ivalidationcontext.html" class="tsd-signature-type">IValidationContext</a></h5>
+									<h5>ctx: <a href="ivalidationcontext.html" class="tsd-signature-type">IValidationContext</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -279,13 +310,13 @@ modelManager.register(Post);
 					<a name="validateasync" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> validate<wbr>Async</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">validate<wbr>Async<span class="tsd-signature-symbol">(</span>vc<span class="tsd-signature-symbol">: </span><a href="ivalidationcontext.html" class="tsd-signature-type">IValidationContext</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">validate<wbr>Async<span class="tsd-signature-symbol">(</span>ctx<span class="tsd-signature-symbol">: </span><a href="ivalidationcontext.html" class="tsd-signature-type">IValidationContext</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/f91ef49/packages/rev-models/src/models/types.ts#L64">models/types.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3d03078/packages/rev-models/src/models/types.ts#L84">models/types.ts:84</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -298,7 +329,7 @@ modelManager.register(Post);
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>vc: <a href="ivalidationcontext.html" class="tsd-signature-type">IValidationContext</a></h5>
+									<h5>ctx: <a href="ivalidationcontext.html" class="tsd-signature-type">IValidationContext</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -319,6 +350,9 @@ modelManager.register(Post);
 					<li class="current tsd-kind-interface">
 						<a href="imodel.html" class="tsd-kind-icon">IModel</a>
 						<ul>
+							<li class=" tsd-kind-method tsd-parent-kind-interface">
+								<a href="imodel.html#defaults" class="tsd-kind-icon">defaults</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-interface">
 								<a href="imodel.html#validate" class="tsd-kind-icon">validate</a>
 							</li>

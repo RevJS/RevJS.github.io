@@ -225,6 +225,23 @@
               
                 <h1 id="change-log">Change Log<a class="headerlink" href="#change-log" title="Permanent link">&para;</a></h1>
 <h2 id="revjs-module-releases">RevJS Module Releases<a class="headerlink" href="#revjs-module-releases" title="Permanent link">&para;</a></h2>
+<h3 id="0190-15th-june-2018">0.19.0 - 15th June 2018<a class="headerlink" href="#0190-15th-june-2018" title="Permanent link">&para;</a></h3>
+<p><strong><code>rev-models</code></strong></p>
+<ul>
+<li><code>ModelManager.isNew()</code> throw better error when model is null or undefined</li>
+<li><code>ModelManager.register()</code> now does a test instantiation of the model, and throws an error if the constructor sets any default values</li>
+<li>Added <code>IModel.defaults()</code> method, to be used for setting default field values</li>
+<li>Added <code>ModelManager.getNew()</code> method, for returning models with default values applied</li>
+</ul>
+<p><strong><code>rev-ui</code></strong></p>
+<ul>
+<li>Add a <code>defaultAction</code> prop for <code>&lt;PostAction /&gt;</code>, <code>&lt;SaveAction /&gt;</code>, etc. components</li>
+<li><code>&lt;DetailView /&gt;</code> now applies default values set in <code>IModel.defaults()</code></li>
+</ul>
+<p><strong><code>rev-ui-materialui</code></strong></p>
+<ul>
+<li>MUISelectField - store <code>null</code> instead of empty string when empty option is selected</li>
+</ul>
 <h3 id="0180-6th-june-2018">0.18.0 - 6th June 2018<a class="headerlink" href="#0180-6th-june-2018" title="Permanent link">&para;</a></h3>
 <ul>
 <li>Build fix: clean lib/** before building</li>
