@@ -83,6 +83,7 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="idetailviewcontext.html#manager" class="tsd-kind-icon">manager</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="idetailviewcontext.html#model" class="tsd-kind-icon">model</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="idetailviewcontext.html#modelmeta" class="tsd-kind-icon">model<wbr>Meta</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="idetailviewcontext.html#relatedmodelmeta" class="tsd-kind-icon">related<wbr>Model<wbr>Meta</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="idetailviewcontext.html#validation" class="tsd-kind-icon">validation</a></li>
 							</ul>
 						</section>
@@ -108,7 +109,7 @@
 					<div class="tsd-signature tsd-kind-icon">dirty<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3d03078/packages/rev-ui/src/views/DetailView.tsx#L73">views/DetailView.tsx:73</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b0b1620/packages/rev-ui/src/views/DetailView.tsx#L81">views/DetailView.tsx:81</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -123,7 +124,7 @@
 					<div class="tsd-signature tsd-kind-icon">load<wbr>State<span class="tsd-signature-symbol">:</span> <a href="../index.html#idetailviewloadstate" class="tsd-signature-type">IDetailViewLoadState</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3d03078/packages/rev-ui/src/views/DetailView.tsx#L58">views/DetailView.tsx:58</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b0b1620/packages/rev-ui/src/views/DetailView.tsx#L63">views/DetailView.tsx:63</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -138,7 +139,7 @@
 					<div class="tsd-signature tsd-kind-icon">manager<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">IModelManager</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3d03078/packages/rev-ui/src/views/DetailView.tsx#L61">views/DetailView.tsx:61</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b0b1620/packages/rev-ui/src/views/DetailView.tsx#L66">views/DetailView.tsx:66</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -153,7 +154,7 @@
 					<div class="tsd-signature tsd-kind-icon">model<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3d03078/packages/rev-ui/src/views/DetailView.tsx#L64">views/DetailView.tsx:64</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b0b1620/packages/rev-ui/src/views/DetailView.tsx#L69">views/DetailView.tsx:69</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -168,7 +169,7 @@
 					<div class="tsd-signature tsd-kind-icon">model<wbr>Meta<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">IModelMeta</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3d03078/packages/rev-ui/src/views/DetailView.tsx#L67">views/DetailView.tsx:67</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b0b1620/packages/rev-ui/src/views/DetailView.tsx#L72">views/DetailView.tsx:72</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -178,12 +179,35 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="relatedmodelmeta" class="tsd-anchor"></a>
+					<h3>related<wbr>Model<wbr>Meta</h3>
+					<div class="tsd-signature tsd-kind-icon">related<wbr>Model<wbr>Meta<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b0b1620/packages/rev-ui/src/views/DetailView.tsx#L75">views/DetailView.tsx:75</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Metadata for any related models being managed by this DetailView</p>
+						</div>
+					</div>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-index-signature">
+								<h5><span class="tsd-signature-symbol">[</span>fieldName: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">IModelMeta</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
 					<a name="validation" class="tsd-anchor"></a>
 					<h3>validation</h3>
 					<div class="tsd-signature tsd-kind-icon">validation<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">IModelValidationResult</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3d03078/packages/rev-ui/src/views/DetailView.tsx#L70">views/DetailView.tsx:70</a></li>
+							<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b0b1620/packages/rev-ui/src/views/DetailView.tsx#L78">views/DetailView.tsx:78</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -205,7 +229,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3d03078/packages/rev-ui/src/views/DetailView.tsx#L94">views/DetailView.tsx:94</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b0b1620/packages/rev-ui/src/views/DetailView.tsx#L102">views/DetailView.tsx:102</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -227,7 +251,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3d03078/packages/rev-ui/src/views/DetailView.tsx#L91">views/DetailView.tsx:91</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b0b1620/packages/rev-ui/src/views/DetailView.tsx#L99">views/DetailView.tsx:99</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -249,7 +273,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3d03078/packages/rev-ui/src/views/DetailView.tsx#L88">views/DetailView.tsx:88</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b0b1620/packages/rev-ui/src/views/DetailView.tsx#L96">views/DetailView.tsx:96</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -272,7 +296,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3d03078/packages/rev-ui/src/views/DetailView.tsx#L79">views/DetailView.tsx:79</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b0b1620/packages/rev-ui/src/views/DetailView.tsx#L87">views/DetailView.tsx:87</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -300,7 +324,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3d03078/packages/rev-ui/src/views/DetailView.tsx#L76">views/DetailView.tsx:76</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b0b1620/packages/rev-ui/src/views/DetailView.tsx#L84">views/DetailView.tsx:84</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -328,7 +352,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/3d03078/packages/rev-ui/src/views/DetailView.tsx#L82">views/DetailView.tsx:82</a></li>
+									<li>Defined in <a href="https://github.com/RevJS/revjs/blob/b0b1620/packages/rev-ui/src/views/DetailView.tsx#L90">views/DetailView.tsx:90</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -368,6 +392,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="idetailviewcontext.html#modelmeta" class="tsd-kind-icon">model<wbr>Meta</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="idetailviewcontext.html#relatedmodelmeta" class="tsd-kind-icon">related<wbr>Model<wbr>Meta</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
 								<a href="idetailviewcontext.html#validation" class="tsd-kind-icon">validation</a>
